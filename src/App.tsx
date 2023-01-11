@@ -6,6 +6,7 @@ import { SignIn } from "./OnBoarding/SignIn/SignIn";
 import { Route, Routes } from "react-router-dom";
 import { FP } from "./OnBoarding/ForgotPassword/FP";
 import { SignUP } from "./OnBoarding/SignUp/SignUp";
+import { VerifyEmail } from "./OnBoarding/VerifyEmail/VerifyEmail";
 
 export const App = () => (
   <div>
@@ -15,6 +16,7 @@ export const App = () => (
       <Route path="signin" element={<SignIn />} />
       <Route path="forgot-password" element={<FP />} />
       <Route path="register" element={<SignUP/>}/>
+      <Route path="verify-email" element={<VerifyEmail/>}/>
    
     </Routes>
     </ChakraProvider>
