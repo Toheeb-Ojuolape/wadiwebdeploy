@@ -8,7 +8,7 @@ import { FP } from "./OnBoarding/ForgotPassword/FP";
 import { SignUP } from "./OnBoarding/SignUp/SignUp";
 
 export const App = () => (
-  <div className="bg-[#1C4399] min-h-full">
+  <div>
     <ChakraProvider theme={theme}>
     <Routes>
       <Route path="/" element={<SignIn />} />

@@ -23,6 +23,7 @@ import { EmailInput } from "../input/emailInput";
 import { PasswordInput } from "../input/passwordInput";
 
 export const SignInComp = (props: any) => {
+  document.title = 'Login | Wadi'
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState<Login>(emptyLogin);
   const handleClick = () => setShow(!show);

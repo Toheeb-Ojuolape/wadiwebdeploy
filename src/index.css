@@ -6,4 +6,8 @@
 
 body{
     font-family: DM Sans, sans-serif;
+    background-image: url(./bg.png) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+
 }

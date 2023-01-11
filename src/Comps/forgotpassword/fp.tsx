@@ -5,6 +5,7 @@ import { WadiButton } from "../buttons/wadiButton";
 import { EmailInput } from "../input/emailInput";
 
 export const FpComp = (props: any) => {
+  document.title = 'Forgot Password? | Wadi'
   const [Email, setEmail] = useState<String>("");
   const handleChange = (e: any) => {
     const value = e.target.value;
@@ -12,7 +13,9 @@ export const FpComp = (props: any) => {
     console.log(Email);
   };
   return (
+    
     <>
+    
       <EmailInput value={Email} handleChange={handleChange} />
       <WadiButton text="Check Email" />
       <BackToLogin/>
