@@ -10,6 +10,9 @@ import { VerifyEmail } from "./OnBoarding/VerifyEmail/VerifyEmail";
 import { SNPComp } from "./Comps/setnewpassword/setnewpassword";
 import { SNP } from "./OnBoarding/SetNewPassword/SNP";
 import { Profile } from "./ResearchOnboarding/Profile/Profile";
+import { Background } from "./ResearchOnboarding/Background/Background";
+import { YourStory } from "./ResearchOnboarding/YourStory/YourStory";
+import { Achieve } from "./ResearchOnboarding/Achieve/Achieve";
 
 export const App = () => (
   <div>
@@ -22,6 +25,9 @@ export const App = () => (
       <Route path="verify-email" element={<VerifyEmail/>}/>
       <Route path="new-password" element={<SNP/>}/>
       <Route path="/onboarding/profile" element={<Profile/>}/>
+      <Route path="/onboarding/background" element={<Background/>}/>
+      <Route path="/onboarding/story" element={<YourStory/>}/>
+      <Route path="/onboarding/achieve" element={<Achieve/>}/>
    
     </Routes>
     </ChakraProvider>
