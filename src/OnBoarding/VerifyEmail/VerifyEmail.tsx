@@ -7,6 +7,8 @@ import { OnBoardingContainer } from "../../Comps/OnBoardContainer";
 export const VerifyEmail = (props: any) => {
     const [cookies, setCookie, removeCookie] = useCookies(['email']);
     setCookie('email','example@gmail.com')
+  
+
   return (
 
     <>

@@ -11,6 +11,7 @@ export const WadiButton = (props: any) => {
       mb="24px"
       bg={"rgba(43, 95, 208, 1)"}
       color="white"
+      onClick={props.OnClick}
       fontFamily={""}
       _hover={{ bg: "black" }}
       _active={{ bg: "black" }}
