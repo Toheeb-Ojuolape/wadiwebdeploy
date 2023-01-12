@@ -1,5 +1,6 @@
 import { Flex, FormControl, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import PasswordStrengthBar from "react-password-strength-bar";
 
 import { Link } from "react-router-dom";
 import { emptyRegister, Register } from "../../Interface/RegisterInterface";
@@ -26,6 +27,7 @@ export const SignUpComp = (props: any) => {
       <FullNameInput handleChange={handleChange} value={register.fullName} />
       <EmailInput handleChange={handleChange} value={register.email} />
       <PasswordInput handleChange={handleChange} value={register.password} />
+      <PasswordStrengthBar password={register.password} />
 
       <Flex mb="24px">
         <Link to={"/forgot-password"}>

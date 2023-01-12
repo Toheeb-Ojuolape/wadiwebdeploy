@@ -1,6 +1,7 @@
 import { WadiButton } from "../buttons/wadiButton";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
+import { AccountOption } from "../buttons/accountOption";
 
 export const VerifyEmailComp = (props: any) => {
   const [cookies] = useCookies(["email"]);
@@ -14,6 +15,7 @@ export const VerifyEmailComp = (props: any) => {
   return (
     <>
       <WadiButton text="Open my email" OnClick = {OnClick} />
+      <AccountOption text='Didn’t receive email?' linkText='Resend email'/>
     </>
   );
 };

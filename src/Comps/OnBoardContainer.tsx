@@ -1,5 +1,8 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Profile } from "../ResearchOnboarding/Profile/Profile";
 import { FpComp } from "./forgotpassword/fp";
+import { ProfileComp } from "./profile/profile";
+import { SNPComp } from "./setnewpassword/setnewpassword";
 import { SignInComp } from "./signin/signin";
 import { SignUpComp } from "./signUp/signup";
 import { VerifyEmailComp } from "./verifyEmail/verifyEmail";
@@ -36,7 +39,8 @@ export const OnBoardingContainer = (props: any) => {
         {props.page === "forgot-password" ? <FpComp /> : null}
         {props.page === "register" ? <SignUpComp /> : null}
         {props.page === "verify-email" ? <VerifyEmailComp /> : null}
-      
+        {props.page === "new-password" ? <SNPComp/> : null}
+        {props.page === "profile" ? <ProfileComp/>: null}
 
       </div>
     </Flex>
