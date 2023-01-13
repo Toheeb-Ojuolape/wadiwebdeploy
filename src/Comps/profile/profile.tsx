@@ -1,4 +1,7 @@
-import { FormControl, FormLabel, Select } from "@chakra-ui/react";
+import { FormControl
+  // , FormLabel, Select 
+
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { ImageListType } from "react-images-uploading";
 import { JustBack } from "../buttons/justBack";

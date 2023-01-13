@@ -1,6 +1,6 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
-import { Profile } from "../ResearchOnboarding/Profile/Profile";
-import { YourStory } from "../ResearchOnboarding/YourStory/YourStory";
+// import { Profile } from "../ResearchOnboarding/Profile/Profile";
+// import { YourStory } from "../ResearchOnboarding/YourStory/YourStory";
 import { AchieveComp } from "./achieve/achieve";
 import { BackgroundComp } from "./background/background";
 import { FpComp } from "./forgotpassword/fp";
@@ -24,7 +24,7 @@ export const OnBoardingContainer = (props: any) => {
         <Heading
           className="text-center "
           fontSize="2em"
-          mb="10px"
+          mb="0px"
           fontFamily={"Montserrat"}
         >
           {props.heading}

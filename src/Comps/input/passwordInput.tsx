@@ -22,7 +22,7 @@ export const PasswordInput = (props: any) => {
   return (
     <>
       <FormLabel
-    marginBottom={'10px'}
+    marginBottom={'0px'}
         fontSize="sm"
         fontWeight="500"
         color={textColor}
@@ -37,14 +37,14 @@ export const PasswordInput = (props: any) => {
           fontSize="sm"
           value={props.value}
           border={"1px solid rgba(101, 108, 117, 0.37)"}
-          placeholder="Password"
+          placeholder=""
           mb="24px"
           type={show ? "text" : "password"}
           variant="auth"
           onChange={props.handleChange}
-          _active={{ bg: "rgba(101, 108, 117, 0.37)" }}
+          // _active={{ bg: "rgba(101, 108, 117, 0.37)" }}
         />
-        <InputRightElement display="flex" alignItems="center" mt="4px">
+        <InputRightElement display="flex" alignItems="center">
           <Icon
             color={textColorSecondary}
             _hover={{ cursor: "pointer" }}

@@ -11,7 +11,7 @@ export const EmailInput = (props: any) => {
         <FormLabel
           display="flex"
           ms="0px"
-          marginBottom={'10px'}
+          marginBottom={'0px'}
           fontSize="sm"
           fontWeight="500"
           color={textColor}
@@ -28,11 +28,10 @@ export const EmailInput = (props: any) => {
           fontSize="sm"
           ms={{ base: "0px", md: "0px" }}
           type="email"
-          placeholder="Johnsnow@gmail.com"
+          placeholder=""
           mb="24px"
           fontWeight="500"
           onChange={props.handleChange}
-          _active={{ bg: "rgba(101, 108, 117, 0.37)" }}
         />
         
       </>

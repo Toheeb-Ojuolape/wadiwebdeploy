@@ -14,6 +14,7 @@ import { PasswordInput } from "../input/passwordInput";
 export const SignUpComp = (props: any) => {
   document.title = "Register | Wadi";
   const [register, setRegister] = useState<Register>(emptyRegister);
+  const [isLoading,setLoading] = useState<Boolean>(false)
 
   const handleChange = (e: any) => {
     const value = e.target.value;
@@ -21,6 +22,15 @@ export const SignUpComp = (props: any) => {
     setRegister({ ...register, [name]: value });
     console.log(register);
   };
+
+  const handleClick = (e:any) =>{
+    setLoading(true)
+    if(register.fullName ==='' || register.email === '' || register.password === ''){
+      alert("You need to enter all your details")
+      return
+    }
+    alert(register)
+  }
 
   return (
     <FormControl>
@@ -43,7 +53,7 @@ export const SignUpComp = (props: any) => {
           </Text>
       
       </Flex>
-      <WadiButton text="Sign up" />
+      <WadiButton isLoading={isLoading} onClick={handleClick} text="Sign up" />
       <GoogleButton />
       <AccountOption
         text="Already have an account ?"

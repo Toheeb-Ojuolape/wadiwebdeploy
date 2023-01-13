@@ -7,7 +7,9 @@ import { BackToLogin } from "../buttons/backtoLogin";
 import { WadiButton } from "../buttons/wadiButton";
 import { PasswordInput } from "../input/passwordInput";
 import { VerifyPasswordInput } from "../input/vPasswordInput";
-import { Box, Collapse, Container, Fade, Text } from "@chakra-ui/react";
+import { Box, Collapse, 
+  // Container, Fade, Text 
+} from "@chakra-ui/react";
 import PasswordStrengthBar from 'react-password-strength-bar';
 
 
