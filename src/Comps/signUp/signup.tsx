@@ -30,7 +30,7 @@ export const SignUpComp = (props: any) => {
       <PasswordStrengthBar password={register.password} />
 
       <Flex mb="24px">
-        <Link to={"/forgot-password"}>
+     
           <Text fontSize={"14px"} color={"black"} >
             I agree to abide by Wadi's{" "}
             <Link to="/" className="underline hover:text-green-400">
@@ -41,7 +41,7 @@ export const SignUpComp = (props: any) => {
               Privacy Policy
             </Link>
           </Text>
-        </Link>
+      
       </Flex>
       <WadiButton text="Sign up" />
       <GoogleButton />
