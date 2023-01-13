@@ -18,6 +18,7 @@
     "firebase": "^9.15.0",
     "framer-motion": "^6.5.1",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "nigerian-institutions": "^1.0.3",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",

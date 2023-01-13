@@ -34,7 +34,12 @@ export const SignInComp = (props: any) => {
 
   const handleLogin = (e:any) =>{
     if(login.email === '' || login.password === ''){
-      alert("Please enter your email and password")
+      Swal.fire({
+        icon:"info",
+        title:"Hold up!",
+        text:"Please enter your email and password",
+        confirmButtonColor:"#2b5fd0"
+      })
       return
     }
     setLoading(true) 
