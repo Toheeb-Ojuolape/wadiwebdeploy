@@ -1,4 +1,4 @@
-import { ArrowBackIcon } from "@chakra-ui/icons";
+
 import { Box, HStack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 

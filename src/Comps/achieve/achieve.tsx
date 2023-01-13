@@ -4,10 +4,8 @@ import { useState } from "react";
 import { JustBack } from "../buttons/justBack";
 import { WadiButton } from "../buttons/wadiButton";
 
-import { InstitutionInput } from "../input/institutionInput";
+
 import { RadioInput } from "../input/radioInput";
-import { SpecializationInput } from "../input/specializationInput";
-import { TitleInput } from "../input/titleInput";
 
 export const AchieveComp = () => {
   const [onBoardData, setData] = useState("1");

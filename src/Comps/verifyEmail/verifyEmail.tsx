@@ -1,6 +1,6 @@
 import { WadiButton } from "../buttons/wadiButton";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+
 import { AccountOption } from "../buttons/accountOption";
 
 export const VerifyEmailComp = (props: any) => {

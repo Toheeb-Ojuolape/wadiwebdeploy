@@ -1,6 +1,5 @@
-import { Box, Checkbox, HStack, Text } from "@chakra-ui/react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Checkbox, HStack, Text } from "@chakra-ui/react";
+import { Link} from "react-router-dom";
 
 export const AbideTerms = (props: any) => {
   return (

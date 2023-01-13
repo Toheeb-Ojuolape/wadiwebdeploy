@@ -1,6 +1,4 @@
-import { FormLabel, Input, Select } from "@chakra-ui/react";
-
-import { upperFirst } from "lodash";
+import { FormLabel, Input} from "@chakra-ui/react";
 
 
 export const TitleInput = (props: any) => {

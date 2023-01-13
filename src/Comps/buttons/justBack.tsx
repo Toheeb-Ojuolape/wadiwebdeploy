@@ -1,6 +1,6 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const JustBack = (props: any) => {
   const navigate = useNavigate();

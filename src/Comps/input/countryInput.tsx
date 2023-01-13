@@ -1,7 +1,7 @@
 import { FormLabel, Select } from "@chakra-ui/react";
 import countries from "country-list";
 import { upperFirst } from "lodash";
-import { useState } from "react";
+
 
 export const CountryInput = (props: any) => {
   const countryNames = Object.keys(countries.getNameList());

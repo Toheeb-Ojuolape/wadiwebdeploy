@@ -1,11 +1,11 @@
 import { AddIcon } from "@chakra-ui/icons";
-import { Avatar, Box, Center, HStack, Text } from "@chakra-ui/react";
-import { useState } from "react";
-import ImageUploading, { ImageListType } from "react-images-uploading";
+import { Avatar, Box, HStack, Text } from "@chakra-ui/react";
+
+import ImageUploading from "react-images-uploading";
 
 export const PhotoUpload = (props: any) => {
   const { images, onChange, maxNumber } = props;
-  const [profileImage, setprofileImage] = useState(false);
+
   console.log(images);
   return (
     <div className="mb-5">
