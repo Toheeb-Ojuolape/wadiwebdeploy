@@ -7,7 +7,6 @@ import { Route, Routes } from "react-router-dom";
 import { FP } from "./OnBoarding/ForgotPassword/FP";
 import { SignUP } from "./OnBoarding/SignUp/SignUp";
 import { VerifyEmail } from "./OnBoarding/VerifyEmail/VerifyEmail";
-import { SNPComp } from "./Comps/setnewpassword/setnewpassword";
 import { SNP } from "./OnBoarding/SetNewPassword/SNP";
 import { Profile } from "./ResearchOnboarding/Profile/Profile";
 import { Background } from "./ResearchOnboarding/Background/Background";
