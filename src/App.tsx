@@ -12,6 +12,7 @@ import { Profile } from "./ResearchOnboarding/Profile/Profile";
 import { Background } from "./ResearchOnboarding/Background/Background";
 import { YourStory } from "./ResearchOnboarding/YourStory/YourStory";
 import { Achieve } from "./ResearchOnboarding/Achieve/Achieve";
+import { DashBoard } from "./Dashboard/Dashboard";
 
 export const App = () => (
   <div>
@@ -27,6 +28,7 @@ export const App = () => (
       <Route path="/onboarding/background" element={<Background/>}/>
       <Route path="/onboarding/story" element={<YourStory/>}/>
       <Route path="/onboarding/achieve" element={<Achieve/>}/>
+      <Route path="/dashboard" element={<DashBoard/>}/>
    
     </Routes>
     </ChakraProvider>

@@ -4,6 +4,20 @@ const dark = "rgba(28, 67, 153, 1)";
 const light = "rgba(28, 67, 153, 1)";
 
 const theme = extendTheme({
+  components: {
+    Drawer: {
+      parts: ["dialog", "header", "body"],
+      variants: {
+        primary: {
+          secondary: {
+            dialog: {
+              maxW: "20px",
+            },
+          },
+        },
+      },
+    },
+  },
   styles: {
     global: (props: any) => ({
       body: {
