@@ -1,4 +1,4 @@
-export const BellIcon = (props:any) => (
+export const BellIconWadi = (props:any) => (
     <svg
       width={20}
       height={23}

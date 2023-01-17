@@ -1,13 +1,16 @@
-import { BellIcon, InfoIcon } from "@chakra-ui/icons";
+
 import { Avatar, Circle, HStack, Text } from "@chakra-ui/react";
+import { BellIconWadi } from "../../../icon/bellIcon";
+import { InfoIconWadi } from "../../../icon/infoIcon";
+import { Profile } from "./profile";
 
 export const RightSide = (props: any) => {
   return (
-    <HStack>
-      <BellIcon color={"black"} />
-      <InfoIcon color={"black"} />
-      <Avatar />
-      <Text>{props.name}</Text>
+    <HStack spacing={'20px'} width={'350px'}>
+      <BellIconWadi color={"black"} />
+      <InfoIconWadi color={"black"} />
+      <Avatar size={'sm'}/>
+      <Profile name='Toheeb Ojuolape'/>
     </HStack>
   );
 };

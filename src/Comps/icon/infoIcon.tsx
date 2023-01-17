@@ -1,4 +1,4 @@
-export const InfoIcon = (props: any) => (
+export const InfoIconWadi = (props: any) => (
   <svg
     width={22}
     height={23}

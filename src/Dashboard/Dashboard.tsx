@@ -16,11 +16,17 @@ export const DashBoard = () => {
 
     console.log("My component has finished rendering");
   }, []);
-  const [isMobile] = useMediaQuery("(min-width: 800px)");
+  const [isMobile] = useMediaQuery("(max-width: 800px)");
 
   return (
-    <div className=" bg-[#f8f8f8] flex h-full">
-      {isMobile && <SideBar device="desktop" />}
+    <div
+      className={
+        !isMobile
+          ? " bg-[#f8f8f8] flex h-full ml-48"
+          : "bg-[#f8f8f8] flex h-full"
+      }
+    >
+      {!isMobile && <SideBar device="desktop" />}
       <DashBoardContainer />
     </div>
   );

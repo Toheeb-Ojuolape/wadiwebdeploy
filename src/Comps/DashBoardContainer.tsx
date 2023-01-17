@@ -5,7 +5,7 @@ export const DashBoardContainer = () => {
   const [isDesktop] = useMediaQuery("(min-width: 800px)");
 
   return (
-    <div className={"h-screen"}>
+    <div className={"h-screen w-screen"}>
       <TopBar />
     </div>
   );

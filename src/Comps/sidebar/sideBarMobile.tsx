@@ -22,8 +22,8 @@ export const SideBarMobile = (props: any) => {
       placement="right"
       onClose={props.onClose}
     >
-      <DrawerContent bg={"rgb(28 67 153 / var(--tw-bg-opacity)"}>
-        <div className="fixed top-0 right-0 h-screen w-48 flex flex-col bg-[#1C4399] text-white p-">
+      <DrawerContent bg={"rgb(28, 67, 153)"}>
+        <div className="fixed top-0 right-0 h-screen w-[300px] flex flex-col text-white p-">
           <div className="mb-12">
             <LogoComp />
           </div>
