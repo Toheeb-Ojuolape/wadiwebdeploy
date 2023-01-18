@@ -11,7 +11,6 @@ import {
   CloseButton,
   Drawer,
   DrawerContent,
-  DrawerOverlay,
 } from "@chakra-ui/react";
 
 export const SideBarMobile = (props: any) => {
