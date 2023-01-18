@@ -8,6 +8,7 @@ export const Profile = (props: any) => {
         color={"black"}
         bg="white"
         as={Button}
+        _hover={{bg: 'transparent', color: 'blue'}}
         rightIcon={<ChevronDownIcon />}
       >
         {props.name}

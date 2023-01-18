@@ -4,19 +4,13 @@ import { useEffect, useState } from "react";
 import { OnBoardingContainer } from "../Comps/OnBoardContainer";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import { DashBoardContainer } from "../Comps/DashBoardContainer";
+import { useParams } from "react-router-dom";
 
 export const DashBoard = () => {
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+  const [isMobile] = useMediaQuery("(max-width: 1000px)");
 
-    console.log("My component has finished rendering");
-  }, []);
-  const [isMobile] = useMediaQuery("(max-width: 800px)");
+ 
 
   return (
     <div

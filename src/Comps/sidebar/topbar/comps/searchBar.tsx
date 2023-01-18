@@ -4,12 +4,12 @@ import { Input, InputGroup, InputLeftElement, useMediaQuery } from "@chakra-ui/r
 export const SearchBar = () => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
-    <InputGroup>
+    <InputGroup marginLeft='20px'>
       <InputLeftElement
         pointerEvents="none"
         children={<SearchIcon color={'grey'} />}
       />
-      <Input type="text" placeholder="Search"  w= {!isMobile ? '400px': '200px'} color={'black'}/>
+      <Input type="text"  borderRadius={'2xl'} placeholder="Search"  w= {!isMobile ? '300px': '200px'} color={'black'}/>
     </InputGroup>
   );
 };

@@ -28,7 +28,8 @@ export const App = () => (
       <Route path="/onboarding/background" element={<Background/>}/>
       <Route path="/onboarding/story" element={<YourStory/>}/>
       <Route path="/onboarding/achieve" element={<Achieve/>}/>
-      <Route path="/dashboard" element={<DashBoard/>}/>
+      <Route path="/dashboard/" element={<DashBoard/>}/>
+      <Route path="/dashboard/:route" element={<DashBoard/>}/>
    
     </Routes>
     </ChakraProvider>

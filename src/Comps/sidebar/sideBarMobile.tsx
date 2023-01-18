@@ -12,33 +12,37 @@ import {
   Drawer,
   DrawerContent,
 } from "@chakra-ui/react";
+import { Routes } from "./routes";
+import { Link } from "react-router-dom";
 
 export const SideBarMobile = (props: any) => {
   return (
     <Drawer
-      variant="secondary"
+     
       isOpen={props.isOpen}
       placement="right"
       onClose={props.onClose}
+      size='xs'
+     
     >
-      <DrawerContent bg={"rgb(28, 67, 153)"}>
+      <DrawerContent bg={"rgb(28, 67, 153)"} >
         <div className="fixed top-0 right-0 h-screen w-[300px] flex flex-col text-white p-">
           <div className="mb-12">
             <LogoComp />
           </div>
-          <SideBarButton name="Dashboard" icon={<DashboardIcon />} />
-          <SideBarButton name="PublishIT" icon={<PublishIcon />} />
-          <SideBarButton name="Wadi Academy" icon={<AcademyIcon />} />
-          <SideBarButton name="Send Sample" icon={<SampleIcon />} />
-          <SideBarButton name="Forum" icon={<ForumIcon />} />
-          <SideBarButton name="Settings" icon={<SettingsIcon />} />
-
-          <SideBarButton name="Log out" icon={<LogoutIcon />} />
-          <SideBarButton
-            onClick={props.onClose}
-            name="Close"
-            icon={<CloseButton />}
-          />
+          
+          {Routes.map((route) => {
+        return (
+          <Link to={route.routes}>
+            <SideBarButton
+              isRoute={route}
+              name={route.title}
+              icon={route.icon}
+            />
+          </Link>
+        );
+      })}
+         
         </div>
       </DrawerContent>
     </Drawer>

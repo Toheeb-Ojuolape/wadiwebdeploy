@@ -17,12 +17,16 @@ export const SideBarButton = (props: any) => {
     <HStack
       padding="10px 0px 10px 20px"
       w="100%"
-      borderRadius='6px'
+      borderRadius="6px"
       className="cursor-pointer"
-      _hover={{ bg: "linear-gradient(262.82deg, rgba(255, 255, 255, 0.3) -30.37%, rgba(255, 255, 255, 0.1) 120.21%)" }}
-      _active={{ bg: "rgb(11, 26, 60)" }}
+      _hover={{
+        bg: "linear-gradient(262.82deg, rgba(255, 255, 255, 0.3) -30.37%, rgba(255, 255, 255, 0.1) 120.21%)",
+      }}
+  
     >
-      <Box height="fit-content" paddingRight='2'>{props.icon}</Box>
+      <Box height="fit-content" paddingRight="2">
+        {props.icon}
+      </Box>
       <Box w="" height="fit-content">
         {props.name}
       </Box>

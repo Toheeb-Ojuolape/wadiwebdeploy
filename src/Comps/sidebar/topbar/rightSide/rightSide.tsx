@@ -7,9 +7,9 @@ import { Profile } from "./profile";
 export const RightSide = (props: any) => {
   return (
     <HStack spacing={'20px'} width={'350px'}>
-      <BellIconWadi color={"black"} />
-      <InfoIconWadi color={"black"} />
-      <Avatar size={'sm'}/>
+      <BellIconWadi color className='cursor-pointer hover:bg-blue-100'  />
+      <InfoIconWadi  className='cursor-pointer  hover:bg-blue-100' />
+      <Avatar size={'sm'} className='cursor-pointer'/>
       <Profile name='Toheeb Ojuolape'/>
     </HStack>
   );
