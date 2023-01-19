@@ -1,15 +1,28 @@
 import { PhoneIcon, SearchIcon } from "@chakra-ui/icons";
-import { Input, InputGroup, InputLeftElement, useMediaQuery } from "@chakra-ui/react";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  useMediaQuery,
+} from "@chakra-ui/react";
 
-export const SearchBar = () => {
+export const SearchBar = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
-    <InputGroup marginLeft='20px'>
+    <InputGroup marginLeft="20px">
       <InputLeftElement
         pointerEvents="none"
-        children={<SearchIcon color={'grey'} />}
+        children={<SearchIcon color={"grey"} />}
       />
-      <Input type="text"  borderRadius={'2xl'} placeholder="Search"  w= {!isMobile ? '300px': '200px'} color={'black'}/>
+      <Input
+        onChange={props.onChange}
+        type="text"
+        size={"md"}
+        borderRadius={"2xl"}
+        placeholder="Search"
+        w={!isMobile ? "300px" : "120px"}
+        color={"black"}
+      />
     </InputGroup>
   );
 };
