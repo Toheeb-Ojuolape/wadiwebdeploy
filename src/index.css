@@ -5,9 +5,11 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
 body {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   font-family: DM Sans, sans-serif !important;
   background-image: url(./bg.png) !important;
   background-size: cover !important;
   background-repeat: no-repeat;
 }
+
 

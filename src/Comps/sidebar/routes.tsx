@@ -1,32 +1,41 @@
 import { SettingsIcon } from "@chakra-ui/icons";
+import {
+  Book,
+  Category,
+  DocumentCloud,
+  Drop,
+  MessageText,
+  Notification,
+} from "iconsax-react";
 import AcademyIcon from "../icon/academyIcon";
-import DashboardIcon from "../icon/dashBoardIcon";
-import ForumIcon from "../icon/forumIcon";
-import PublishIcon from "../icon/publishIcon";
-import SampleIcon from "../icon/sampleIcon";
 
 const dashboard = "dashboard";
 export const Routes = [
-  { routes: `/${dashboard}`, title: "Dashboard", icon: <DashboardIcon /> },
+  { routes: `/${dashboard}`, title: "Dashboard", icon: <Category size="20" color="#475467"/> },
   {
     routes: `/${dashboard}/publish`,
     title: "PublishIT",
-    icon: <PublishIcon />,
+    icon: <DocumentCloud size="20" color="#475467" variant="TwoTone" />,
   },
   {
     routes: `/${dashboard}/academy`,
     title: "Wadi Academy",
-    icon: <AcademyIcon />,
+    icon: <Book size="20" color="#475467" />,
   },
   {
     routes: `/${dashboard}/send-sample`,
     title: "Send Sample",
-    icon: <SampleIcon />,
+    icon: <Drop size="20" color="#475467" variant="TwoTone" />,
   },
-  { routes: `/${dashboard}/forum`, title: "Forum", icon: <ForumIcon /> },
   {
-    routes: `/${dashboard}/settings`,
-    title: "Settings",
-    icon: <SettingsIcon />,
+    routes: `/${dashboard}/forum`,
+    title: "Forum",
+    icon: <MessageText size="20" color="#475467" variant="TwoTone" />,
   },
+  {
+    routes: `/${dashboard}/notification`,
+    title: "Forum",
+    icon: <Notification size="20" color="#475467" variant="TwoTone" />,
+  },
+ 
 ];

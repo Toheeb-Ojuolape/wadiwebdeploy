@@ -24,7 +24,7 @@ export const DashBoardContainer = () => {
       <TopBar />
       <Fade in={route === undefined}>
         {" "}
-        <Box mt={'60px'}>
+        <Box ml='10px' mt='50px' mr='10px'>
         <DashBoardHome /></Box>
       </Fade>
     </Box>

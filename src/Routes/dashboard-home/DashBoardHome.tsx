@@ -9,15 +9,16 @@ export const DashBoardHome = (props: any) => {
     <Flex>
       <Box
         padding={"20px"}
-        width={!isMobile ? "60vw" : "100vw"}
+        width={ "100vw"}
         height={"100vw"}
-        borderRight="1px solid rgba(220, 214, 214, 1)"
+     
       >
-        <GoodDayContainer name="Toheeb" />
+        {/* <GoodDayContainer name="Toheeb" /> */}
         <OverViewContainer/>
         <MyProjectsContainer/>
       </Box>
-      {!isMobile && <Box  padding={"20px"}>vvvv</Box>}
+       {/*
+      {!isMobile && <Box  padding={"20px"}>vvvv</Box>} */}
     </Flex>
   );
 };

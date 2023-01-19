@@ -4,9 +4,7 @@ import { OverviewComps } from "./overviewComps/overviewComps";
 export const OverViewContainer = (props: any) => {
   return (
     <Box>
-      <Text fontWeight={"bolder"} mt="40px">
-        Overview
-      </Text>
+     
       <OverviewComps />
     </Box>
   );

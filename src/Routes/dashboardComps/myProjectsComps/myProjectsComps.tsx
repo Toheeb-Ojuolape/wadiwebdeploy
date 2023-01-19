@@ -16,7 +16,7 @@ import { Completed, Rejected, Review } from "./status";
 
 export const MyProjectComps = (props: any) => {
   return (
-    <TableContainer>
+    <TableContainer className="bg-red-300 p-4">
       <Table size="sm" variant="simple">
        
         <Thead>

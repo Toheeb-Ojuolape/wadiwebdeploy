@@ -36,10 +36,11 @@ export const TopBar = (props: any) => {
       transition-property="box-shadow, background-color, filter, border"
       transitionTimingFunction="linear, linear, linear, linear"
       display={"block"}
+      
       position={"fixed"}
       mx="auto"
-      pt="8px"
-      pb="8px"
+      pt="10px"
+      pb="10px"
       ps={{
         xl: "12px",
       }}
@@ -47,8 +48,8 @@ export const TopBar = (props: any) => {
         base: "calc(100vw )",
         md: "calc(100vw)",
         lg: "calc(100vw)",
-        xl: "calc(100vw - 12rem)",
-        "2xl": "calc(100vw - 12rem)",
+        xl: "calc(100vw - 15rem)",
+        "2xl": "calc(100vw - 15rem)",
       }}
     >
       <Flex>

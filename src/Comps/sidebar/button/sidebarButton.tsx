@@ -1,6 +1,11 @@
-import { Box, Button, HStack, SimpleGrid } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, HStack, SimpleGrid } from "@chakra-ui/react";
+import { useState } from "react";
 
 export const SideBarButton = (props: any) => {
+  const [Blue, setBlue] = useState("none");
+
+  const handleClick = (e: any) => {};
+
   return (
     // <Button
     //   bg=""
@@ -14,22 +19,49 @@ export const SideBarButton = (props: any) => {
     //   <p className="text-left">{props.name}</p>
     // </Button>
 
-    <HStack
-      padding="10px 0px 10px 20px"
+    <Button
+      width="100%"
+      justifyContent="flex-start"
+      ml={"10px"}
+      onMouseEnter={() => {
+        setBlue("block");
+      }}
+      onMouseLeave={() => {
+        setBlue("none");
+      }}
       w="100%"
+      pt='10px'
+      pb='10px'
+      mb={'20px'}
+      background={props.isActive ? "rgba(248, 248, 248, 1)" : ""}
       borderRadius="6px"
       className="cursor-pointer"
       _hover={{
-        bg: "linear-gradient(262.82deg, rgba(255, 255, 255, 0.3) -30.37%, rgba(255, 255, 255, 0.1) 120.21%)",
+        bg: "rgba(248, 248, 248, 1)",
       }}
-  
     >
-      <Box height="fit-content" paddingRight="2">
-        {props.icon}
-      </Box>
-      <Box w="" height="fit-content">
-        {props.name}
-      </Box>
-    </HStack>
+      <Flex>
+        <Box height="fit-content" paddingRight="2">
+          {props.icon}
+        </Box>
+        <Box w="" height="fit-content">
+          {props.name}
+        </Box>
+        <Box
+          position={"absolute"}
+          right={0}
+          _hover={{ display: "block" }}
+          mr="10px"
+        >
+          <Center
+            display={Blue}
+            bg="rgba(43, 95, 208, 1)"
+            borderRadius={"10px 0px 0px 10px"}
+            w="8px"
+            height="20px"
+          ></Center>
+        </Box>
+      </Flex>
+    </Button>
   );
 };

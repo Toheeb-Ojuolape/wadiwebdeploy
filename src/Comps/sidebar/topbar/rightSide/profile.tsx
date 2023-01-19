@@ -1,17 +1,31 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import {
+  Avatar,
+  Button,
+  HStack,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
+import { ArrowDown2 } from "iconsax-react";
 
-export const Profile = (props: any) => {
+export const Profile = () => {
   return (
-    <Menu>
+    <Menu >
       <MenuButton
         color={"black"}
         bg="white"
+
+        m={'2000px'}
+        _hover={{bg:''}}
+        _active={{bg:''}}
+       
         as={Button}
-        _hover={{bg: 'transparent', color: 'blue'}}
-        rightIcon={<ChevronDownIcon />}
+
       >
-        {props.name}
+        <HStack><Avatar/><ArrowDown2 className="m-0" /></HStack>
       </MenuButton>
       <MenuList color={"black"}>
         <MenuItem>PlaceHolder</MenuItem>

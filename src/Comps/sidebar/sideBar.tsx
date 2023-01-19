@@ -1,4 +1,4 @@
-import { LogoComp } from "../header/logoComp";
+import { LogoComp, LogoCompBlue } from "../header/logoComp";
 import DashboardIcon from "../icon/dashBoardIcon";
 import { SideBarButton } from "./button/sidebarButton";
 import { LogoutIcon } from "../icon/logoutIcon";
@@ -10,29 +10,50 @@ import { SettingsIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Routes } from "./routes";
+import { LogoutCurve, Setting2 } from "iconsax-react";
 
 export const SideBar = (props: any) => {
-  const [route, setRoute] = useState(false);
+
   return (
-    <div className="fixed z-0 top-0 left-0 h-screen w-48 flex flex-col bg-[#1C4399] text-white p-">
-      <div className=" flex pl-2 mb-12  content-start">
-        <LogoComp />
+    <div className="fixed z-0 top-0 left-0 h-screen w-60 flex flex-col bg-[#ffffff] text-[#475467] p-">
+      <div className=" flex pl-8 mb-12 mt-12  content-start">
+        <LogoCompBlue />
       </div>
       {Routes.map((route, index) => {
         return (
-          <Link to={route.routes}>
+          <Link to={route.routes} >
             <SideBarButton
               isRoute={route}
               name={route.title}
               icon={route.icon}
               key={index}
+          
             />
           </Link>
         );
       })}
 
       <div className="mt-auto w-full">
-        <SideBarButton name="Log out" icon={<LogoutIcon />} />
+        <SideBarButton
+          name="Settings"
+          icon={
+            <Setting2
+              size={"20"}
+              color="rgba(41, 45, 50, 1)"
+              variant="TwoTone"
+            />
+          }
+        />
+        <SideBarButton
+          name="Log out"
+          icon={
+            <LogoutCurve
+              size="20"
+              color="rgba(41, 45, 50, 1)"
+              variant="TwoTone"
+            />
+          }
+        />
       </div>
     </div>
   );

@@ -17,6 +17,7 @@
     "country-list": "^2.3.0",
     "firebase": "^9.15.0",
     "framer-motion": "^6.5.1",
+    "iconsax-react": "^0.0.8",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "nigerian-institutions": "^1.0.3",
