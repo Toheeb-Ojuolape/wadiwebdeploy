@@ -3,27 +3,44 @@ import { FaCircle } from "react-icons/fa";
 
 export const Review = () => {
   return (
-    <Tag size={"sm"} variant="subtle" bg={"#FEF0C7"} color={"#F79009"} borderRadius='3xl'>
-      <TagLeftIcon boxSize="6px" as={FaCircle} />
-
-      <TagLabel>Review</TagLabel>
+    <Tag
+      size={"sm"}
+      variant="subtle"
+      bg={"transparent"}
+      border={"1px solid "}
+      color={"#F79009"}
+      borderRadius="3xl"
+    >
+      <TagLabel>Reviewed</TagLabel>
     </Tag>
   );
 };
 
-export const Completed = () => {
+export const Successful = () => {
   return (
-    <Tag size={"sm"} variant="subtle" bg={"#D1FADF"} color={"#12B76A"} borderRadius='3xl'>
-      <TagLeftIcon boxSize="6px" as={FaCircle} />
-      <TagLabel>Completed</TagLabel>
+    <Tag
+      size={"sm"}
+      variant="subtle"
+      bg={"transparent"}
+      border={"1px solid "}
+      color={"#12B76A"}
+      borderRadius="3xl"
+    >
+      <TagLabel>Successful</TagLabel>
     </Tag>
   );
 };
 
 export const Rejected = () => {
   return (
-    <Tag size={"sm"} variant="subtle" bg={"#FEE4E2"} color={"#F04438"} borderRadius='3xl'>
-      <TagLeftIcon boxSize="6px" as={FaCircle} />
+    <Tag
+      size={"sm"}
+      variant="subtle"
+      bg={"transparent"}
+      border={"1px solid "}
+      color={"#F04438"}
+      borderRadius="3xl"
+    >
       <TagLabel>Rejected</TagLabel>
     </Tag>
   );

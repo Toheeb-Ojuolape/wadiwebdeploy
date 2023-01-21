@@ -1,17 +1,10 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
+  Avatar,
   Box,
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
+  Center,
   Flex,
   IconButton,
-  Input,
   useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react";
@@ -19,15 +12,26 @@ import { useRef, useState } from "react";
 import { LogoComp, LogoCompDark } from "../../header/logoComp";
 import { SideBar } from "../sideBar";
 import { SideBarMobile } from "../sideBarMobile";
+import { NotificationComps } from "./comps/notification";
 import { SearchBar } from "./comps/searchBar";
 import { RightSide } from "./rightSide/rightSide";
+import { SearchNormal1 } from "iconsax-react";
+import { Profile } from "./rightSide/profile";
 
-export const TopBar = (props: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export const TopBar = (props: {
+  profession: string;
+  hasNotification: boolean;
+  notificationCount: number;
+  name: string;
+  position: string;
+  profilePic: string;
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+  handleSearchChange: (value: string) => void;
+}) => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
-  const [search, setsearch] = useState("");
 
-  const btnRef = useRef();
   return (
     <Box
       backgroundColor={"white"}
@@ -36,11 +40,12 @@ export const TopBar = (props: any) => {
       transition-property="box-shadow, background-color, filter, border"
       transitionTimingFunction="linear, linear, linear, linear"
       display={"block"}
-      
       position={"fixed"}
       mx="auto"
-      pt="10px"
-      pb="10px"
+      pt="20px"
+
+      
+      pb={!isMobile ? "25px" : "10px"}
       ps={{
         xl: "12px",
       }}
@@ -54,28 +59,65 @@ export const TopBar = (props: any) => {
     >
       <Flex>
         {isMobile ? (
-          <Box ml="20px" h='fit-content'>
-            <LogoCompDark />
-          </Box>
+          <Flex>
+            <Box ml="20px" h="fit-content" position={"inherit"} left="0">
+              <LogoCompDark />
+            </Box>
+            <Flex position={"absolute"} right="0">
+              <IconButton
+                marginRight={"20px"}
+                aria-label="Nav"
+                icon={<SearchNormal1 size={"20px"} color={"black"} />}
+              />
+              <Flex h="80%">
+                <div className="mr-6">
+                  {" "}
+                  <NotificationComps hasNotification={true} />
+                </div>
+                <Center mr={6}>
+                  <Avatar size={"sm"} src={props.profilePic} />
+                </Center>
+                <IconButton
+                  marginRight={"20px"}
+                  onClick={props.onOpen}
+                  aria-label="Nav"
+                  icon={<HamburgerIcon color={"black"} />}
+                />
+              </Flex>
+            </Flex>
+          </Flex>
         ) : null}
-        <SearchBar
-          onChange={(e: any) => {
-            setsearch(e.target.value);
-            console.log(e.target.value);
-          }}
-        />
 
-        {!isMobile && <RightSide name="Toheeb Ojuolape" />}
-        
-        {isMobile && (
-          <IconButton
-            marginRight={"20px"}
-            onClick={onOpen}
-            aria-label="Nav"
-            icon={<HamburgerIcon color={"black"} />}
-          />
-        )}
-        <SideBarMobile isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+        {!isMobile ? (
+          <>
+            <Box position={"inherit"} left={0}>
+              <SearchBar
+                onChange={(e: any) => {
+                  props.handleSearchChange(e.target.value);
+                  console.log(e.target.value);
+                }}
+              />
+            </Box>
+            <Box position={"absolute"} right={0}>
+              <RightSide
+                name={props.name}
+                position={props.position}
+                profilePic={props.profilePic}
+                profession={props.profession}
+                notificationCount={props.notificationCount}
+                hasNotification={props.hasNotification}
+              />
+            </Box>
+          </>
+        ) : null}
+
+        <SideBarMobile
+          isOpen={props.isOpen}
+          onClose={props.onClose}
+          profession={props.profession}
+          position={props.position}
+          name={props.name}
+        />
       </Flex>
     </Box>
   );

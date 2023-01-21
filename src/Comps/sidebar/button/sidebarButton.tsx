@@ -32,7 +32,7 @@ export const SideBarButton = (props: any) => {
       w="100%"
       pt='10px'
       pb='10px'
-      mb={'20px'}
+      mb={'5px'}
       background={props.isActive ? "rgba(248, 248, 248, 1)" : ""}
       borderRadius="6px"
       className="cursor-pointer"

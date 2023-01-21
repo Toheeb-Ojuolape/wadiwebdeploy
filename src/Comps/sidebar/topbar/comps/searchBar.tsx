@@ -1,4 +1,4 @@
-import { PhoneIcon, SearchIcon } from "@chakra-ui/icons";
+import { PhoneIcon, Search2Icon, SearchIcon } from "@chakra-ui/icons";
 import {
   Input,
   InputGroup,
@@ -12,7 +12,7 @@ export const SearchBar = (props: any) => {
     <InputGroup marginLeft="20px">
       <InputLeftElement
         pointerEvents="none"
-        children={<SearchIcon color={"grey"} />}
+        children={<Search2Icon color={"grey"} />}
       />
       <Input
         onChange={props.onChange}

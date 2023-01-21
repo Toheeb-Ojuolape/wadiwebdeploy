@@ -11,21 +11,21 @@ import {
 } from "@chakra-ui/react";
 import { ArrowDown2 } from "iconsax-react";
 
-export const Profile = () => {
+export const Profile = (props: { profilePic: string }) => {
   return (
-    <Menu >
+    <Menu>
       <MenuButton
         color={"black"}
         bg="white"
-
-        m={'2000px'}
-        _hover={{bg:''}}
-        _active={{bg:''}}
-       
+        m={"2000px"}
+        _hover={{ bg: "" }}
+        _active={{ bg: "" }}
         as={Button}
-
       >
-        <HStack><Avatar/><ArrowDown2 className="m-0" /></HStack>
+        <HStack>
+          <Avatar src={props.profilePic} />
+          <ArrowDown2 className="m-0" />
+        </HStack>
       </MenuButton>
       <MenuList color={"black"}>
         <MenuItem>PlaceHolder</MenuItem>

@@ -17,7 +17,7 @@ export const LogoCompDark = () => {
   const history = useNavigate()
   return (
     <Flex justify={"center"}>
-      <img onClick={()=>history("/")} src={logoDark} width="110px" className="cursor-pointer" alt="Logo" />
+      <img onClick={()=>history("/")} src={logoDark} width="70px" className="cursor-pointer" alt="Logo" />
     </Flex>
   );
 }

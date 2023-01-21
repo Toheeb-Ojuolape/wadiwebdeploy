@@ -56,31 +56,34 @@ export const OverviewComps = () => {
 };
 
 const Container = (props: any) => {
-  const [isMobile] = useMediaQuery("(max-width: 725px)");
+  
+  const [isMobile] = useMediaQuery("(max-width: 951px)");
+  const [isMobile2] = useMediaQuery("(min-width: 951px) and (max-width: 1140px)");
+
 
   return (
-    <Box
+    <Flex
       bg={"white"}
-      pt="30px"
-      pb="30px"
-      pl={"20px"}
+      padding={isMobile ?"12px" : "30px"}
+      justifyContent={"space-between"}
       borderRadius='2xl'
       flexDirection={"column"}
-      w={isMobile ? "100vw" : "300px"}
-      mb="20px"
+      width={isMobile ? "49%" : isMobile2 ? "16vw" : "22%"}
+     
+      mb="2%"
       _hover={{ bg: props.bg }}
       className="cursor-pointer"
     >
       <Box borderRadius="5px" padding={"5px"} w="fit-content" bg={props.bg}>
         {props.icon}
       </Box>
-      <Text fontSize={"md"} fontWeight="light">
+      <Text fontSize={!isMobile ?"16px" : "14px"} fontWeight="light">
         {props.title}
       </Text>
 
-      <Text fontFamily={"Montserrat"} fontSize={"60px"} fontWeight="extrabold">
+      <Text fontFamily={"Montserrat"} lineHeight={!isMobile ? '50px': "30px"} fontSize={!isMobile ? "60px": "30px"} fontWeight="extrabold">
         {props.count}
       </Text>
-    </Box>
+    </Flex>
   );
 };
