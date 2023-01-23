@@ -20,7 +20,7 @@ export const CommunityComps = (props: any) => {
         <Text color={"#475467"} mb="5px">
           {`${props.date} - ${props.user}`}{" "}
         </Text>
-        <Text fontSize={"14px"} w="80%">
+        <Text fontSize={"14px"} >
           {props.post}
         </Text>
         <Flex mt="20px">
