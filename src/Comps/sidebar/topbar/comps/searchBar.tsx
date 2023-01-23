@@ -20,7 +20,7 @@ export const SearchBar = (props: any) => {
         size={"md"}
         borderRadius={"2xl"}
         placeholder="Search"
-        w={!isMobile ? "300px" : "120px"}
+        w={!isMobile ? "100%" : "120px"}
         color={"black"}
       />
     </InputGroup>

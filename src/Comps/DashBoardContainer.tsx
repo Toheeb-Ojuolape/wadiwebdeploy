@@ -7,8 +7,8 @@ import { TopBar } from "./sidebar/topbar/topbar";
 
 const topBarData = {
   profession: "Researcher",
-  name: "Toheeb Ojoulape",
-  profilePic: "https://avatars.githubusercontent.com/u/47048420?v=4",
+  name: "Isaac Ojo",
+  profilePic: "https://lh3.googleusercontent.com/-N43TPVUqQpk/AAAAAAAAAAI/AAAAAAAABK8/ONS86r57Wnk/photo.jpg?sz=256",
   hasNotification: true,
   notificationCount: 5,
   position: "Frontend Developer",
@@ -47,16 +47,16 @@ export const DashBoardContainer = () => {
         onClose={onClose}
         handleSearchChange={handleSearchChange}
       />
-      <Fade in={route === undefined}>
-        {" "}
-        <Box
-          ml={!isMobile ? "10px" : "0px"}
-          mt="80px"
-          mr={!isMobile ? "10px" : "0px"}
-        >
+      <Box
+        ml={!isMobile ? "10px" : "0px"}
+        mt="80px"
+        mr={!isMobile ? "10px" : "0px"}
+      >
+        <Fade in={route === undefined}>
+          {" "}
           <DashBoardHome />
-        </Box>
-      </Fade>
+        </Fade>
+      </Box>
     </Box>
   );
 };

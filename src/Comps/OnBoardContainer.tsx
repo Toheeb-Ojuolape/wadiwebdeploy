@@ -13,6 +13,7 @@ import { IntroComp } from "./yourstory/introduction";
 
 export const OnBoardingContainer = (props: any) => {
   return (
+    
     <Flex
       className=" content-center text-black rounded-md bg-white w-fit "
       padding={"30px"}

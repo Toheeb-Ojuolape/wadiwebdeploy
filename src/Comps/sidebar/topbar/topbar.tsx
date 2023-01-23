@@ -5,6 +5,7 @@ import {
   Center,
   Flex,
   IconButton,
+  Spacer,
   useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react";
@@ -41,18 +42,19 @@ export const TopBar = (props: {
       transitionTimingFunction="linear, linear, linear, linear"
       display={"block"}
       position={"fixed"}
+      zIndex='10'
       mx="auto"
-      pt="20px"
+      pt={!isMobile ? "20px" : "10px"}
 
       
-      pb={!isMobile ? "25px" : "10px"}
+      pb={!isMobile ? "20px" : "10px"}
       ps={{
         xl: "12px",
       }}
       w={{
         base: "calc(100vw )",
         md: "calc(100vw)",
-        lg: "calc(100vw)",
+        lg: "calc(100vw - 15rem)",
         xl: "calc(100vw - 15rem)",
         "2xl": "calc(100vw - 15rem)",
       }}
@@ -74,9 +76,7 @@ export const TopBar = (props: {
                   {" "}
                   <NotificationComps hasNotification={true} />
                 </div>
-                <Center mr={6}>
-                  <Avatar size={"sm"} src={props.profilePic} />
-                </Center>
+                <Profile profilePic={props.profilePic} isDesktop={false}/>
                 <IconButton
                   marginRight={"20px"}
                   onClick={props.onOpen}
@@ -90,7 +90,7 @@ export const TopBar = (props: {
 
         {!isMobile ? (
           <>
-            <Box position={"inherit"} left={0}>
+            <Box >
               <SearchBar
                 onChange={(e: any) => {
                   props.handleSearchChange(e.target.value);
@@ -98,7 +98,8 @@ export const TopBar = (props: {
                 }}
               />
             </Box>
-            <Box position={"absolute"} right={0}>
+            <Spacer/>
+            <Box>
               <RightSide
                 name={props.name}
                 position={props.position}

@@ -12,4 +12,12 @@ body {
   background-repeat: no-repeat;
 }
 
+@media screen and (max-width: 768px) {
+  body {
+    background-image: url(./bg-mobile.png) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+  }
+}
+  
 

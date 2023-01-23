@@ -45,3 +45,19 @@ export const Rejected = () => {
     </Tag>
   );
 };
+
+
+export const Uploaded = () => {
+  return (
+    <Tag
+      size={"sm"}
+      variant="subtle"
+      bg={"transparent"}
+      border={"1px solid "}
+      color={"#2B5FD0"}
+      borderRadius="3xl"
+    >
+      <TagLabel>Uploaded</TagLabel>
+    </Tag>
+  );
+};

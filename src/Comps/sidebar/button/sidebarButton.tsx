@@ -1,8 +1,16 @@
-import { Box, Button, Center, Flex, HStack, SimpleGrid } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  HStack,
+  SimpleGrid,
+} from "@chakra-ui/react";
 import { useState } from "react";
 
 export const SideBarButton = (props: any) => {
   const [Blue, setBlue] = useState("none");
+  console.log(props.isActive);
 
   const handleClick = (e: any) => {};
 
@@ -20,19 +28,15 @@ export const SideBarButton = (props: any) => {
     // </Button>
 
     <Button
-      width="100%"
+      width="100% "
       justifyContent="flex-start"
       ml={"10px"}
-      onMouseEnter={() => {
-        setBlue("block");
-      }}
-      onMouseLeave={() => {
-        setBlue("none");
-      }}
-      w="100%"
-      pt='10px'
-      pb='10px'
-      mb={'5px'}
+      onClick={props.onClick}
+     
+      pt="10px"
+      pb="10px"
+      
+      mb={"5px"}
       background={props.isActive ? "rgba(248, 248, 248, 1)" : ""}
       borderRadius="6px"
       className="cursor-pointer"
@@ -50,16 +54,18 @@ export const SideBarButton = (props: any) => {
         <Box
           position={"absolute"}
           right={0}
+          display={props.isActive ? "block" : "none"}
           _hover={{ display: "block" }}
           mr="10px"
         >
           <Center
-            display={Blue}
+          
             bg="rgba(43, 95, 208, 1)"
             borderRadius={"10px 0px 0px 10px"}
             w="8px"
             height="20px"
           ></Center>
+         
         </Box>
       </Flex>
     </Button>

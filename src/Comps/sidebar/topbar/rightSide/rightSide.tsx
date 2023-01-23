@@ -31,7 +31,7 @@ export const RightSide = (props: {
 
       <NameAndProfession name={props.name} position={props.position} />
 
-      <Profile profilePic={props.profilePic} />
+      <Profile profilePic={props.profilePic} isDesktop  />
     </HStack>
   );
 };

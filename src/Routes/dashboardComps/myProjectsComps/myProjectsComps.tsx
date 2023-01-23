@@ -69,6 +69,7 @@ export const MyProjectComps = (props: any) => {
             </Tr>
           </Thead>
           <Tbody>
+            
             {tableData.map((data, index) => (
               <Tr>
                 <Td w={"200px"}>
@@ -93,7 +94,7 @@ export const MyProjectComps = (props: any) => {
                 <Td>
                   <Flex justifyContent="space-between">
                     <EditButton />
-                    {data.status==="Successful" ?<DeleteButton />:  <ImportButton/>}
+                    {data.status==="Successful" ?<ImportButton />:  <DeleteButton/>}
                   </Flex>
                 </Td>
               </Tr>))

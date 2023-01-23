@@ -1,9 +1,14 @@
-import { Center , Text} from "@chakra-ui/react";
+import {
+  Center,
+  CircularProgress,
+  CircularProgressLabel,
+  Text,
+} from "@chakra-ui/react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 
 export const Progress = (props: { percentage: any }) => {
   return (
-    <Center w='40px' h='40px' borderRadius={'md'}  bg='rgba(242, 249, 253, 1)'>
+    <Center w="40px" h="40px" borderRadius={"md"} bg="rgba(242, 249, 253, 1)">
       {/* <CircularProgressbar
         value={props.percentage}
         text={`${props.percentage}%`}
@@ -15,7 +20,9 @@ export const Progress = (props: { percentage: any }) => {
           pathColor: "rgba(99, 97, 249, 1)",
         })}
       /> */}
-      <Text fontSize={'12px'} fontWeight='bold'>{`${props.percentage}`}</Text>
+      <CircularProgress  thickness='8px'  value={props.percentage} color="rgba(99, 97, 249, 1)">
+        <CircularProgressLabel>{`${props.percentage} %`}</CircularProgressLabel>
+      </CircularProgress>
     </Center>
   );
 };
