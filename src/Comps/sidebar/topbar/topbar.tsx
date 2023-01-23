@@ -51,6 +51,7 @@ export const TopBar = (props: {
       ps={{
         xl: "12px",
       }}
+      pr='30px'
       w={{
         base: "calc(100vw )",
         md: "calc(100vw)",
