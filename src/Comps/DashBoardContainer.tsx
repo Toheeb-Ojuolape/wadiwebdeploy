@@ -2,13 +2,15 @@ import { Box, Fade, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { DashBoardHome } from "../Routes/dashboard-home/DashBoardHome";
+import { PublishIT } from "../Routes/publishIT/publishIT";
 
 import { TopBar } from "./sidebar/topbar/topbar";
 
 const topBarData = {
   profession: "Researcher",
   name: "Isaac Ojo",
-  profilePic: "https://lh3.googleusercontent.com/-N43TPVUqQpk/AAAAAAAAAAI/AAAAAAAABK8/ONS86r57Wnk/photo.jpg?sz=256",
+  profilePic:
+    "https://lh3.googleusercontent.com/-N43TPVUqQpk/AAAAAAAAAAI/AAAAAAAABK8/ONS86r57Wnk/photo.jpg?sz=256",
   hasNotification: true,
   notificationCount: 5,
   position: "Frontend Developer",
@@ -52,10 +54,9 @@ export const DashBoardContainer = () => {
         mt="80px"
         mr={!isMobile ? "10px" : "0px"}
       >
-        <Fade in={route === undefined}>
-          {" "}
-          <DashBoardHome />
-        </Fade>
+        {route === undefined && <DashBoardHome />}
+
+        {route === "publish" && <PublishIT />}
       </Box>
     </Box>
   );

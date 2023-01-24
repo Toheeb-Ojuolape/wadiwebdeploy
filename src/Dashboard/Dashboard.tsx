@@ -6,8 +6,15 @@ import { Box, useMediaQuery } from "@chakra-ui/react";
 import { DashBoardContainer } from "../Comps/DashBoardContainer";
 import { useParams } from "react-router-dom";
 
-export const DashBoard = () => {
+export const DashBoard = (props: {loggedIn : boolean}) => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
+  
+  useEffect(() => {
+    if (!props.loggedIn) {
+      window.location.href = "/signin";
+    }
+  }, []);
+  
 
   return (
     <div

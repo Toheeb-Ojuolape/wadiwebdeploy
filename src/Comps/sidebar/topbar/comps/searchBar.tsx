@@ -5,6 +5,7 @@ import {
   InputLeftElement,
   useMediaQuery,
 } from "@chakra-ui/react";
+import {SearchNormal1 } from "iconsax-react";
 
 export const SearchBar = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
@@ -12,7 +13,7 @@ export const SearchBar = (props: any) => {
     <InputGroup marginLeft="20px">
       <InputLeftElement
         pointerEvents="none"
-        children={<Search2Icon color={"grey"} />}
+        children={<SearchNormal1 color={"grey"} size='20px' />}
       />
       <Input
         onChange={props.onChange}

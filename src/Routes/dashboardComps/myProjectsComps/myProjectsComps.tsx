@@ -80,7 +80,7 @@ export const MyProjectComps = (props: any) => {
                 </Td>
 
                 <Td>
-                  {data. status === "Successful" ? <Successful/>: data.status === "Rejected"? <Rejected/> :<Review />}
+                  {data.status === "Successful" ? <Successful/>: data.status === "Rejected"? <Rejected/> :<Review />}
                 </Td>
                 <Td>
                   <Flex flexDirection={"column"}>

@@ -61,46 +61,47 @@ export const SideBarMobile = (props: {
               bg="rgba(254, 245, 239, 1)"
             />
           </Flex>
-         <CreateNewButton/>
+          <CreateNewButton />
           {Routes.map((route, index) => {
             return (
               <>
                 <Link to={route.routes}>
                   <SideBarButton
-                    isRoute={route}
                     name={route.title}
                     icon={route.icon}
                     key={index}
-                    onClick={() => setActive(index)}
+                    onClick={() => {
+                      setActive(index);
+                      props.onClose();
+                    }}
                     isActive={active === index}
                   />
                 </Link>
               </>
             );
           })}
-               
-        <SideBarButton
-          name="Settings"
-          icon={
-            <Setting2
-              size={"20"}
-              color="rgba(41, 45, 50, 1)"
-              variant="TwoTone"
-            />
-          }
-        />
-        <SideBarButton
-          name="Log out"
-          icon={
-            <LogoutCurve
-              size="20"
-              color="rgba(41, 45, 50, 1)"
-              variant="TwoTone"
-            />
-          }
-        />
-      </div>
-    
+
+          <SideBarButton
+            name="Settings"
+            icon={
+              <Setting2
+                size={"20"}
+                color="rgba(41, 45, 50, 1)"
+                variant="TwoTone"
+              />
+            }
+          />
+          <SideBarButton
+            name="Log out"
+            icon={
+              <LogoutCurve
+                size="20"
+                color="rgba(41, 45, 50, 1)"
+                variant="TwoTone"
+              />
+            }
+          />
+        </div>
       </DrawerContent>
     </Drawer>
   );

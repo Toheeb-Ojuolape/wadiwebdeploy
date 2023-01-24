@@ -44,7 +44,7 @@ export const SideBar = (props: any) => {
         return (
           <Link to={route.routes} >
             <SideBarButton
-              isRoute={route}
+             
               name={route.title}
               icon={route.icon}
               key={index}
