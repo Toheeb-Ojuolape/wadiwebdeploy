@@ -11,7 +11,7 @@ import { ReviewInProgress } from "../publishITComps/LeftContainer/reviewInProgre
 import { TopTab } from "../publishITComps/LeftContainer/tobTabs";
 import { RightContainer } from "../publishITComps/RightContainer/RightContainer";
 
-export const PublishIT = () => {
+export const AddNewProject = () => {
   const navigate = useNavigate();
   const [isMobile] = useMediaQuery("(max-width: 850px)");
   const [file, setFile] = useState<File[]>([]);
@@ -27,18 +27,18 @@ export const PublishIT = () => {
   };
 
   const goBack = () => {
-    if(page >0){
-    setPage(page - 1);
-    setPageList(pageList.slice(0, pageList.length - 1));}
-    else {
-      navigate(-1)
+    if (page > 0) {
+      setPage(page - 1);
+      setPageList(pageList.slice(0, pageList.length - 1));
+    } else {
+      navigate(-1);
     }
   };
   return (
     <Flex flexDirection={"row"}>
       <Box padding={"20px"} width={"100vw"} flexDirection={"column"}>
         <Box w="100px">
-         <GoBack goBack={goBack}/>
+          <GoBack goBack={goBack} />
         </Box>
         <Flex flexDirection={"row"} flexWrap="wrap" mt="20px">
           <Box
@@ -53,7 +53,7 @@ export const PublishIT = () => {
                 return <TopTab key={index} />;
               })}
             </Flex>
-            <Box  className="flex  items-center justify-center">
+            <Box className="flex  items-center justify-center">
               {page === 0 && (
                 <LeftContainer
                   file={file}
@@ -61,10 +61,10 @@ export const PublishIT = () => {
                   onClick={onClick}
                 />
               )}
-       
-            {page === 1 && <PaymentDetails onClick={onClick} />}
-            {page === 2 && <ReviewInProgress onClick={onClick} />}
-            {page === 3 && <ManuScriptReady />}     </Box>
+              {page === 1 && <PaymentDetails onClick={onClick} />}
+              {page === 2 && <ReviewInProgress onClick={onClick} />}
+              {page === 3 && <ManuScriptReady />}{" "}
+            </Box>
           </Box>
           <Spacer />
           {!isMobile && (

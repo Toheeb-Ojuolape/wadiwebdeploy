@@ -3,8 +3,7 @@ import {
   Button,
   Center,
   Flex,
-  HStack,
-  SimpleGrid,
+
 } from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import { useState } from "react";
@@ -16,17 +15,6 @@ export const SideBarButton = (props: {onClick?: any,isActive?: boolean,icon:Reac
   const handleClick = (e: any) => {};
 
   return (
-    // <Button
-    //   bg=""
-    //   _hover={{ bg: "rgb(11, 26, 60)" }}
-    //   borderRadius="0px"
-    //   variant="solid"
-    //   fontWeight={"hairline"}
-    //   textAlign='left'
-    //   mb="10px"
-    // >
-    //   <p className="text-left">{props.name}</p>
-    // </Button>
 
     <Button
       width="100% "
@@ -55,17 +43,19 @@ export const SideBarButton = (props: {onClick?: any,isActive?: boolean,icon:Reac
         <Box
           position={"absolute"}
           right={0}
+          bottom='0.5'
           display={props.isActive ? "block" : "none"}
           _hover={{ display: "block" }}
           mr="10px"
         >
-          <Center
+          <Box
           
             bg="rgba(43, 95, 208, 1)"
             borderRadius={"10px 0px 0px 10px"}
-            w="8px"
-            height="20px"
-          ></Center>
+            w="5px"
+            height="35px"
+            
+          ></Box>
          
         </Box>
       </Flex>

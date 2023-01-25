@@ -2,7 +2,8 @@ import { Box, Fade, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { DashBoardHome } from "../Routes/dashboard-home/DashBoardHome";
-import { PublishIT } from "../Routes/publishIT/publishIT";
+import { AddNewProject } from "../Routes/publishIT/AddNewProject";
+import { ManageProjects } from "../Routes/publishIT/ManageProject";
 
 import { TopBar } from "./sidebar/topbar/topbar";
 
@@ -26,9 +27,9 @@ export const DashBoardContainer = () => {
     setsearch(value);
   };
 
-  const params = useParams() as { route: string };
-  const { route } = params;
-  console.log(route);
+  const params = useParams() as { route: string; subroute: string };
+  const { route, subroute } = params;
+  console.log(subroute);
   return (
     <Box
       float="right"
@@ -54,9 +55,10 @@ export const DashBoardContainer = () => {
         mt="80px"
         mr={!isMobile ? "10px" : "0px"}
       >
-        {route === undefined && <DashBoardHome />}
+        {route === "home" && <DashBoardHome />}
 
-        {route === "publish" && <PublishIT />}
+        {subroute === "new-project" && <AddNewProject />}
+        {subroute === "my-projects" && <ManageProjects />}
       </Box>
     </Box>
   );

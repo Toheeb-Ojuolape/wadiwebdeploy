@@ -49,6 +49,8 @@ export const OnBoardingContainer = (props: any) => {
         {props.page === "background" ? <BackgroundComp /> : null}
         {props.page === "story" ? <IntroComp /> : null}
         {props.page === "achieve" ? <AchieveComp /> : null}
+       
+
       </div>
     </Flex>
   );

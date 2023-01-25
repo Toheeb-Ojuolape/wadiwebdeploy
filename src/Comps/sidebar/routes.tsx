@@ -1,9 +1,12 @@
 import { SettingsIcon } from "@chakra-ui/icons";
 import {
+  Add,
+  AddSquare,
   Book,
   Category,
   DocumentCloud,
   Drop,
+  Edit,
   MessageText,
   Notification,
 } from "iconsax-react";
@@ -11,11 +14,28 @@ import AcademyIcon from "../icon/academyIcon";
 
 const dashboard = "dashboard";
 export const Routes = [
-  { routes: `/${dashboard}`, title: "Dashboard", icon: <Category size="20" color="#475467"/> },
   {
-    routes: `/${dashboard}/publish`,
+    routes: `/${dashboard}/home`,
+    title: "Dashboard",
+    icon: <Category size="20" color="#475467" />,
+  },
+  {
+    routes: ``,
     title: "PublishIT",
     icon: <DocumentCloud size="20" color="#475467" variant="TwoTone" />,
+    subRoutes: [
+      {
+        routes: `/${dashboard}/publish/new-project`,
+        title: "Add New Project",
+        icon: <AddSquare size="20" color="#475467" />,
+      },
+
+      {
+        routes: `/${dashboard}/publish/my-projects`,
+        title: "Manage Projects",
+        icon: <Edit size="20" color="#475467" />,
+      },
+    ],
   },
   {
     routes: `/${dashboard}/academy`,
@@ -37,5 +57,4 @@ export const Routes = [
     title: "Forum",
     icon: <Notification size="20" color="#475467" variant="TwoTone" />,
   },
- 
 ];

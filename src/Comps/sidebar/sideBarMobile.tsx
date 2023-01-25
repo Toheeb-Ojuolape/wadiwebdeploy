@@ -1,20 +1,15 @@
-import { LogoComp } from "../header/logoComp";
-import DashboardIcon from "../icon/dashBoardIcon";
+
 import { SideBarButton } from "./button/sidebarButton";
-import { LogoutIcon } from "../icon/logoutIcon";
-import PublishIcon from "../icon/publishIcon";
-import AcademyIcon from "../icon/academyIcon";
-import SampleIcon from "../icon/sampleIcon";
-import ForumIcon from "../icon/forumIcon";
-import { SettingsIcon } from "@chakra-ui/icons";
-import { CloseButton, Drawer, DrawerContent, Flex } from "@chakra-ui/react";
+
+import { Box, Collapse, Drawer, DrawerContent, Flex, useDisclosure } from "@chakra-ui/react";
 import { Routes } from "./routes";
 import { Link, useParams } from "react-router-dom";
-import { NameAndProfession, RightSide } from "./topbar/rightSide/rightSide";
+import { NameAndProfession} from "./topbar/rightSide/rightSide";
 import { TopBarTag } from "./topbar/rightSide/topBarTag";
 import { useState } from "react";
 import { CreateNewButton } from "./button/createNewButton";
 import { LogoutCurve, Setting2 } from "iconsax-react";
+import { SubButton } from "./button/subButton";
 
 export const SideBarMobile = (props: {
   isOpen: boolean;
@@ -43,6 +38,7 @@ export const SideBarMobile = (props: {
     }
   };
   const [active, setActive] = useState(routeToIndex(route));
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Drawer
@@ -63,24 +59,48 @@ export const SideBarMobile = (props: {
           </Flex>
           <CreateNewButton />
           {Routes.map((route, index) => {
-            return (
-              <>
-                <Link to={route.routes}>
-                  <SideBarButton
-                    name={route.title}
-                    icon={route.icon}
-                    key={index}
-                    onClick={() => {
-                      setActive(index);
-                      props.onClose();
-                    }}
-                    isActive={active === index}
-                  />
-                </Link>
-              </>
-            );
-          })}
-
+        return (
+          <>
+            <Link to={route.routes}>
+              <SideBarButton
+                name={route.title}
+                icon={route.icon}
+                key={index}
+                onClick={() => {
+                  if (index !== 1) {
+                    setActive(index);
+                    props.onClose()
+                  } else {
+                    onToggle();
+                  }
+                }}
+                isActive={active === index}
+              />
+            </Link>
+            <Box>
+              {route.subRoutes &&
+                route.subRoutes.map((subRoute, index) => {
+                  return (
+                    <Collapse in={isOpen} animateOpacity>
+                      <Link to={subRoute.routes}>
+                        <SubButton
+                          name={subRoute.title}
+                          icon={subRoute.icon}
+                          key={index + 10}
+                          onClick={() => {
+                            setActive(index + 10);
+                           props.onClose()
+                          }}
+                          isActive={active === index + 10}
+                        />
+                      </Link>
+                    </Collapse>
+                  );
+                })}
+            </Box>
+          </>
+        );
+      })}
           <SideBarButton
             name="Settings"
             icon={
