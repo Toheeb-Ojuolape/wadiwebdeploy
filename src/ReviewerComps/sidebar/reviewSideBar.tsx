@@ -59,24 +59,7 @@ export const SideBar = (props: any) => {
               />
             </Link>
             <Box>
-              {route.subRoutes &&
-                route.subRoutes.map((subRoute, index) => {
-                  return (
-                    <Collapse in={isOpen} animateOpacity>
-                      <Link to={subRoute.routes}>
-                        <SubButton
-                          name={subRoute.title}
-                          icon={subRoute.icon}
-                          key={index + 10}
-                          onClick={() => {
-                            setActive(index + 10);
-                          }}
-                          isActive={active === index + 10}
-                        />
-                      </Link>
-                    </Collapse>
-                  );
-                })}
+              
             </Box>
           </>
         );

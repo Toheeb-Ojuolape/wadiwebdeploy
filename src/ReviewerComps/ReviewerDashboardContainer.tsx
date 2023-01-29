@@ -1,9 +1,8 @@
-import { Box, Fade, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { DashBoardHome } from "../Routes/dashboard-home/DashBoardHome";
-import { AddNewProject } from "../Routes/publishIT/AddNewProject";
-import { ManageProjects } from "../Routes/publishIT/ManageProject";
+import { ReviewHome } from "../Routes-Review/review-home/DashBoardHome";
+
 
 import { TopBar } from "./sidebar/topbar/topbar";
 
@@ -27,8 +26,8 @@ export const ReviewerDashBoardContainer = () => {
     setsearch(value);
   };
 
-  const params = useParams() as { route: string; subroute: string };
-  const { route, subroute } = params;
+  const params = useParams() as { reviewRoute: string; subroute: string };
+  const { reviewRoute, subroute } = params;
   console.log(subroute);
   return (
     <Box
@@ -54,9 +53,8 @@ export const ReviewerDashBoardContainer = () => {
         ml={!isMobile ? "10px" : "0px"}
         mt="80px"
         mr={!isMobile ? "10px" : "0px"}
-      >
-       
-      </Box>
+      ></Box>
+      {reviewRoute === "home" && <ReviewHome />}
     </Box>
   );
 };

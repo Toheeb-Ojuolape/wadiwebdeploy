@@ -30,13 +30,17 @@ export const App = () => (
         <Route path="/onboarding/story" element={<YourStory />} />
         <Route path="/onboarding/achieve" element={<Achieve />} />
         <Route
-          path="/review/:route"
+          path="/review/:reviewRoute"
           element={<ReviewerDashBoard loggedIn={true} />}
         />
 
         <Route
           path="/dashboard/:route"
           element={<DashBoard loggedIn={true} />}
+        />
+        <Route
+          path="/review"
+          element={<Navigate to="/review/home" replace />}
         />
         <Route
           path="/dashboard/publish/:subroute"

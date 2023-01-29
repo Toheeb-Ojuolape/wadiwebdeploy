@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { LogoComp, LogoCompDark } from "../../header/logoComp";
-import { SideBar } from "../sideBar";
+import { SideBar } from "../reviewSideBar";
 import { SideBarMobile } from "../sideBarMobile";
 import { NotificationComps } from "./comps/notification";
 import { SearchBar } from "./comps/searchBar";

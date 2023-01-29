@@ -3,16 +3,20 @@ import {
   Add,
   AddSquare,
   Book,
+  BoxTime,
+  CalendarTick,
   Category,
   DocumentCloud,
   Drop,
   Edit,
   MessageText,
   Notification,
+  Send,
+  Wallet3,
 } from "iconsax-react";
 
 
-const dashboard = "dashboard";
+const dashboard = "review";
 export const Routes = [
   {
     routes: `/${dashboard}/home`,
@@ -20,41 +24,25 @@ export const Routes = [
     icon: <Category size="20" color="#475467" />,
   },
   {
-    routes: ``,
-    title: "PublishIT",
-    icon: <DocumentCloud size="20" color="#475467" variant="TwoTone" />,
-    subRoutes: [
-      {
-        routes: `/${dashboard}/publish/new-project`,
-        title: "Add New Project",
-        icon: <AddSquare size="20" color="#475467" />,
-      },
+    routes: `/${dashboard}/requests`,
+    title: "Requests",
+    icon: <Send size="20" color="#475467" variant="TwoTone" />,
+  
+  },
+  {
+    routes: `/${dashboard}/projects`,
+    title: "Projects",
+    icon: <BoxTime size="20" color="#475467" />,
+  },
+  {
+    routes: `/${dashboard}/calendar`,
+    title: "Calendar",
+    icon: <CalendarTick size="20" color="#475467" variant="TwoTone" />,
+  },
+  {
+    routes: `/${dashboard}/wallets`,
+    title: "Wallets",
+    icon: <Wallet3 size="20" color="#475467" variant="TwoTone" />,
+  },
 
-      {
-        routes: `/${dashboard}/publish/my-projects`,
-        title: "Manage Projects",
-        icon: <Edit size="20" color="#475467" />,
-      },
-    ],
-  },
-  {
-    routes: `/${dashboard}/academy`,
-    title: "Wadi Academy",
-    icon: <Book size="20" color="#475467" />,
-  },
-  {
-    routes: `/${dashboard}/send-sample`,
-    title: "Send Sample",
-    icon: <Drop size="20" color="#475467" variant="TwoTone" />,
-  },
-  {
-    routes: `/${dashboard}/forum`,
-    title: "Forum",
-    icon: <MessageText size="20" color="#475467" variant="TwoTone" />,
-  },
-  {
-    routes: `/${dashboard}/notification`,
-    title: "Forum",
-    icon: <Notification size="20" color="#475467" variant="TwoTone" />,
-  },
 ];
