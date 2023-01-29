@@ -14,6 +14,7 @@ import { YourStory } from "./ResearchOnboarding/YourStory/YourStory";
 import { Achieve } from "./ResearchOnboarding/Achieve/Achieve";
 import { DashBoard } from "./Dashboard/Dashboard";
 import { FOF } from "./Routes/404/404";
+import { ReviewerDashBoard } from "./ReviewerDashboard/Dashboard";
 
 export const App = () => (
   <div>
@@ -28,6 +29,10 @@ export const App = () => (
         <Route path="/onboarding/background" element={<Background />} />
         <Route path="/onboarding/story" element={<YourStory />} />
         <Route path="/onboarding/achieve" element={<Achieve />} />
+        <Route
+          path="/review/:route"
+          element={<ReviewerDashBoard loggedIn={true} />}
+        />
 
         <Route
           path="/dashboard/:route"
