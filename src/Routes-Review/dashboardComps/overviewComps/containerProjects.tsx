@@ -60,7 +60,7 @@ export const Container = (props: any) => {
       <Text
         fontFamily={"Montserrat"}
         lineHeight={!isMobile ? "50px" : "30px"}
-        fontSize={!isMobile ? "60px" : "30px"}
+        fontSize={!isMobile ? "25px" : "20px"}
         fontWeight="extrabold"
       >
         {props.title === "Earnings" && <span className="text-lg">₦ </span>}{" "}

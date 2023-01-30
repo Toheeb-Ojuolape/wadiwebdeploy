@@ -49,11 +49,9 @@ export const SideBar = (props: any) => {
                 icon={route.icon}
                 key={index}
                 onClick={() => {
-                  if (index !== 1) {
+           
                     setActive(index);
-                  } else {
-                    onToggle();
-                  }
+                 
                 }}
                 isActive={active === index}
               />

@@ -24,6 +24,7 @@
     "moment": "^2.29.4",
     "nigerian-institutions": "^1.0.3",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.4.0",
     "react-circular-progressbar": "^2.1.0",
     "react-cookie": "^4.1.1",
     "react-custom-scrollbars-2": "^4.5.0",
