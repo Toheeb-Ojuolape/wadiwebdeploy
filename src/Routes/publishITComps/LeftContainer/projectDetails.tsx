@@ -5,13 +5,12 @@ import { RegularInput } from "./regurlarInput";
 import { SelectInput } from "./selectInput";
 
 import {
-  List,
+
   ListItem,
-  ListIcon,
-  OrderedList,
+
   UnorderedList,
 } from "@chakra-ui/react";
-import { WadiButton } from "../../../Comps/buttons/wadiButton";
+
 import { ProjectDetailsButton } from "./projectDetailsButton";
 const researchList = ["Environmental Management", "Social science", "Data "];
 const paymentList = ["Monthly", "Yearly", "Quarterly"];

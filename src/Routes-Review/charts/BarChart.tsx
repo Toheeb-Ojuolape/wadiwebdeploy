@@ -1,9 +1,8 @@
-import { useMediaQuery } from '@chakra-ui/react';
-import React from 'react';
+
 import Chart from 'react-apexcharts';
 
 export const BarChart = (props: any) => {
-	const [isMobile] = useMediaQuery("(max-width: 1300px)");
+
 		return (
 			
 			<Chart

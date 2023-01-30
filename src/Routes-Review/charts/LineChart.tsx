@@ -32,7 +32,7 @@ class LineChart extends React.Component<ChartProps, ChartState> {
 			<ReactApexChart
 				options={this.state.chartOptions}
 				series={this.state.chartData}
-				type='line'
+				type='area'
 				width='100%'
 				height='100%'
 			/>

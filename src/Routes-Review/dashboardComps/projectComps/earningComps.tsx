@@ -3,32 +3,44 @@ import {
   Text,
   Center,
   Spacer,
-  useMediaQuery,
+
   Box,
+  Button,
 } from "@chakra-ui/react";
+
 import { EarningLineChart } from "./earningsLineChart";
-import { ProjectsBarChart } from "./projectsBarChart";
 
-import { AllProjectsButton, SelectContent } from "./selectContent";
 
-const dates = ["2021", "2022", "2023", "2024", "2025"];
+import {  SelectContent2 } from "./selectContent";
+
+const dates = ["7 days", "2 Weeks", "1 Month", "3 Months", "1 Year"];
 const query = ["Environmental", "Social", "Economic", "All"];
-
 
 export const Earnings = (props: any) => {
   return (
     <Box flexDirection={"column"} w="100%">
       <TableHeading title="Projects" />
+      <Flex
+        justifyContent="space-evenly"
+        w="fit-content"
+        flexWrap={"wrap"}
+     
+        flexDirection={"row"}
+      >
+        <SelectContent2 placeholder={dates[0]} options={dates} />
+        <SelectContent2 placeholder={query[0]} options={query} />
+
+      </Flex>
       <EarningLineChart />
     </Box>
   );
 };
 
 const TableHeading = (props: any) => {
-  const [isMobile] = useMediaQuery("(max-width: 600px)");
+
   return (
-    <Flex>
-      <Center p="4">
+    <Flex ml='5'>
+      <Center>
         <Text lineHeight={"10px"} fontSize="20px" fontWeight={"extrabold"}>
           Earnings
         </Text>
@@ -41,7 +53,7 @@ const TableHeading = (props: any) => {
         p="4"
         flexDirection={"row"}
       >
-        <AllProjectsButton text="All Projects" />
+        <Button bg='rgba(43, 95, 208, 1)' color='white' size='md' fontSize={'12px'}>Withdraw</Button>
       </Center>
     </Flex>
   );

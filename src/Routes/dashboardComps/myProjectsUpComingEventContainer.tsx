@@ -1,4 +1,4 @@
-import { Box, Flex, Spacer, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Flex, Spacer, useMediaQuery } from "@chakra-ui/react";
 import { MyProjectComps } from "./myProjectsComps/myProjectsComps";
 import { UpComingComps,} from "./myProjectsComps/upcomingEvents";
 

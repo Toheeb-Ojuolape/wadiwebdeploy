@@ -13,6 +13,19 @@ export const SelectContent = (props: {placeholder: string, options: any}) => {
   );
 };
 
+export const SelectContent2 = (props: {placeholder: string, options: any}) => {
+  const [isMobile] = useMediaQuery("(max-width: 600px)");
+return (
+  <Select mb='10px' fontSize={'13px'} ml={!isMobile ? '5': '0'}  w={"fit-content"} size={isMobile ? 'sm': "md"}>
+    {props.options.map((option: any) => (
+      <option key={option} value={option}>
+        {option}
+      </option>
+    ))}
+  </Select>
+);
+};
+
 export const AllProjectsButton = (props: any) => {
     const [isMobile] = useMediaQuery("(max-width: 600px)");
     return (

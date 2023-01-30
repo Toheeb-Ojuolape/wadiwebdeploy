@@ -1,12 +1,7 @@
 import {
-  Box,
-  Center,
+
   Flex,
-  Tag,
-  TagLabel,
-  TagLeftIcon,
-  Text,
-  useMediaQuery,
+
 } from "@chakra-ui/react";
 import {
   ReceiptText,
