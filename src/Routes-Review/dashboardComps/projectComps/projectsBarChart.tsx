@@ -5,7 +5,7 @@ import { barChartProjectsData, barChartProjects } from "../variables/charts";
 
 export const ProjectsBarChart = (props: any) => {
   return (
-    <Box w={"100%"} height="250px">
+    <Box w={"100%"} height="300px">
       <BarChart
         chartData={barChartProjectsData}
         chartOptions={barChartProjects}
