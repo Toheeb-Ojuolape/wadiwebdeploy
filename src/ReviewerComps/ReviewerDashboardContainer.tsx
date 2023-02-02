@@ -1,6 +1,7 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Calendar } from "../Routes-Review/calendar-home/Calendar";
 import { ReviewHome } from "../Routes-Review/review-home/DashBoardHome";
 
 
@@ -55,6 +56,7 @@ export const ReviewerDashBoardContainer = () => {
         mr={!isMobile ? "10px" : "0px"}
       ></Box>
       {reviewRoute === "home" && <ReviewHome />}
+      {reviewRoute === "calendar" && <Calendar />}
     </Box>
   );
 };

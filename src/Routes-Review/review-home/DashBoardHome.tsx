@@ -6,6 +6,7 @@ import { OverViewContainer } from "../dashboardComps/overviewContainer";
 import { ProjectsAndEarnings } from "../dashboardComps/projectsAndEarnings";
 import { RequestAndDeadline } from "../dashboardComps/requestAndDeadline";
 import { Loading } from "../loading/loading";
+import { Example } from "./test";
 
 export const ReviewHome = (props: any) => {
   let [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ export const ReviewHome = (props: any) => {
         <OverViewContainer />
         <ProjectsAndEarnings />
         <RequestAndDeadline />
+    
       </Box>
       {/*
       {!isMobile && <Box  padding={"20px"}>vvvv</Box>} */}

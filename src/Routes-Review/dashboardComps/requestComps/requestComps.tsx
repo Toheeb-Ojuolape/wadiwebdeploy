@@ -11,36 +11,39 @@ import {
   Center,
   Spacer,
   useMediaQuery,
+  Box,
 } from "@chakra-ui/react";
 
 import { AcceptButton, RejectButton } from "./actions";
 
 import { AllProjectsButton } from "./selectContent";
-import { Successful, Rejected, Review, Pending } from "./status";
 
-const tableData = [
-  {
-    name: "Analysis of Land use",
-    size: "200 KB",
-    status: "Pending",
-    time: "09:30 AM",
-    date: "12/08/2021",
-    plan: "Regular",
-    price: "NGN50,000",
-  },
-];
-//create a list conatining 100 tabaleDatas
-const tableDataList: any = [];
-for (let i = 0; i < 10; i++) {
-  tableDataList.push(tableData[0]);
-}
+import { Successful, Rejected, Review, Pending, Uploaded } from "./status";
+
+import Pagination from "react-paginate";
+import { useState } from "react";
+import { tableDataList } from "./dataTest";
+import './paginate.css'
+import { ArrowLeft3, ArrowRight3, Briefcase } from "iconsax-react";
 
 export const RequestComps = (props: any) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage, setPerPage] = useState(6);
+  const [data, setData] = useState(tableDataList);
+
+  const handlePageChange = (page: any) => {
+    setCurrentPage(page.selected);
+  };
+
+  const sliceStart = currentPage * perPage;
+  const sliceEnd = sliceStart + perPage;
+  const displayedData = data.slice(sliceStart, sliceEnd);
+
   return (
     <Flex flexDirection={"column"} flexWrap="wrap">
       <TableHeading title="Requests" />
-      <div className="overflow-scroll max-h-[500px] w-full">
-        <TableContainer>
+     
+        <TableContainer minH={'350px'}>
           <Table size="sm" variant="simple">
             <Thead>
               <Tr>
@@ -52,7 +55,7 @@ export const RequestComps = (props: any) => {
               </Tr>
             </Thead>
             <Tbody>
-              {tableDataList.map((data: any, index: number) => (
+              {displayedData.map((data: any, index: number) => (
                 <Tr>
                   <Td w={"200px"}>
                     <Flex flexDirection={"column"}>
@@ -82,7 +85,7 @@ export const RequestComps = (props: any) => {
                       <Review />
                     ) : data.status === "Pending" ? (
                       <Pending />
-                    ) : null}
+                    ) : data.status === "Uploaded" ? (<Uploaded/>): null}
                   </Td>
                   <Td>
                     <Flex justifyContent="space-between">
@@ -94,14 +97,31 @@ export const RequestComps = (props: any) => {
               ))}
             </Tbody>
           </Table>
+          
         </TableContainer>
-      </div>
+        <Spacer/>
+        <Box mt='20px' maxW='100%'>
+            <Pagination
+              previousLabel={<ArrowLeft3/>}
+              nextLabel={<ArrowRight3/>}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={data.length / perPage}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={1}
+              onPageChange={handlePageChange}
+              containerClassName={"pagination"}
+            
+              activeClassName={"active"}
+            />
+          </Box>
+      
     </Flex>
   );
 };
 
 const TableHeading = (props: any) => {
-  const [isMobile] = useMediaQuery("(max-width: 600px)");
+  
   return (
     <Flex>
       <Center p="4">

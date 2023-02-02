@@ -72,12 +72,10 @@ export const SideBarMobile = (props: {
                     icon={route.icon}
                     key={index}
                     onClick={() => {
-                      if (index !== 1) {
+                  
                         setActive(index);
                         props.onClose();
-                      } else {
-                        onToggle();
-                      }
+                     
                     }}
                     isActive={active === index}
                   />

@@ -11,7 +11,7 @@ export const MyProjectsContainer = (props: any) => {
       flexWrap='wrap'
       mt='20px'
       >
-        <Box padding='10px' borderRadius='md' bg='white' w={!isMobile ? '60%': "100%"}>
+        <Box padding='10px' borderRadius='md' bg='white' w={!isMobile ? '60%': "100%"} h='fit-content'>
         <MyProjectComps /></Box>
         <Spacer/>
         <Flex w={!isMobile ?'38%': "100%"} mt={isMobile  ? '20px': ""} >

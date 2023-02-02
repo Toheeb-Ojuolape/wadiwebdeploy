@@ -25,6 +25,7 @@
     "nigerian-institutions": "^1.0.3",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
+    "react-big-calendar": "^1.6.3",
     "react-circular-progressbar": "^2.1.0",
     "react-cookie": "^4.1.1",
     "react-custom-scrollbars-2": "^4.5.0",
@@ -33,11 +34,14 @@
     "react-icons": "^3.11.0",
     "react-images-uploading": "^3.1.7",
     "react-loader-spinner": "^5.3.4",
+    "react-paginate": "^8.1.4",
     "react-password-strength-bar": "^0.4.1",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "react-uploader": "^3.3.0",
     "react-use-file-upload": "^0.9.5",
+    "react-virtualized-auto-sizer": "^1.0.7",
+    "react-window": "^1.8.8",
     "slugify": "^1.6.5",
     "sweetalert2": "^11.7.0",
     "typescript": "^4.9.4",
@@ -66,6 +70,9 @@
   },
   "devDependencies": {
     "@types/country-list": "^2.1.1",
+    "@types/react-big-calendar": "^0.38.4",
+    "@types/react-virtualized-auto-sizer": "^1.0.1",
+    "@types/react-window": "^1.8.5",
     "tailwindcss": "^3.2.4"
   }
 }

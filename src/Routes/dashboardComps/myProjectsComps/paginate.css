@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pagination li {
+    display: inline;
+    padding: 0 3px;
+    background: #F2F9FD;
+    margin-left: 2px;
+    border-radius: 4px;
+  }
+.active {
+  background-color: #687085;
+  color: rgb(98, 0, 255);
+}
+
+.previous-link,
+.next-link {
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  color: #687085;
+  padding: 0.5rem;
+  cursor: pointer;
+}

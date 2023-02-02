@@ -10,6 +10,7 @@ export const RequestAndDeadline = (props: any) => {
         padding="10px"
         borderRadius="md"
         bg="white"
+        h='fit-content'
         w={!isMobile ? "60%" : "100%"}
       >
         <RequestComps />
