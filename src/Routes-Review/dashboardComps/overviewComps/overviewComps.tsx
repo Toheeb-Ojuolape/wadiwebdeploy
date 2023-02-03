@@ -1,8 +1,4 @@
-import {
-
-  Flex,
-
-} from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import {
   ReceiptText,
   Briefcase,
@@ -51,7 +47,12 @@ const ProjectList = [
 
 export const OverviewComps = () => {
   return (
-    <Flex mt={"20px"} justifyContent="space-between" flexWrap={"wrap"}>
+    <Flex
+     
+      mt={"20px"}
+      justifyContent="space-between"
+      flexWrap={"wrap"}
+    >
       {ProjectList.map((project, index) => {
         return <Container {...project} key={index} />;
       })}

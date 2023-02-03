@@ -1,23 +1,17 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
-import {
-  Avatar,
-  Box,
-  Center,
-  Flex,
-  IconButton,
-  Spacer,
-  useDisclosure,
-  useMediaQuery,
-} from "@chakra-ui/react";
-import { useRef, useState } from "react";
-import { LogoComp, LogoCompDark } from "../../header/logoComp";
-import { SideBar } from "../sideBar";
-import { SideBarMobile } from "../sideBarMobile";
+import { Box, Flex, IconButton, Spacer, useMediaQuery } from "@chakra-ui/react";
+import { lazy, Suspense } from "react";
+import { LogoCompDark } from "../../header/logoComp";
+
+
 import { NotificationComps } from "./comps/notification";
 import { SearchBar } from "./comps/searchBar";
 import { RightSide } from "./rightSide/rightSide";
 import { SearchNormal1 } from "iconsax-react";
 import { Profile } from "./rightSide/profile";
+import { Loading } from "../../../Routes-Review/loading/loading";
+
+const SideBarMobile = lazy(() => import("../sideBarMobile").then((mod) => ({ default: mod.SideBarMobile })));
 
 export const TopBar = (props: {
   profession: string;
@@ -42,16 +36,14 @@ export const TopBar = (props: {
       transitionTimingFunction="linear, linear, linear, linear"
       display={"block"}
       position={"fixed"}
-      zIndex='10'
+      zIndex="10"
       mx="auto"
       pt={!isMobile ? "20px" : "10px"}
-
-      
       pb={!isMobile ? "20px" : "10px"}
       ps={{
         xl: "12px",
       }}
-      pr='30px'
+      pr="30px"
       w={{
         base: "calc(100vw )",
         md: "calc(100vw)",
@@ -77,7 +69,7 @@ export const TopBar = (props: {
                   {" "}
                   <NotificationComps hasNotification={true} />
                 </div>
-                <Profile profilePic={props.profilePic} isDesktop={false}/>
+                <Profile profilePic={props.profilePic} isDesktop={false} />
                 <IconButton
                   marginRight={"20px"}
                   onClick={props.onOpen}
@@ -91,7 +83,7 @@ export const TopBar = (props: {
 
         {!isMobile ? (
           <>
-            <Box >
+            <Box>
               <SearchBar
                 onChange={(e: any) => {
                   props.handleSearchChange(e.target.value);
@@ -99,7 +91,7 @@ export const TopBar = (props: {
                 }}
               />
             </Box>
-            <Spacer/>
+            <Spacer />
             <Box>
               <RightSide
                 name={props.name}
@@ -112,14 +104,15 @@ export const TopBar = (props: {
             </Box>
           </>
         ) : null}
-
-        <SideBarMobile
-          isOpen={props.isOpen}
-          onClose={props.onClose}
-          profession={props.profession}
-          position={props.position}
-          name={props.name}
-        />
+        <Suspense fallback={<Loading loading />}>
+          <SideBarMobile
+            isOpen={props.isOpen}
+            onClose={props.onClose}
+            profession={props.profession}
+            position={props.position}
+            name={props.name}
+          />{" "}
+        </Suspense>
       </Flex>
     </Box>
   );

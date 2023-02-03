@@ -6,9 +6,6 @@ import "./calendar.css";
 import { Box } from "@chakra-ui/react";
 const localizer = momentLocalizer(moment);
 
-const CustomNextButton = ({ onClick }: any) => (
-  <button  onClick={onClick}>Custom Next</button>
-);
 
 export const CalendarComps = (props: any) => (
     // change the button styles here

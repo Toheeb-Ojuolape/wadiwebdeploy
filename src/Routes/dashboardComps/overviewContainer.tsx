@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box} from "@chakra-ui/react";
 import { OverviewComps } from "./overviewComps/overviewComps";
 
 export const OverViewContainer = (props: any) => {

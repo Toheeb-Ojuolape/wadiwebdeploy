@@ -1,35 +1,33 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { ColorRing } from "react-loader-spinner";
+import { lazy, Suspense } from "react";
 
-import { OverViewContainer } from "../dashboardComps/overviewContainer";
-import { ProjectsAndEarnings } from "../dashboardComps/projectsAndEarnings";
-import { RequestAndDeadline } from "../dashboardComps/requestAndDeadline";
 import { Loading } from "../loading/loading";
-import { Example } from "./test";
 
+const OverViewContainer = lazy(() =>
+  import("../dashboardComps/overviewContainer").then((mod) => ({
+    default: mod.OverViewContainer,
+  }))
+);
+const ProjectsAndEarnings = lazy(() =>
+  import("../dashboardComps/projectsAndEarnings").then((mod) => ({
+    default: mod.ProjectsAndEarnings,
+  }))
+);
+const RequestAndDeadline = lazy(() =>
+  import("../dashboardComps/requestAndDeadline").then((mod) => ({
+    default: mod.RequestAndDeadline,
+  }))
+);
 export const ReviewHome = (props: any) => {
-  let [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    console.log("My component has finished rendering");
-  }, []);
   return (
     <Flex>
       <Box padding={"20px"} width={"100vw"}>
-        <Loading loading={loading} />
-        {/* <GoodDayContainer name="Toheeb" /> */}
-        <OverViewContainer />
-        <ProjectsAndEarnings />
-        <RequestAndDeadline />
-    
+        <Suspense fallback={<Loading loading />}>
+          <OverViewContainer />
+          <ProjectsAndEarnings />
+          <RequestAndDeadline />
+        </Suspense>
       </Box>
-      {/*
-      {!isMobile && <Box  padding={"20px"}>vvvv</Box>} */}
     </Flex>
   );
 };

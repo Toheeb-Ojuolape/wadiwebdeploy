@@ -16,6 +16,7 @@ export const Container = (props: any) => {
   return (
     <Flex
       bg={"white"}
+      
       padding={isMobile ? "12px" : "30px"}
       justifyContent={"space-between"}
       borderRadius="2xl"
@@ -53,7 +54,7 @@ export const Container = (props: any) => {
           </Button>
         )}
       </Flex>
-      <Text fontSize={!isMobile ? "16px" : "14px"} fontWeight="light">
+      <Text  fontSize={!isMobile ? "16px" : "14px"} fontWeight="light">
         {props.title}
       </Text>
 

@@ -1,13 +1,6 @@
 import { SideBarButton } from "./button/sidebarButton";
-
-import {
-  Box,
-  Collapse,
-  Drawer,
-  DrawerContent,
-  Flex,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { useTransition } from "react";
+import { Drawer, DrawerContent, Flex, useDisclosure } from "@chakra-ui/react";
 import { Routes } from "./routes";
 import { Link, useParams } from "react-router-dom";
 import { NameAndPosition } from "./topbar/rightSide/rightSide";
@@ -15,7 +8,7 @@ import { TopBarTag } from "./topbar/rightSide/topBarTag";
 import { useState } from "react";
 import { CreateNewButton } from "./button/createNewButton";
 import { LogoutCurve, Setting2 } from "iconsax-react";
-import { SubButton } from "./button/subButton";
+
 
 export const SideBarMobile = (props: {
   isOpen: boolean;
@@ -24,8 +17,11 @@ export const SideBarMobile = (props: {
   name: string;
   position: string;
 }) => {
+
+
   const params = useParams() as { route: string };
   const { route } = params;
+  
 
   const routeToIndex = (route: string) => {
     switch (route) {
@@ -44,7 +40,6 @@ export const SideBarMobile = (props: {
     }
   };
   const [active, setActive] = useState(routeToIndex(route));
-  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Drawer
@@ -57,10 +52,7 @@ export const SideBarMobile = (props: {
         <div className="fixed top-0 right-0 h-screen w-[300px] flex flex-col bg-[#ffffff] text-[#475467]">
           <Flex flexDirection="column" className="mb-12 ml-6 mt-9">
             <NameAndPosition name={props.name} position={props.position} />
-            <TopBarTag
-              title={props.profession}
-            
-            />
+            <TopBarTag title={props.profession} />
           </Flex>
           <CreateNewButton />
           {Routes.map((route, index) => {
@@ -72,15 +64,13 @@ export const SideBarMobile = (props: {
                     icon={route.icon}
                     key={index}
                     onClick={() => {
-                  
-                        setActive(index);
-                        props.onClose();
-                     
+                      setActive(index);
+
+                      props.onClose();
                     }}
                     isActive={active === index}
                   />
                 </Link>
-                
               </>
             );
           })}

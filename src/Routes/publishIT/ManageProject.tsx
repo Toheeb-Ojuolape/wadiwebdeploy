@@ -2,16 +2,16 @@ import {
   Box,
   Flex,
   Table,
-  TableCaption,
+  
   TableContainer,
   Tbody,
   Td,
-  Tfoot,
+
   Th,
   Thead,
   Text,
   Tr,
-  Select,
+
   Center,
   Spacer,
   useMediaQuery,
@@ -23,10 +23,7 @@ import {
   ImportButton,
 } from "../dashboardComps/myProjectsComps/actions";
 import { Progress } from "../dashboardComps/myProjectsComps/progress";
-import {
-  AllProjectsButton,
-  SelectContent,
-} from "../dashboardComps/myProjectsComps/selectContent";
+
 import {
   Rejected,
   Review,
@@ -34,8 +31,6 @@ import {
 } from "../dashboardComps/myProjectsComps/status";
 import { HeadTab } from "./headTab";
 
-const dates = ["2021", "2022", "2023", "2024", "2025"];
-const query = ["Environmental", "Social", "Economic", "All"];
 
 const tableData = [
   {

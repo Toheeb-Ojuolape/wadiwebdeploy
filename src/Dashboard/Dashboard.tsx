@@ -1,20 +1,22 @@
-import { SideBar } from "../Comps/sidebar/sideBar";
-import { ColorRing } from "react-loader-spinner";
-import { useEffect, useState } from "react";
-import { OnBoardingContainer } from "../Comps/OnBoardContainer";
-import { Box, useMediaQuery } from "@chakra-ui/react";
-import { DashBoardContainer } from "../Comps/DashBoardContainer";
-import { useParams } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
 
-export const DashBoard = (props: {loggedIn : boolean}) => {
+import { useMediaQuery } from "@chakra-ui/react";
+import { DashBoardContainer } from "../Comps/DashBoardContainer";
+
+import { Loading } from "../Routes-Review/loading/loading";
+
+const SideBar = lazy(() =>
+  import("../Comps/sidebar/sideBar").then((mod) => ({ default: mod.SideBar }))
+);
+
+const DashBoard = (props: { loggedIn: boolean }) => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
-  
+
   useEffect(() => {
     if (!props.loggedIn) {
       window.location.href = "/signin";
     }
   }, []);
-  
 
   return (
     <div
@@ -24,8 +26,11 @@ export const DashBoard = (props: {loggedIn : boolean}) => {
           : "bg-[#f8f8f8] flex h-full"
       }
     >
-      {!isMobile && <SideBar device="desktop" />}
+      <Suspense fallback={<Loading loading />}>
+        {!isMobile && <SideBar device="desktop" />}
+      </Suspense>
       <DashBoardContainer />
     </div>
   );
 };
+export default DashBoard;

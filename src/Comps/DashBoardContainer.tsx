@@ -1,12 +1,25 @@
-import { Box, Fade, useDisclosure, useMediaQuery } from "@chakra-ui/react";
-import { useState } from "react";
+import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import { lazy, Suspense, useState } from "react";
 import { useParams } from "react-router-dom";
-import { DashBoardHome } from "../Routes/dashboard-home/DashBoardHome";
-import { AddNewProject } from "../Routes/publishIT/AddNewProject";
-import { ManageProjects } from "../Routes/publishIT/ManageProject";
+import { Loading } from "../Routes-Review/loading/loading";
 
 import { TopBar } from "./sidebar/topbar/topbar";
 
+const DashBoardHome = lazy(() =>
+  import("../Routes/dashboard-home/DashBoardHome").then((module) => ({
+    default: module.DashBoardHome,
+  }))
+);
+const AddNewProject = lazy(() =>
+  import("../Routes/publishIT/AddNewProject").then((module) => ({
+    default: module.AddNewProject,
+  }))
+);
+const ManageProjects = lazy(() =>
+  import("../Routes/publishIT/ManageProject").then((module) => ({
+    default: module.ManageProjects,
+  }))
+);
 const topBarData = {
   profession: "Researcher",
   name: "Isaac Ojo",
@@ -55,10 +68,12 @@ export const DashBoardContainer = () => {
         mt="80px"
         mr={!isMobile ? "10px" : "0px"}
       >
-        {route === "home" && <DashBoardHome />}
+        <Suspense fallback={<Loading loading />}>
+          {route === "home" && <DashBoardHome />}
 
-        {subroute === "new-project" && <AddNewProject />}
-        {subroute === "my-projects" && <ManageProjects />}
+          {subroute === "new-project" && <AddNewProject />}
+          {subroute === "my-projects" && <ManageProjects />}
+        </Suspense>
       </Box>
     </Box>
   );

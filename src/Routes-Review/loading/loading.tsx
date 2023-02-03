@@ -1,16 +1,9 @@
+import { Center } from "@chakra-ui/react";
 import { ColorRing } from "react-loader-spinner";
 
 export const Loading = (props: { loading: boolean }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: props.loading ? "100vh" : 0,
-        width: props.loading ? "100%" : 0,
-      }}
-    >
+    <Center className="flex items-center justify-center w-screen h-screen bg-white">
       {
         <ColorRing
           visible={props.loading}
@@ -22,6 +15,6 @@ export const Loading = (props: { loading: boolean }) => {
           colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
         />
       }
-    </div>
+    </Center>
   );
 };

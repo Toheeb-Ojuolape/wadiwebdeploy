@@ -5,7 +5,7 @@ import { useMediaQuery } from "@chakra-ui/react";
 import { ReviewerDashBoardContainer } from "../ReviewerComps/ReviewerDashboardContainer";
 import { SideBar } from "../ReviewerComps/sidebar/reviewSideBar";
 
-export const ReviewerDashBoard = (props: { loggedIn: boolean }) => {
+ const ReviewerDashBoard = (props: { loggedIn: boolean }) => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
 
   useEffect(() => {
@@ -27,3 +27,5 @@ export const ReviewerDashBoard = (props: { loggedIn: boolean }) => {
     </div>
   );
 };
+
+export default ReviewerDashBoard;

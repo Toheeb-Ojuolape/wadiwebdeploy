@@ -1,4 +1,4 @@
-import { Box, Stack, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Stack, Text} from "@chakra-ui/react";
 import { OutLineButton } from "./buttons/outLineButton";
 import { WhiteButton } from "./buttons/whiteButton";
 import bg from "./welcome-bg.webp";

@@ -1,24 +1,33 @@
 import * as React from "react";
+import { lazy, Suspense } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./themes";
 
-import { SignIn } from "./OnBoarding/SignIn/SignIn";
+
+
 import { Navigate, Route, Routes } from "react-router-dom";
-import { FP } from "./OnBoarding/ForgotPassword/FP";
-import { SignUP } from "./OnBoarding/SignUp/SignUp";
-import { VerifyEmail } from "./OnBoarding/VerifyEmail/VerifyEmail";
-import { SNP } from "./OnBoarding/SetNewPassword/SNP";
-import { Profile } from "./ResearchOnboarding/Profile/Profile";
-import { Background } from "./ResearchOnboarding/Background/Background";
-import { YourStory } from "./ResearchOnboarding/YourStory/YourStory";
-import { Achieve } from "./ResearchOnboarding/Achieve/Achieve";
-import { DashBoard } from "./Dashboard/Dashboard";
-import { FOF } from "./Routes/404/404";
-import { ReviewerDashBoard } from "./ReviewerDashboard/Dashboard";
+import { Loading } from "./Routes-Review/loading/loading";
+
+
+const ReviewerDashBoard = lazy(()=> import ("./ReviewerDashboard/Dashboard"));
+const DashBoard = lazy(()=> import ("./Dashboard/Dashboard"));
+const SignIn = lazy(()=> import ("./OnBoarding/SignIn/SignIn").then((module) => ({ default: module.SignIn })));
+const FP = lazy(()=> import ("./OnBoarding/ForgotPassword/FP").then((module) => ({ default: module.FP })));
+const SignUP = lazy(()=> import ("./OnBoarding/SignUp/SignUp").then((module) => ({ default: module.SignUP })));
+const VerifyEmail = lazy(()=> import ("./OnBoarding/VerifyEmail/VerifyEmail").then((module) => ({ default: module.VerifyEmail })));
+const SNP = lazy(()=> import ("./OnBoarding/SetNewPassword/SNP").then((module) => ({ default: module.SNP })));
+const Profile = lazy(()=> import ("./ResearchOnboarding/Profile/Profile").then((module) => ({ default: module.Profile })));
+const Background = lazy(()=> import ("./ResearchOnboarding/Background/Background").then((module) => ({ default: module.Background })));
+const YourStory = lazy(()=> import ("./ResearchOnboarding/YourStory/YourStory").then((module) => ({ default: module.YourStory })));
+const Achieve = lazy(()=> import ("./ResearchOnboarding/Achieve/Achieve").then((module) => ({ default: module.Achieve })));
+const FOF = lazy(()=> import ("./Routes/404/404").then((module) => ({ default: module.FOF })));
+
+
 
 export const App = () => (
   <div>
     <ChakraProvider theme={theme}>
+      <Suspense fallback={<Loading loading/>}>
       <Routes>
         <Route path="signin" element={<SignIn />} />
         <Route path="forgot-password" element={<FP />} />
@@ -53,7 +62,7 @@ export const App = () => (
           element={<Navigate to="/dashboard/home" replace />}
         />
         <Route path="/" element={<Navigate to="/dashboard/home" replace />} />
-      </Routes>
+      </Routes></Suspense>
     </ChakraProvider>
   </div>
 );

@@ -1,11 +1,27 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
-import { useState } from "react";
+import { Suspense, useState, lazy } from "react";
 import { useParams } from "react-router-dom";
-import { Calendar } from "../Routes-Review/calendar-home/Calendar";
-import { ReviewHome } from "../Routes-Review/review-home/DashBoardHome";
-
+import { AllProjects } from "../Routes-Review/allProjects/AllProjects";
+import { AllRequests } from "../Routes-Review/allRequests/AllRequests";
+import { Loading } from "../Routes-Review/loading/loading";
 
 import { TopBar } from "./sidebar/topbar/topbar";
+
+const ReviewHome = lazy(() =>
+  import("../Routes-Review/review-home/DashBoardHome").then((module) => ({
+    default: module.ReviewHome,
+  }))
+);
+const Calendar = lazy(() =>
+  import("../Routes-Review/calendar-home/Calendar").then((module) => ({
+    default: module.Calendar,
+  }))
+);
+const AcceptedProposal = lazy(() =>
+  import("../Routes-Review/acceptedPropsals/AcceptedProposals").then(
+    (module) => ({ default: module.AcceptedProposal })
+  )
+);
 
 const topBarData = {
   profession: "Reviewer",
@@ -19,6 +35,7 @@ const topBarData = {
 
 export const ReviewerDashBoardContainer = () => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [search, setsearch] = useState("");
@@ -55,8 +72,13 @@ export const ReviewerDashBoardContainer = () => {
         mt="80px"
         mr={!isMobile ? "10px" : "0px"}
       ></Box>
-      {reviewRoute === "home" && <ReviewHome />}
-      {reviewRoute === "calendar" && <Calendar />}
+      <Suspense fallback={<Loading loading />}>
+        {reviewRoute === "home" && <ReviewHome />}
+        {reviewRoute === "calendar" && <Calendar />}
+        {reviewRoute === "propsals" && <AcceptedProposal />}
+        {reviewRoute === "requests" && <AllRequests />}
+        {reviewRoute === "projects" && <AllProjects />}
+      </Suspense>
     </Box>
   );
 };

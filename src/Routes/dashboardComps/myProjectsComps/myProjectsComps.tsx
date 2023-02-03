@@ -28,6 +28,7 @@ import Pagination from "react-paginate";
 
 import './paginate.css'
 import { ArrowLeft3, ArrowRight3, Briefcase } from "iconsax-react";
+import { Link } from "react-router-dom";
 
 const dates = ["2021", "2022", "2023", "2024", "2025"];
 const query = ["Environmental", "Social", "Economic", "All"];
@@ -132,7 +133,7 @@ const TableHeading = (props: any) => {
       >
         <SelectContent placeholder={dates[0]} options={dates} />
         <SelectContent placeholder={query[0]} options={query} />
-        <AllProjectsButton text="All Projects" />
+        <Link to='/review/home'><AllProjectsButton text="All Projects" /></Link>
       </Center>
     </Flex>
   );
