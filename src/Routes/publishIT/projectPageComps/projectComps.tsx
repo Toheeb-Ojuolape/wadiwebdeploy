@@ -14,8 +14,6 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-import { AcceptButton, RejectButton } from "./actions";
-
 import { AllProjectsButton } from "./selectContent";
 
 import { Successful, Rejected, Review, InReview, Uploaded } from "./status";
@@ -26,11 +24,14 @@ import { tableDataList } from "./dataTest";
 import "./paginate.css";
 import { ArrowLeft3, ArrowRight3, Briefcase } from "iconsax-react";
 import { Progress } from "./progress";
-
+import {
+  ImportButton,
+  DeleteButton,
+} from "../../dashboardComps/myProjectsComps/actions";
 
 export const ProjectComps = (props: any) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [perPage, setPerPage] = useState(6);
+  const [perPage, setPerPage] = useState(4);
 
   const handlePageChange = (page: any) => {
     setCurrentPage(page.selected);
@@ -42,7 +43,7 @@ export const ProjectComps = (props: any) => {
 
   return (
     <Flex flexDirection={"column"} flexWrap="wrap" mt="10px">
-      <TableContainer minH={"350px"}>
+      <TableContainer minH={"300px"}>
         <Table size="sm" variant="simple">
           <Thead>
             <Tr>
@@ -56,7 +57,7 @@ export const ProjectComps = (props: any) => {
           </Thead>
           <Tbody>
             {displayedData.map((data: any, index: number) => (
-              <Tr      className="animate__animated animate__fadeIn">
+              <Tr className="animate__animated animate__fadeIn">
                 <Td w={"200px"}>
                   <Flex flexDirection={"column"}>
                     <Text>{data.name}</Text>
@@ -94,8 +95,8 @@ export const ProjectComps = (props: any) => {
                 </Td>
                 <Td>
                   <Flex>
-                    <AcceptButton />
-                    <RejectButton />
+                    <ImportButton />
+                    <DeleteButton />
                   </Flex>
                 </Td>
               </Tr>

@@ -18,6 +18,7 @@ import { SearchBar } from "./comps/searchBar";
 import { RightSide } from "./rightSide/rightSide";
 import { SearchNormal1 } from "iconsax-react";
 import { Profile } from "./rightSide/profile";
+import { Link } from "react-router-dom";
 
 export const TopBar = (props: {
   profession: string;
@@ -42,16 +43,14 @@ export const TopBar = (props: {
       transitionTimingFunction="linear, linear, linear, linear"
       display={"block"}
       position={"fixed"}
-      zIndex='10'
+      zIndex="10"
       mx="auto"
       pt={!isMobile ? "20px" : "10px"}
-
-      
       pb={!isMobile ? "20px" : "10px"}
       ps={{
         xl: "12px",
       }}
-      pr='30px'
+      pr="30px"
       w={{
         base: "calc(100vw )",
         md: "calc(100vw)",
@@ -64,7 +63,8 @@ export const TopBar = (props: {
         {isMobile ? (
           <Flex>
             <Box ml="20px" h="fit-content" position={"inherit"} left="0">
-              <LogoCompDark />
+            <Link to='/review/home'>
+              <LogoCompDark /></Link>
             </Box>
             <Flex position={"absolute"} right="0">
               <IconButton
@@ -75,9 +75,11 @@ export const TopBar = (props: {
               <Flex h="80%">
                 <div className="mr-6">
                   {" "}
-                  <NotificationComps hasNotification={true} />
+                 
+                    <NotificationComps hasNotification={true} />
+                
                 </div>
-                <Profile profilePic={props.profilePic} isDesktop={false}/>
+                <Profile profilePic={props.profilePic} isDesktop={false} />
                 <IconButton
                   marginRight={"20px"}
                   onClick={props.onOpen}
@@ -91,7 +93,7 @@ export const TopBar = (props: {
 
         {!isMobile ? (
           <>
-            <Box >
+            <Box>
               <SearchBar
                 onChange={(e: any) => {
                   props.handleSearchChange(e.target.value);
@@ -99,7 +101,7 @@ export const TopBar = (props: {
                 }}
               />
             </Box>
-            <Spacer/>
+            <Spacer />
             <Box>
               <RightSide
                 name={props.name}

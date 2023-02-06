@@ -1,4 +1,5 @@
 import { Flex, Text, Center, Spacer, Box } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { ProjectsBarChart } from "./projectsBarChart";
 
 import { AllProjectsButton, SelectContent } from "./selectContent";
@@ -33,7 +34,7 @@ const TableHeading = (props: any) => {
       >
         <SelectContent placeholder={dates[0]} options={dates} />
         <SelectContent placeholder={query[0]} options={query} />
-        <AllProjectsButton text="All Projects" />
+        <Link to={'/review/projects'}><AllProjectsButton text="All Projects" /></Link>
       </Center>
     </Flex>
   );

@@ -12,6 +12,7 @@ import {
   Spacer,
   useMediaQuery,
   Box,
+
 } from "@chakra-ui/react";
 
 import { AcceptButton, RejectButton } from "./actions";
@@ -25,6 +26,7 @@ import { useState } from "react";
 import { tableDataList } from "./dataTest";
 import './paginate.css'
 import { ArrowLeft3, ArrowRight3, Briefcase } from "iconsax-react";
+import { Link } from "react-router-dom";
 
 export const RequestComps = (props: any) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -56,7 +58,7 @@ export const RequestComps = (props: any) => {
             </Thead>
             <Tbody>
               {displayedData.map((data: any, index: number) => (
-                <Tr>
+                <Tr >
                   <Td w={"200px"}>
                     <Flex flexDirection={"column"}>
                       <Text>{data.name}</Text>
@@ -137,7 +139,7 @@ const TableHeading = (props: any) => {
         p="4"
         flexDirection={"row"}
       >
-        <AllProjectsButton text="All Requests" />
+       <Link to='/review/requests'> <AllProjectsButton text="All Requests" /></Link>
       </Center>
     </Flex>
   );

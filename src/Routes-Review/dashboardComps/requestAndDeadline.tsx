@@ -7,16 +7,21 @@ export const RequestAndDeadline = (props: any) => {
   return (
     <Flex flexDirection={"row"} flexWrap="wrap" mt="20px">
       <Box
+        className="animate__animated animate__fadeInUp"
         padding="10px"
         borderRadius="md"
         bg="white"
-        h='fit-content'
+        h="fit-content"
         w={!isMobile ? "60%" : "100%"}
       >
         <RequestComps />
       </Box>
       <Spacer />
-      <Flex w={!isMobile ? "38%" : "100%"} mt={isMobile ? "20px" : ""}>
+      <Flex
+        className="animate__animated animate__fadeInUp"
+        w={!isMobile ? "38%" : "100%"}
+        mt={isMobile ? "20px" : ""}
+      >
         <UpComingComps />
       </Flex>
     </Flex>

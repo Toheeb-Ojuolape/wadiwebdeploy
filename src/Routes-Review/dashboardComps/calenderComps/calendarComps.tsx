@@ -2,7 +2,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { events } from "./events";
 
-import "./calendar.css";
+import "./react-big-calendar.css";
 import { Box } from "@chakra-ui/react";
 const localizer = momentLocalizer(moment);
 

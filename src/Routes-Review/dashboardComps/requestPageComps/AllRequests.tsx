@@ -23,9 +23,9 @@ export const AllRequestsComps = (props: any) => {
   const [tabIndex, setTabIndex] = useState(0);
   const [isMobile] = useMediaQuery('(max-width: 800px)');
   return (
-    <Flex bg="white" padding="20px" borderRadius={"md"}>
+    <Flex bg="white" padding="20px" borderRadius={"md"} >
       <Tabs  index={tabIndex} onChange={handleTabsChange} w={"100%"}>
-        <TabList height={"fit-content"} ml={!isMobile ? "30px": "0px"} mr={!isMobile ? "30px": "0px"}>
+        <TabList height={"fit-content"} ml={!isMobile ? "30px": "0px"} mr={!isMobile ? "10px": "0px"}>
           <Tab
          mr= {"20px"}
             color={"rgba(71, 84, 103, 1)"}
@@ -34,7 +34,7 @@ export const AllRequestsComps = (props: any) => {
         
           >
             <Box>
-              <Text> All Requests </Text>
+              <Text> {!isMobile ? "All Requests" : "All"} </Text>
               <Box
                 display={tabIndex === 0 ? "block" : "none"}
                 w="100%"
@@ -52,7 +52,7 @@ export const AllRequestsComps = (props: any) => {
             mr='20px'
           >
             <Box>
-              <Text> Accepted Requests </Text>
+              <Text> {!isMobile ? "Accepted Requests" : "Accepted"}  </Text>
               <Box
                 display={tabIndex === 1 ? "block" : "none"}
                 w="100%"
@@ -69,7 +69,7 @@ export const AllRequestsComps = (props: any) => {
             mr='20px'
           >
             <Box>
-              <Text> Rejected Requests </Text>
+              <Text> {!isMobile ? "Rejected Requests" : "Rejected"} </Text>
               <Box
                 display={tabIndex === 2 ? "block" : "none"}
                 w="100%"

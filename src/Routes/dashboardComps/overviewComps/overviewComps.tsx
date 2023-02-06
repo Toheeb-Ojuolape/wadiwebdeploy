@@ -64,6 +64,7 @@ const Container = (props: any) => {
   return (
     <Flex
       bg={"white"}
+      className="animate__animated animate__jello"
       padding={isMobile ?"12px" : "30px"}
       justifyContent={"space-between"}
       borderRadius='2xl'
@@ -72,7 +73,7 @@ const Container = (props: any) => {
      
       mb="2%"
       _hover={{ bg: props.bg }}
-      className="cursor-pointer"
+  
     >
       <Box borderRadius="5px" padding={"5px"} w="fit-content" bg={props.bg}>
         {props.icon}

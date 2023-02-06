@@ -41,7 +41,8 @@ export const SideBar = (props: any) => {
   return (
     <div className="fixed z-0 top-0 left-0 h-screen w-60 flex flex-col bg-[#ffffff] text-[#475467] p-">
       <div className=" flex pl-8 mb-12 mt-5  content-start">
-        <LogoCompBlue />
+      <Link to='/dashboard/home'>
+        <LogoCompBlue /></Link>
       </div>
       <CreateNewButton />
       {Routes.map((route, index) => {

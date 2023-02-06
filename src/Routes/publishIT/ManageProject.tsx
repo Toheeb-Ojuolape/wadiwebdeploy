@@ -30,6 +30,8 @@ import {
   Successful,
 } from "../dashboardComps/myProjectsComps/status";
 import { HeadTab } from "./headTab";
+import { AllProjectsComps } from "./projectPageComps/AllProjects";
+
 
 
 const tableData = [
@@ -71,86 +73,10 @@ const tabList = [
 
 export const ManageProjects = (props: any) => {
   return (
-    <Flex flexDirection={"row"}>
+    <Flex flexDirection={"row"}  className="animate__animated animate__fadeIn">
       <Box padding={"20px"} width={"100vw"} flexDirection={"column"}>
         <TableHeading />
-        <Flex
-          flexDirection={"column"}
-          flexWrap="wrap"
-          w="100%"
-          bg="white"
-          padding="20px"
-          borderRadius={"md"}
-        >
-          <Flex>
-            {tabList.map((text, index) => {
-              return (
-                <HeadTab {...text} key={index} name={(index).toString()} index={index} onClick={props.onclick} />
-              );
-            })}
-          </Flex>
-          <TableContainer>
-            <Table size="sm" variant="simple">
-              <Thead>
-                <Tr>
-                  <Th>Project Name</Th>
-                  <Th>Payment Plan</Th>
-                  <Th>Status</Th>
-                  <Th>Date created</Th>
-                  <Th  textAlign={'center'}>Progress</Th>
-                  <Th textAlign={'right'}>Actions</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {tableData.map((data, index) => (
-                  <Tr>
-                    <Td w={"200px"}>
-                      <Flex flexDirection={"column"}>
-                        <Text>{data.name}</Text>
-                        <Text>{data.size}</Text>
-                      </Flex>
-                    </Td>
-
-                    <Td w={"200px"}>
-                      <Text>{data.paymentPlan}</Text>
-                    </Td>
-                    <Td>
-                      {data.status === "Successful" ? (
-                        <Successful />
-                      ) : data.status === "Rejected" ? (
-                        <Rejected />
-                      ) : (
-                        <Review />
-                      )}
-                    </Td>
-                    <Td>
-                      <Flex flexDirection={"column"}>
-                        <Text>{data.date}</Text>
-                        <Text color={"rgba(102, 112, 133, 1)"}>
-                          {data.time}
-                        </Text>
-                      </Flex>
-                    </Td>
-                    <Td>
-                      <Progress percentage={data.progress} />
-                    </Td>
-                    <Td>
-                      <Flex justifyContent="space-between">
-                        <Spacer />
-                        <EditButton />
-                        {data.status === "Successful" ? (
-                          <ImportButton />
-                        ) : (
-                          <DeleteButton />
-                        )}
-                      </Flex>
-                    </Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
-          </TableContainer>
-        </Flex>
+       <AllProjectsComps/>
       </Box>
     </Flex>
   );

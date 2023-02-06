@@ -11,6 +11,7 @@ export const ActivityCommunityContainer = (props: any) => {
         flexDirection={'row'}
         flexWrap='wrap'
         mt='20px'
+        className="animate__animated animate__fadeInUp"
 
         >
           <Box padding='10px' borderRadius='md' bg='white' w={!isMobile ? '49%': "100%"}>

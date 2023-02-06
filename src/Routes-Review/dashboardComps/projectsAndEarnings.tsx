@@ -7,6 +7,7 @@ export const ProjectsAndEarnings = (props: any) => {
   return (
     <Flex flexDirection={"row"} flexWrap="wrap" mt="20px">
       <Box
+      className="animate__animated animate__fadeInUp"
         padding="10px"
         borderRadius="md"
         bg="white"
@@ -16,6 +17,7 @@ export const ProjectsAndEarnings = (props: any) => {
       </Box>
       <Spacer />
       <Flex
+      className="animate__animated animate__fadeInUp"
         padding="10px"
         borderRadius="md"
         bg="white"

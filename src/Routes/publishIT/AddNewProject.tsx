@@ -35,7 +35,7 @@ export const AddNewProject = () => {
     }
   };
   return (
-    <Flex flexDirection={"row"}>
+    <Flex className="animate__animated animate__fadeIn" flexDirection={"row"}>
       <Box padding={"20px"} width={"100vw"} flexDirection={"column"}>
         <Box w="100px">
           <GoBack goBack={goBack} />

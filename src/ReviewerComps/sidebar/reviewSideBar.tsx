@@ -2,14 +2,12 @@ import { LogoComp, LogoCompBlue } from "../header/logoComp";
 
 import { SideBarButton } from "./button/sidebarButton";
 
-import { SettingsIcon } from "@chakra-ui/icons";
 import { Link, Route, useParams } from "react-router-dom";
 import { useState } from "react";
 import { Routes } from "./routes";
 import { LogoutCurve, Setting2 } from "iconsax-react";
 import { CreateNewButton } from "./button/createNewButton";
 import { Box, Collapse, useDisclosure } from "@chakra-ui/react";
-import { SubButton } from "./button/subButton";
 
 export const SideBar = (props: any) => {
   const params = useParams() as { route: string };
@@ -37,7 +35,9 @@ export const SideBar = (props: any) => {
   return (
     <div className="fixed z-0 top-0 left-0 h-screen w-60 flex flex-col bg-[#ffffff] text-[#475467] p-">
       <div className=" flex pl-8 mb-12 mt-5  content-start">
-        <LogoCompBlue />
+        <Link to="/review/home">
+          <LogoCompBlue />
+        </Link>
       </div>
       <CreateNewButton />
       {Routes.map((route, index) => {
@@ -49,16 +49,12 @@ export const SideBar = (props: any) => {
                 icon={route.icon}
                 key={index}
                 onClick={() => {
-           
-                    setActive(index);
-                 
+                  setActive(index);
                 }}
                 isActive={active === index}
               />
             </Link>
-            <Box>
-              
-            </Box>
+            <Box></Box>
           </>
         );
       })}

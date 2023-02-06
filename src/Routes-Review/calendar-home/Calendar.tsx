@@ -10,7 +10,7 @@ import { CalendarComps } from "../dashboardComps/calenderComps/calendarComps";
 export const Calendar = (props: any) => {
 
   return (
-    <Flex>
+    <Flex className="animate__animated animate__fadeIn">
       <Box padding={"20px"} width={"100vw"}>
       
         <CalendarComps />

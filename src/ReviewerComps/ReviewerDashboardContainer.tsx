@@ -1,8 +1,7 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { Suspense, useState, lazy } from "react";
 import { useParams } from "react-router-dom";
-import { AllProjects } from "../Routes-Review/allProjects/AllProjects";
-import { AllRequests } from "../Routes-Review/allRequests/AllRequests";
+
 import { Loading } from "../Routes-Review/loading/loading";
 
 import { TopBar } from "./sidebar/topbar/topbar";
@@ -22,7 +21,8 @@ const AcceptedProposal = lazy(() =>
     (module) => ({ default: module.AcceptedProposal })
   )
 );
-
+const AllRequests = lazy(() => import("../Routes-Review/allRequests/AllRequests").then((module) => ({ default: module.AllRequests })));
+const AllProjects = lazy(() => import("../Routes-Review/allProjects/AllProjects").then((module) => ({ default: module.AllProjects })));
 const topBarData = {
   profession: "Reviewer",
   name: "Isaac Ojo",
@@ -75,7 +75,7 @@ export const ReviewerDashBoardContainer = () => {
       <Suspense fallback={<Loading loading />}>
         {reviewRoute === "home" && <ReviewHome />}
         {reviewRoute === "calendar" && <Calendar />}
-        {reviewRoute === "propsals" && <AcceptedProposal />}
+        {reviewRoute === "proposals" && <AcceptedProposal />}
         {reviewRoute === "requests" && <AllRequests />}
         {reviewRoute === "projects" && <AllProjects />}
       </Suspense>

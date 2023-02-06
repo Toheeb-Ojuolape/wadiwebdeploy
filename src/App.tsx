@@ -5,6 +5,7 @@ import theme from "./themes";
 
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Loading } from "./Routes-Review/loading/loading";
+import 'animate.css'
 
 const ReviewerDashBoard = lazy(() => import("./ReviewerDashboard/Dashboard"));
 const DashBoard = lazy(() => import("./Dashboard/Dashboard"));
@@ -94,7 +95,7 @@ export const App = () => (
             path="/dashboard"
             element={<Navigate to="/dashboard/home" replace />}
           />
-          <Route path="/" element={<Navigate to="/dashboard/home" replace />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </Suspense>
     </ChakraProvider>

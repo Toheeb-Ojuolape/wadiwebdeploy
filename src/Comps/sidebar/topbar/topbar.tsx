@@ -1,20 +1,23 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Flex, IconButton, Spacer, useMediaQuery } from "@chakra-ui/react";
 import { lazy, Suspense } from "react";
-import { LogoCompDark } from "../../header/logoComp"
+import { LogoCompDark } from "../../header/logoComp";
 import { NotificationComps } from "./comps/notification";
 import { SearchBar } from "./comps/searchBar";
 import { RightSide } from "./rightSide/rightSide";
 import { SearchNormal1 } from "iconsax-react";
 import { Profile } from "./rightSide/profile";
 import { Loading } from "../../../Routes-Review/loading/loading";
-const SideBarMobile = lazy(() => import("../sideBarMobile").then((mod) => ({ default: mod.SideBarMobile })));
+import { Link } from "react-router-dom";
+const SideBarMobile = lazy(() =>
+  import("../sideBarMobile").then((mod) => ({ default: mod.SideBarMobile }))
+);
 
 export const TopBar = (props: {
   profession: string;
   hasNotification: boolean;
   notificationCount: number;
-  firstName:string,
+  firstName: string;
   title: string;
   photoURL: string;
   isOpen: boolean;
@@ -53,7 +56,9 @@ export const TopBar = (props: {
         {isMobile ? (
           <Flex>
             <Box ml="20px" h="fit-content" position={"inherit"} left="0">
-              <LogoCompDark />
+              <Link to="/dashboard/home">
+                <LogoCompDark />
+              </Link>
             </Box>
             <Flex position={"absolute"} right="0">
               <IconButton

@@ -29,7 +29,7 @@ const paymentList = [
 
 export const AcceptedProposal = (props: any) => {
   return (
-    <Flex>
+    <Flex className="animate__animated animate__slideInDown">
       <Box padding={"20px"} width={"100vw"}>
         <AcceptedProposalComps {...AcceptedList[0]} />
         <PaymentDetails {...paymentList[0]} />

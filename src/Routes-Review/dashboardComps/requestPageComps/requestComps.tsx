@@ -40,7 +40,7 @@ export const RequestComps = (props: any ) => {
   const displayedData = props.data.slice(sliceStart, sliceEnd);
 
   return (
-    <Flex flexDirection={"column"} flexWrap="wrap" mt='30px'>
+    <Flex flexDirection={"column"} flexWrap="wrap" mt='10px'>
 
      
         <TableContainer minH={'350px'}>
@@ -56,7 +56,7 @@ export const RequestComps = (props: any ) => {
             </Thead>
             <Tbody>
               {displayedData.map((data: any, index: number) => (
-                <Tr>
+                <Tr  className="animate__animated animate__fadeIn">
                   <Td w={"200px"}>
                     <Flex flexDirection={"column"}>
                       <Text>{data.name}</Text>
