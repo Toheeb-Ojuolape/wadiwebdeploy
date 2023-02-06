@@ -89,8 +89,8 @@ export const SignUpComp = (props: any) => {
         };
         setDoc(docRef, userData)
           .then(() => {
-            localStorage.setItem("wadiKey", slug);
-            localStorage.setItem("userData", JSON.stringify(userData));
+            sessionStorage.setItem("wadiKey", slug);
+            sessionStorage.setItem("userData", JSON.stringify(userData));
             updateProfile(currentUser, {
               displayName: register.fullName,
               photoURL: "",
@@ -241,8 +241,8 @@ export const SignUpComp = (props: any) => {
       photoURL: e.photoURL,
     })
       .then(() => {
-        localStorage.setItem("userData", JSON.stringify(userData));
-        localStorage.setItem("wadiKey", slug);
+        sessionStorage.setItem("userData", JSON.stringify(userData));
+        sessionStorage.setItem("wadiKey", slug);
         Swal.fire({
           title: "Registration Successful!",
           text: "You have successfully created an account on Wadi",

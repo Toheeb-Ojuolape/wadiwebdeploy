@@ -1,25 +1,22 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Flex, IconButton, Spacer, useMediaQuery } from "@chakra-ui/react";
 import { lazy, Suspense } from "react";
-import { LogoCompDark } from "../../header/logoComp";
-
-
+import { LogoCompDark } from "../../header/logoComp"
 import { NotificationComps } from "./comps/notification";
 import { SearchBar } from "./comps/searchBar";
 import { RightSide } from "./rightSide/rightSide";
 import { SearchNormal1 } from "iconsax-react";
 import { Profile } from "./rightSide/profile";
 import { Loading } from "../../../Routes-Review/loading/loading";
-
 const SideBarMobile = lazy(() => import("../sideBarMobile").then((mod) => ({ default: mod.SideBarMobile })));
 
 export const TopBar = (props: {
   profession: string;
   hasNotification: boolean;
   notificationCount: number;
-  name: string;
-  position: string;
-  profilePic: string;
+  firstName:string,
+  title: string;
+  photoURL: string;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
@@ -69,7 +66,7 @@ export const TopBar = (props: {
                   {" "}
                   <NotificationComps hasNotification={true} />
                 </div>
-                <Profile profilePic={props.profilePic} isDesktop={false} />
+                <Profile profilePic={props.photoURL} isDesktop={false} />
                 <IconButton
                   marginRight={"20px"}
                   onClick={props.onOpen}
@@ -94,10 +91,10 @@ export const TopBar = (props: {
             <Spacer />
             <Box>
               <RightSide
-                name={props.name}
-                position={props.position}
-                profilePic={props.profilePic}
-                profession={props.profession}
+                name={props.firstName}
+                position={props.title}
+                profilePic={props.photoURL}
+                profession={props.title}
                 notificationCount={props.notificationCount}
                 hasNotification={props.hasNotification}
               />
@@ -109,8 +106,8 @@ export const TopBar = (props: {
             isOpen={props.isOpen}
             onClose={props.onClose}
             profession={props.profession}
-            position={props.position}
-            name={props.name}
+            position={props.title}
+            name={props.firstName}
           />{" "}
         </Suspense>
       </Flex>

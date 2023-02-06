@@ -10,7 +10,7 @@ export const DashBoardHome = (props: any) => {
     <Flex>
       <Box padding={"20px"} width={"100vw"}>
         {/* <GoodDayContainer name="Toheeb" /> */}
-        <OverViewContainer />
+        <OverViewContainer userData={props.userData} />
         <MyProjectsContainer />
         <ActivityCommunityContainer />
       </Box>

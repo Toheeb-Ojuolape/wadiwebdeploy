@@ -30,10 +30,8 @@ export const Profile = (props: { profilePic: string, isDesktop: boolean} ) => {
         </HStack>
       </MenuButton>
       <MenuList color={"black"}>
-        <MenuItem>PlaceHolder</MenuItem>
-        <MenuItem>PlaceHolder</MenuItem>
-        <MenuItem>PlaceHolder</MenuItem>
-        <MenuItem>PlaceHolder</MenuItem>
+        <MenuItem>Logout</MenuItem>
+
       </MenuList>
     </Menu>
   );

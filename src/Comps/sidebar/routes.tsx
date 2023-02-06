@@ -54,7 +54,7 @@ export const Routes = [
   },
   {
     routes: `/${dashboard}/notification`,
-    title: "Forum",
+    title: "Notifications",
     icon: <Notification size="20" color="#475467" variant="TwoTone" />,
   },
 ];

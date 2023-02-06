@@ -30,7 +30,7 @@ const topBarData = {
   position: "Frontend Developer",
 };
 
-export const DashBoardContainer = () => {
+export const DashBoardContainer = (props:any) => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -57,7 +57,7 @@ export const DashBoardContainer = () => {
       transitionTimingFunction="linear, linear, ease"
     >
       <TopBar
-        {...topBarData}
+        {...props.userData}
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}
@@ -69,7 +69,7 @@ export const DashBoardContainer = () => {
         mr={!isMobile ? "10px" : "0px"}
       >
         <Suspense fallback={<Loading loading />}>
-          {route === "home" && <DashBoardHome />}
+          {route === "home" && <DashBoardHome userData={props.userData} />}
 
           {subroute === "new-project" && <AddNewProject />}
           {subroute === "my-projects" && <ManageProjects />}

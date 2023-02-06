@@ -89,7 +89,7 @@ export const SignInComp = (props: any) => {
           remove: /[$*_+~.()'"!?\-:@]/g,
           lower: true,
          })
-        localStorage.setItem("wadiKey",slug)
+        sessionStorage.setItem("wadiKey",slug)
         setGoogleLoading(false)
       })
       .catch((error) => {
