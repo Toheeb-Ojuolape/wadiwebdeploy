@@ -76,6 +76,10 @@ export const App = () => (
             path="/review/:reviewRoute"
             element={<ReviewerDashBoard loggedIn={true} />}
           />
+           <Route
+            path="/review/settings/:settingRoute"
+            element={<ReviewerDashBoard loggedIn={true} />}
+          />
 
           <Route
             path="/dashboard/:route"

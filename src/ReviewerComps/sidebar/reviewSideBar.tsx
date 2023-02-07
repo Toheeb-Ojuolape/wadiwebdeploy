@@ -60,7 +60,9 @@ export const SideBar = (props: any) => {
       })}
 
       <div className="mt-auto w-full">
+      <Link to={'/review/settings/'}>
         <SideBarButton
+          key={5}
           name="Settings"
           icon={
             <Setting2
@@ -69,7 +71,11 @@ export const SideBar = (props: any) => {
               variant="TwoTone"
             />
           }
-        />
+          onClick={() => {
+            setActive(5);
+          }}
+          isActive={active === 5}
+        /></Link>
         <SideBarButton
           name="Log out"
           icon={

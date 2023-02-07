@@ -11,6 +11,11 @@ const ReviewHome = lazy(() =>
     default: module.ReviewHome,
   }))
 );
+const Wallets = lazy(() =>
+  import("../Routes-Review/wallets/Wallets").then((module) => ({
+    default: module.Wallets,
+  }))
+);
 const Calendar = lazy(() =>
   import("../Routes-Review/calendar-home/Calendar").then((module) => ({
     default: module.Calendar,
@@ -21,8 +26,21 @@ const AcceptedProposal = lazy(() =>
     (module) => ({ default: module.AcceptedProposal })
   )
 );
-const AllRequests = lazy(() => import("../Routes-Review/allRequests/AllRequests").then((module) => ({ default: module.AllRequests })));
-const AllProjects = lazy(() => import("../Routes-Review/allProjects/AllProjects").then((module) => ({ default: module.AllProjects })));
+const AllRequests = lazy(() =>
+  import("../Routes-Review/allRequests/AllRequests").then((module) => ({
+    default: module.AllRequests,
+  }))
+);
+const AllProjects = lazy(() =>
+  import("../Routes-Review/allProjects/AllProjects").then((module) => ({
+    default: module.AllProjects,
+  }))
+);
+const Settings = lazy(() =>
+  import("../Routes-Review/Settings/Settings").then((module) => ({
+    default: module.Settings,
+  }))
+);
 const topBarData = {
   profession: "Reviewer",
   name: "Isaac Ojo",
@@ -44,8 +62,14 @@ export const ReviewerDashBoardContainer = () => {
     setsearch(value);
   };
 
-  const params = useParams() as { reviewRoute: string; subroute: string };
-  const { reviewRoute, subroute } = params;
+  const params = useParams() as {
+    reviewRoute: string;
+    subroute: string;
+    settingRoute: string;
+  };
+ 
+  const { reviewRoute, subroute, settingRoute } = params;
+  console.log("🚀 ~ file: ReviewerDashboardContainer.tsx:71 ~ ReviewerDashBoardContainer ~ settingRoute", settingRoute)
   console.log(subroute);
   return (
     <Box
@@ -78,6 +102,10 @@ export const ReviewerDashBoardContainer = () => {
         {reviewRoute === "proposals" && <AcceptedProposal />}
         {reviewRoute === "requests" && <AllRequests />}
         {reviewRoute === "projects" && <AllProjects />}
+        {reviewRoute === "wallets" && <Wallets />}
+        {reviewRoute === "settings" && <Settings  />}
+        {settingRoute === "account" && <Settings  />}
+        {settingRoute === "change-password" && <Settings  />}
       </Suspense>
     </Box>
   );
