@@ -103,9 +103,12 @@ export const ReviewerDashBoardContainer = () => {
         {reviewRoute === "requests" && <AllRequests />}
         {reviewRoute === "projects" && <AllProjects />}
         {reviewRoute === "wallets" && <Wallets />}
-        {reviewRoute === "settings" && <Settings  />}
-        {settingRoute === "account" && <Settings  />}
-        {settingRoute === "change-password" && <Settings  />}
+        {reviewRoute === "settings" && <Settings page= {0}/>}
+        {settingRoute === "account" && <Settings page= {0} />}
+        {settingRoute === "change-password" && <Settings page= {0} />}
+        {settingRoute === "delete-account" && <Settings page= {0} />}
+        {settingRoute === "basic-info" && <Settings page= {1}  />}
+        {settingRoute === "professional-info" && <Settings page= {1}  />}
       </Suspense>
     </Box>
   );

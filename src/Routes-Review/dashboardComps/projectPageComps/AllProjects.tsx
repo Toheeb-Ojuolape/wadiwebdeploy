@@ -30,6 +30,7 @@ export const AllProjectsComps = (props: any) => {
       <Tabs index={tabIndex} onChange={handleTabsChange} w={"100%"}>
         <TabList height={"fit-content"}  ml={!isMobile ? "30px": "0px"} mr={!isMobile ? "30px": "0px"}>
           <Tab
+               w={"33%"}
             mr= {"20px"}
             color={"rgba(71, 84, 103, 1)"}
             _selected={{ color: "rgba(0, 0, 0, 1)" }}
@@ -47,6 +48,7 @@ export const AllProjectsComps = (props: any) => {
             </Box>
           </Tab>{" "}
           <Tab
+               w={"33%"}
             color={"rgba(71, 84, 103, 1)"}
             _selected={{ color: "rgba(0, 0, 0, 1)" }}
             padding={"0"}
@@ -64,6 +66,7 @@ export const AllProjectsComps = (props: any) => {
             </Box>
           </Tab>{" "}
           <Tab
+               w={"33%"}
             color={"rgba(71, 84, 103, 1)"}
             _selected={{ color: "rgba(0, 0, 0, 1)" }}
             padding={"0"}
@@ -81,6 +84,7 @@ export const AllProjectsComps = (props: any) => {
             </Box>
           </Tab>
           <Tab
+               w={"33%"}
             color={"rgba(71, 84, 103, 1)"}
             _selected={{ color: "rgba(0, 0, 0, 1)" }}
             padding={"0"}

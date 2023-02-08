@@ -5,6 +5,7 @@ import { AccountNavLink } from "../accountNavLink";
 import { AccountHome } from "./accountHome";
 import { AccountInfo } from "./accountInfo";
 import { ChangePassword } from "./changePassword";
+import { DeleteAccount } from "./deactiveAccount";
 
 export const Account = (props: any) => {
   const params = useParams() as {
@@ -22,6 +23,7 @@ export const Account = (props: any) => {
     {settingRoute === undefined && <AccountHome />}
     {settingRoute === "account" && <AccountInfo/>}
     {settingRoute === "change-password" && <ChangePassword/>}
+    {settingRoute === "delete-account" && <DeleteAccount/>}
 
     
     </Box>;

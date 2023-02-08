@@ -19,7 +19,7 @@ export const AccountNavLink = (props: {
   const [isMobile, setIsMobile] = useMediaQuery("(max-width: 600px)");
   return (
     <Link to={props.link}>
-      <HStack mt="10px" w={!isMobile ? "400px" : "fit-content"}>
+      <HStack padding='2px' borderRadius={'md'} mt="10px" w={!isMobile ? "400px" : "fit-content"} _hover= {{bg: "rgba(43, 95, 208, 0.2)"}}>
         <Center> {props.icon}</Center>
         <Box pl="20px">
           <Text>{props.title}</Text>

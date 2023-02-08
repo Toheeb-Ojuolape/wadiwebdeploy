@@ -74,16 +74,23 @@ export const SideBarMobile = (props: {
               </>
             );
           })}
-          <SideBarButton
-            name="Settings"
-            icon={
-              <Setting2
-                size={"20"}
-                color="rgba(41, 45, 50, 1)"
-                variant="TwoTone"
-              />
-            }
-          />
+        <Link to={'/review/settings/'}>
+        <SideBarButton
+          key={5}
+          name="Settings"
+          icon={
+            <Setting2
+              size={"20"}
+              color="rgba(41, 45, 50, 1)"
+              variant="TwoTone"
+            />
+          }
+          onClick={() => {
+            setActive(5);
+            props.onClose();
+          }}
+          isActive={active === 5}
+        /></Link>
           <SideBarButton
             name="Log out"
             icon={

@@ -12,13 +12,16 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Account } from "./Account/account";
+import { Profile } from "./Profile/profile";
+import { ProfileHome } from "./Profile/profileHome";
 
 export const SettingsComps = (props: any) => {
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
   };
 
-  const [tabIndex, setTabIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(props.page);
+  console.log("🚀 ~ file: settingsContainer.tsx:23 ~ SettingsComps ~ props.page", props.page)
 
   const [isMobile] = useMediaQuery("(max-width: 800px)");
 
@@ -106,7 +109,7 @@ export const SettingsComps = (props: any) => {
         </TabList>
         <TabPanels>
           <TabPanel><Account /></TabPanel>
-          <TabPanel></TabPanel>
+          <TabPanel><Profile/></TabPanel>
           <TabPanel></TabPanel>
         </TabPanels>
       </Tabs>

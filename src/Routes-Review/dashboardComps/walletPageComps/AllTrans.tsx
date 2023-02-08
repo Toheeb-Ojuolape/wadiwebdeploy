@@ -16,7 +16,6 @@ import { AllProjectData } from "./allData";
 import { CreditData } from "./creditData";
 import { SelectContent } from "./select";
 
-
 export const AllTransComps = (props: any) => {
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
@@ -27,8 +26,15 @@ export const AllTransComps = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
 
   return (
-    <Flex bg="white" padding="20px" borderRadius={"md"} flexDirection='column'>
-     <Flex> <Spacer/><SelectContent placeholder="All" options={["24 hours", "1 week", "1 Month"]} /></Flex>
+    <Flex bg="white" padding="20px" borderRadius={"md"} flexDirection="column">
+      <Flex>
+        {" "}
+        <Spacer />
+        <SelectContent
+          placeholder="All"
+          options={["24 hours", "1 week", "1 Month"]}
+        />
+      </Flex>
       <Tabs index={tabIndex} onChange={handleTabsChange} w={"100%"}>
         <TabList
           height={"fit-content"}
@@ -36,6 +42,7 @@ export const AllTransComps = (props: any) => {
           mr={!isMobile ? "30px" : "0px"}
         >
           <Tab
+            w={"33%"}
             mr={"20px"}
             color={"rgba(71, 84, 103, 1)"}
             _selected={{ color: "rgba(0, 0, 0, 1)" }}
@@ -53,6 +60,7 @@ export const AllTransComps = (props: any) => {
             </Box>
           </Tab>{" "}
           <Tab
+            w={"33%"}
             color={"rgba(71, 84, 103, 1)"}
             _selected={{ color: "rgba(0, 0, 0, 1)" }}
             padding={"0"}
@@ -70,6 +78,7 @@ export const AllTransComps = (props: any) => {
             </Box>
           </Tab>{" "}
           <Tab
+            w={"33%"}
             color={"rgba(71, 84, 103, 1)"}
             _selected={{ color: "rgba(0, 0, 0, 1)" }}
             padding={"0"}
@@ -86,19 +95,17 @@ export const AllTransComps = (props: any) => {
               ></Box>
             </Box>
           </Tab>
-     
         </TabList>
         <TabPanels>
           <TabPanel>
             <AllProjectData />
           </TabPanel>
           <TabPanel>
-          <CreditData />
+            <CreditData />
           </TabPanel>
           <TabPanel>
-          <DebitData />
+            <DebitData />
           </TabPanel>
-          
         </TabPanels>
       </Tabs>
     </Flex>

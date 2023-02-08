@@ -2,16 +2,13 @@ import {
   Box,
   Flex,
   Table,
-  
   TableContainer,
   Tbody,
   Td,
-
   Th,
   Thead,
   Text,
   Tr,
-
   Center,
   Spacer,
   useMediaQuery,
@@ -31,8 +28,6 @@ import {
 } from "../dashboardComps/myProjectsComps/status";
 import { HeadTab } from "./headTab";
 import { AllProjectsComps } from "./projectPageComps/AllProjects";
-
-
 
 const tableData = [
   {
@@ -65,7 +60,7 @@ const tableData = [
 ];
 
 const tabList = [
-  { text: "All", },
+  { text: "All" },
   { text: "Review" },
   { text: "Rejected " },
   { text: "Completed" },
@@ -73,10 +68,10 @@ const tabList = [
 
 export const ManageProjects = (props: any) => {
   return (
-    <Flex flexDirection={"row"}  className="animate__animated animate__fadeIn">
+    <Flex flexDirection={"row"} className="animate__animated animate__fadeIn">
       <Box padding={"20px"} width={"100vw"} flexDirection={"column"}>
         <TableHeading />
-       <AllProjectsComps/>
+        <AllProjectsComps />
       </Box>
     </Flex>
   );

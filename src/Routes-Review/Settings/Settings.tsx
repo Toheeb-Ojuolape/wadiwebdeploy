@@ -4,11 +4,11 @@ import { AllRequestsComps } from "../dashboardComps/requestPageComps/AllRequests
 import { SettingsComps } from "../dashboardComps/settingsPageComps/settingsContainer";
 
 
-export const Settings = (props: any) => {
+export const Settings = (props: {page: number}) => {
   return (
     <Flex      className="animate__animated animate__fadeIn">
       <Box padding={"20px"} width={"100vw"}>
-        <SettingsComps />
+        <SettingsComps page= {props.page}/>
       </Box>
     </Flex>
   );
