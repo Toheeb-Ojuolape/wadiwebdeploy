@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { GoBackto } from "../goBackto";
 import { ModalBodyComp } from "../modalComps/modalBody";
-import { PasswordModalComps } from "../modalComps/modalComps";
+import { ReviewModalComps } from "../modalComps/modalComps";
 import { PasswordInput } from "../passwordInput";
 
 export const ChangePassword = (props: any) => {
@@ -69,7 +69,14 @@ export const ChangePassword = (props: any) => {
           Change
         </Button>
 
-        <PasswordModalComps isOpen={isOpen} onClose={onClose}  title={"Your password is updated"} subtitle={"You have successfully changed your password. we will log you out in a few seconds, you can use your new password to log back in."}   />
+        <ReviewModalComps
+          isOpen={isOpen}
+          onClose={onClose}
+          title={"Your password is updated"}
+          subtitle={
+            "You have successfully changed your password. we will log you out in a few seconds, you can use your new password to log back in."
+          }
+        />
       </Box>
     </Flex>
   );

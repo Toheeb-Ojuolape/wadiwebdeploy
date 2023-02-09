@@ -18,5 +18,6 @@
     "titleBar.inactiveBackground": "#2b5fd099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "rgba(43, 95, 208, 1)"
+  "peacock.color": "rgba(43, 95, 208, 1)",
+  "cSpell.words": ["Backto"]
 }

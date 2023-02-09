@@ -67,9 +67,12 @@ export const ReviewerDashBoardContainer = () => {
     subroute: string;
     settingRoute: string;
   };
- 
+
   const { reviewRoute, subroute, settingRoute } = params;
-  console.log("🚀 ~ file: ReviewerDashboardContainer.tsx:71 ~ ReviewerDashBoardContainer ~ settingRoute", settingRoute)
+  console.log(
+    "🚀 ~ file: ReviewerDashboardContainer.tsx:71 ~ ReviewerDashBoardContainer ~ settingRoute",
+    settingRoute
+  );
   console.log(subroute);
   return (
     <Box
@@ -103,12 +106,18 @@ export const ReviewerDashBoardContainer = () => {
         {reviewRoute === "requests" && <AllRequests />}
         {reviewRoute === "projects" && <AllProjects />}
         {reviewRoute === "wallets" && <Wallets />}
-        {reviewRoute === "settings" && <Settings page= {0}/>}
-        {settingRoute === "account" && <Settings page= {0} />}
-        {settingRoute === "change-password" && <Settings page= {0} />}
-        {settingRoute === "delete-account" && <Settings page= {0} />}
-        {settingRoute === "basic-info" && <Settings page= {1}  />}
-        {settingRoute === "professional-info" && <Settings page= {1}  />}
+        {reviewRoute === "settings" && <Settings page={0} />}
+        {settingRoute === "account" && <Settings page={0} />}
+        {settingRoute === "change-password" && <Settings page={0} />}
+        {settingRoute === "delete-account" && <Settings page={0} />}
+        {settingRoute === "basic-info" && <Settings page={1} />}
+        {settingRoute === "professional-info" && <Settings page={1} />}{" "}
+        {settingRoute === "download-data" && <Settings page={2} />}
+        {settingRoute === "email-settings" && <Settings page={2} />}
+        {settingRoute === "account-home" && <Settings page={0} />}{" "}
+        {settingRoute === "login-activity" && <Settings page={3} />}
+        {settingRoute === "profile-home" && <Settings page={1} />}
+        {settingRoute === "privacy-home" && <Settings page={2} />}
       </Suspense>
     </Box>
   );

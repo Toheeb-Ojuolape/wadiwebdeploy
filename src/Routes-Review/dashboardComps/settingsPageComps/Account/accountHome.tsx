@@ -17,7 +17,7 @@ export const AccountHome = (props: any) => {
             sub={
               "See your account information like your phone number and email address"
             }
-            link="account"
+            link="/review/settings/account"
           />
 
           <AccountNavLink
@@ -26,7 +26,7 @@ export const AccountHome = (props: any) => {
             sub={
               "See your account information like your phone number and email address"
             }
-            link="change-password"
+            link="/review/settings/change-password"
           />
           <AccountNavLink
             icon={<ProfileDelete size={"15px"} />}
@@ -34,7 +34,7 @@ export const AccountHome = (props: any) => {
             sub={
               "See your account information like your phone number and email address"
             }
-            link="delete-account"
+            link="/review/settings/delete-account"
           />
         </Box>
       </Box>

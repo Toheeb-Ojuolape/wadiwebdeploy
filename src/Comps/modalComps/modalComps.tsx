@@ -32,15 +32,15 @@ export const ModalComps = (props: any) => {
         onClose={props.onClose}
       >
         <ModalOverlay />
-        <ModalContent borderRadius={"3xl"}>
+        <ModalContent borderRadius={"3xl"} ml="10px" mr="10px">
           <ModalCloseButton />
           <ModalBody>
-            {moveNext.pag1 || moveNext.pag2 || moveNext.pag3 ? (
-             null
-            ) : <ModalBodyComponent setRadio={setRadio} />}
-            {moveNext.pag1 ? (<ModelBodyNewProject/>) : null}
+            {moveNext.pag1 || moveNext.pag2 || moveNext.pag3 ? null : (
+              <ModalBodyComponent setRadio={setRadio} />
+            )}
+            {moveNext.pag1 ? <ModelBodyNewProject /> : null}
           </ModalBody>
-          
+
           <ModalFooter>
             <WadiButton
               text="Next"

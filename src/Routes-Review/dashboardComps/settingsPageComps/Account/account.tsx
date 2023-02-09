@@ -21,6 +21,7 @@ export const Account = (props: any) => {
 
   return <Box>
     {settingRoute === undefined && <AccountHome />}
+    {settingRoute === "account-home" && <AccountHome />}
     {settingRoute === "account" && <AccountInfo/>}
     {settingRoute === "change-password" && <ChangePassword/>}
     {settingRoute === "delete-account" && <DeleteAccount/>}

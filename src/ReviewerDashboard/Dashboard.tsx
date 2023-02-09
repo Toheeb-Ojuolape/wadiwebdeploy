@@ -15,8 +15,8 @@ import { Loading } from "../Routes-Review/loading/loading";
       window.location.href = "/signin";
     }
     // set a timeout to simulate a loading state
-    setTimeout(() => {
-    setIsLoading(false);}, 1000);
+   
+    setIsLoading(false)
   }, [props.loggedIn]);
 
 
