@@ -1,4 +1,4 @@
-import { FormLabel, Input, Select, useMediaQuery } from "@chakra-ui/react";
+import { FormLabel, Input, useMediaQuery } from "@chakra-ui/react";
 
 export const RegularInput = (props: {
   label: string;

@@ -1,8 +1,10 @@
-import { Box, Button, FormControl, Text } from "@chakra-ui/react";
+import { Box, FormControl, Text,Progress } from "@chakra-ui/react";
 import ManuScript from "./manuScriptUpload";
 
 import { RegularInput } from "./regurlarInput";
 import { SelectInput } from "./selectInput";
+
+
 
 import {
 
@@ -12,18 +14,18 @@ import {
 } from "@chakra-ui/react";
 
 import { ProjectDetailsButton } from "./projectDetailsButton";
-const researchList = ["Environmental Management", "Social science", "Data "];
-const paymentList = ["Monthly", "Yearly", "Quarterly"];
+const researchList = ["Art","Energy","Engineering","Environment","Geoscience","History","Humanities","Medicine","Politics","Programming","Social Science","Scholarships","Science","Space","Technology"];
+const projectType = ["Choose Type","Convert Dissertation to Manuscript", "Review Research"];
 
 export const ProjectDetails = (props: any) => {
+
   return (
     <Box flexWrap="wrap">
       <Text fontWeight={"extrabold"} fontSize="18px">
         Project Details
       </Text>
       <Text fontSize={"14px"}>
-        Lorem ipsum dolor sit amet consectetur. Vestibulum turpis mi volutpat
-        commodo amet.
+        Enter the details of your project
       </Text>
       <FormControl mt="30px">
         <RegularInput
@@ -45,12 +47,16 @@ export const ProjectDetails = (props: any) => {
           handleChange={props.handleChange}
         />
         <SelectInput
-          label={"Select payment plan"}
-          name={"paymentPlan"}
+          label={"Select Type"}
+          name={"projectType"}
           handleChange={props.handleChange}
-          optionList={paymentList}
+          optionList={projectType}
         />
         <ManuScript file={props.file} uploadFile={props.uploadFile} />
+        
+        
+        <div className="flex"><Progress value={props.progressLoading} width={"380px"}/><p className="text-sm ml-2">{props.progressLoading} %</p></div>
+        
         <Box mt="20px">
           <Text
             mb="10px"
@@ -64,12 +70,12 @@ export const ProjectDetails = (props: any) => {
             <ListItem>The file must be a docx format</ListItem>
             <ListItem>
               Ensure that your name is taken off from your manuscript to
-              emphasise unbiased reviews.
+               unbiased reviews.
             </ListItem>
           </UnorderedList>
         </Box>
      
-        <ProjectDetailsButton text='Next' onClick={props.onClick}/>
+        <ProjectDetailsButton isLoading={props.loading} text='Next' onClick={props.onClick}/>
       </FormControl>
     </Box>
   );

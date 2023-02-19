@@ -24,3 +24,32 @@
   padding: 0.5rem;
   cursor: pointer;
 }
+
+
+
+.Completed{
+  color:#00b370;
+  border:1px solid;
+  text-align:center;
+  width:90%;
+  border-radius:20px;
+  padding:5px 0px
+}
+
+.Active{
+  color:#2b5fd0;
+  border:1px solid;
+  text-align:center;
+  width:90%;
+  border-radius:20px;
+  padding:5px 0px
+}
+
+.Under-Review{
+  color:#ffb400;
+  border:1px solid;
+  text-align:center;
+  width:90%;
+  border-radius:20px;
+  padding:5px 0px
+}

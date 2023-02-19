@@ -1,10 +1,6 @@
 import {
   Box,
-  Center,
   Flex,
-  Tag,
-  TagLabel,
-  TagLeftIcon,
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
@@ -17,27 +13,27 @@ import {
 
 const ProjectList = [
   {
-    title: "Active projects",
+    title: "Active",
     count: "0",
 
     bg: "rgba(242, 249, 253, 1)",
     icon: <Briefcase color="rgba(43, 95, 208, 1)" />,
   },
   {
-    title: "Projects in review",
+    title: "Under Review",
     count: "0",
 
     bg: "rgba(254, 245, 239, 1)",
     icon: <ReceiptText color="rgba(237, 112, 45, 1)" />,
   },
   {
-    title: "Rejected projects",
+    title: "Rejected",
     count: "0",
     bg: "rgba(254, 228, 226, 1)",
     icon: <ReceiptMinus color="rgba(240, 68, 56, 1)" />,
   },
   {
-    title: "Completed projects",
+    title: "Completed",
     count: "0",
     bg: "rgba(209, 250, 223, 1)",
 
@@ -49,7 +45,7 @@ export const OverviewComps = (props:any) => {
   return (
     <Flex mt={"20px"} justifyContent="space-between" flexWrap={"wrap"}>
       {ProjectList.map((project:any, index:Number) => {
-        return <Container projects={props.userData.projects} {...project} key={index} />;
+        return <Container projects={props.projectData} {...project} key={index} />;
       })}
     </Flex>
   );
@@ -83,7 +79,7 @@ const Container = (props: any) => {
       </Text>
 
       <Text fontFamily={"Montserrat"} lineHeight={!isMobile ? '50px': "30px"} fontSize={!isMobile ? "40px": "20px"} fontWeight="bold">
-        {props.count}
+        {props.projects && props.projects.filter((project:any)=>project.status===props.title).length}
       </Text>
     </Flex>
   );

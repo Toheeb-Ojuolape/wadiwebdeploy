@@ -5,7 +5,7 @@ export const OverViewContainer = (props: any) => {
   return (
     <Box>
      
-      <OverviewComps userData={props.userData} />
+      <OverviewComps userData={props.userData} projectData={props.projectData} />
     </Box>
   );
 };

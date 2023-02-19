@@ -1,7 +1,5 @@
-import { Avatar, Box, Circle, HStack, Text } from "@chakra-ui/react";
-import { BellIconWadi } from "../../../icon/bellIcon";
-import { InfoIconWadi } from "../../../icon/infoIcon";
-import { AvatarComp } from "../comps/avatar";
+import { Box,HStack, Text } from "@chakra-ui/react";
+
 import { NotificationComps } from "../comps/notification";
 import { Profile } from "./profile";
 import { TopBarTag } from "./topBarTag";

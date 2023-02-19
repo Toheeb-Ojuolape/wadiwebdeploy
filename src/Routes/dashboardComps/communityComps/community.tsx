@@ -51,12 +51,12 @@ export const CommunityContainer = (props: any) => {
   return (
     <Flex w="100%" flexDirection={"column"} m="20px">
       <GeneralHeadingComp
-        title="Community"
+        title="Forum"
         placeholder="newest"
         options={["Newest"]}
       />
       <Flex flexDirection={"column"} w="100%" overflow={"auto"} maxH="400px">
-        {comments.map((comment, index) => {
+        {props.forumData&& props.forumData.slice(0,5).reverse().map((comment:any, index:Number) => {
           return <CommunityComps {...comment} />;
         })}
       </Flex>
@@ -64,6 +64,7 @@ export const CommunityContainer = (props: any) => {
         handleQuestions={handleQuestions}
         value={question}
         submitQuestion={submitQuestion}
+        userData={props.userData}
       />
     </Flex>
   );

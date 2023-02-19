@@ -1,33 +1,19 @@
 import {
   Box,
   Flex,
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Text,
-  Tr,
   Center,
   Spacer,
   useMediaQuery,
   Button,
 } from "@chakra-ui/react";
-import {
-  DeleteButton,
-  EditButton,
-  ImportButton,
-} from "../dashboardComps/myProjectsComps/actions";
-import { Progress } from "../dashboardComps/myProjectsComps/progress";
 
-import {
-  Rejected,
-  Review,
-  Successful,
-} from "../dashboardComps/myProjectsComps/status";
-import { HeadTab } from "./headTab";
 import { AllProjectsComps } from "./projectPageComps/AllProjects";
+import { useNavigate } from "react-router-dom";
+import {ThunkDispatch} from "@reduxjs/toolkit";
+import { getProject } from "../../store/projectReducer";
+import { useDispatch,useSelector} from 'react-redux';
+import React from 'react'
+
 
 const tableData = [
   {
@@ -66,12 +52,29 @@ const tabList = [
   { text: "Completed" },
 ];
 
+interface MyProjects {
+  project:{
+    value:Map<any,any>
+  },
+  loading: Boolean
+}
+
 export const ManageProjects = (props: any) => {
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+  const projectData = useSelector((state: MyProjects) => state.project.value)
+
+  // React.useEffect(() => {
+  //   dispatch(getProject())
+  //   if (!props.loggedIn) {
+  //     window.location.href = "/signin";
+  //   }
+  // }, [dispatch,getProject]);
+  
   return (
     <Flex flexDirection={"row"} className="animate__animated animate__fadeIn">
       <Box padding={"20px"} width={"100vw"} flexDirection={"column"}>
         <TableHeading />
-        <AllProjectsComps />
+        <AllProjectsComps projectData={props.projectData}/>
       </Box>
     </Flex>
   );
@@ -79,6 +82,12 @@ export const ManageProjects = (props: any) => {
 
 const TableHeading = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 600px)");
+  const history = useNavigate()
+
+
+  const addProject = () =>{
+     history("/dashboard/publish/new-project")
+  }
   return (
     <Flex>
       <Center p="4"></Center>
@@ -90,7 +99,7 @@ const TableHeading = (props: any) => {
         p="4"
         flexDirection={"row"}
       >
-        <Button bg="rgba(43, 95, 208, 1)" color={"white"} fontSize={"14px"}>
+        <Button onClick={addProject} bg="rgba(43, 95, 208, 1)" color={"white"} fontSize={"14px"}>
           Create Project
         </Button>
       </Center>

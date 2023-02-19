@@ -13,10 +13,10 @@ export const MyProjectsContainer = (props: any) => {
       className="animate__animated animate__fadeInUp"
       >
         <Box padding='10px' borderRadius='md' bg='white' w={!isMobile ? '60%': "100%"} h='fit-content'>
-        <MyProjectComps /></Box>
+        <MyProjectComps userData={props.userData} projectData={props.projectData}/></Box>
         <Spacer/>
         <Flex w={!isMobile ?'38%': "100%"} mt={isMobile  ? '20px': ""} >
-        <UpComingComps/></Flex>
+        <UpComingComps eventData={props.eventData}/></Flex>
       </Flex>
     
   );

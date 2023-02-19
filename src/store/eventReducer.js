@@ -10,16 +10,15 @@ import { getDoc,doc } from "firebase/firestore";
 
 
 const initialState = {
-  value: localStorage.getItem("wadiKey"),
   loading: false,
 } 
 // as initialState
 
 
 
-export const getUser = createAsyncThunk("users/getUser", async () => {
+export const getEvent = createAsyncThunk("users/getEvent", async () => {
   try {
-    const docRef = doc(db,"users",localStorage.getItem('wadiKey') || '{}');
+    const docRef = doc(db,"events","T9OKOEXNH6cMLyXAavK0" || '{}');
     const response = await getDoc(docRef)
     console.log(response.data())
     return response.data()
@@ -28,23 +27,23 @@ export const getUser = createAsyncThunk("users/getUser", async () => {
   }
 });
 
-export const usersSlice = createSlice({
-  name: "user",
+export const eventSlice = createSlice({
+  name: "event",
   initialState,
   extraReducers:(builder) => {
-    builder.addCase(getUser.pending,(state,action) =>{
+    builder.addCase(getEvent.pending,(state,action) =>{
       state.loading = true;
     })
 
-    builder.addCase(getUser.fulfilled,(state,action) =>{
+    builder.addCase(getEvent.fulfilled,(state,action) =>{
       state.loading = false;
       state.value = action.payload;
     })
 
-    builder.addCase(getUser.rejected,(state,action) =>{
+    builder.addCase(getEvent.rejected,(state,action) =>{
       state.loading = false;
     })
   },
 });
 
-export default usersSlice.reducer;
+export default eventSlice.reducer;

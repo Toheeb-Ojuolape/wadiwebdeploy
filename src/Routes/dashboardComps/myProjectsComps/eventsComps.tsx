@@ -1,4 +1,5 @@
 import { Box, Center, Divider, Flex, Spacer, Text } from "@chakra-ui/react";
+import moment from "moment";
 
 export const EventsComps = (props: {event: string, date: string, time: string, tag: string}) => {
   return (
@@ -6,8 +7,8 @@ export const EventsComps = (props: {event: string, date: string, time: string, t
       <Text fontSize={'14px'} fontWeight='extrabold'>{props.event}</Text>
       <Flex>
         <Flex flexDirection={'column'} w='100%' >
-          <Text fontSize={'13px'}>{props.date}</Text>
-          <Text fontSize={'13px'}>{props.time}</Text>
+          <Text fontSize={'13px'}>{props.date === 'anytime'?moment(Date.now()).format('lll'):props.date}</Text>
+        
         </Flex>
         <Spacer />
         <Flex>

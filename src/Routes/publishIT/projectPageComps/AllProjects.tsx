@@ -108,7 +108,7 @@ export const AllProjectsComps = (props: any) => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <AllProjectData />
+            <AllProjectData projectData={props.projectData} />
           </TabPanel>
           <TabPanel>
             <ReviewData />

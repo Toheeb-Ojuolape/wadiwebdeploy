@@ -1,21 +1,16 @@
 import {
- 
   Flex,
   Table,
-
   TableContainer,
   Tbody,
   Td,
-  
   Th,
   Thead,
   Text,
   Tr,
-
   Center,
   Spacer,
   useMediaQuery,
-  Box,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -23,26 +18,42 @@ import { DeleteButton, EditButton, ImportButton } from "./actions";
 import { tableDataList } from "./dataTest";
 import { Progress } from "./progress";
 import { AllProjectsButton, SelectContent } from "./selectContent";
-import { Successful, Rejected, Review } from "./status";
-import Pagination from "react-paginate";
 
-import './paginate.css'
-import { ArrowLeft3, ArrowRight3, Briefcase } from "iconsax-react";
+import "./paginate.css";
 import { Link } from "react-router-dom";
 
 const dates = ["2021", "2022", "2023", "2024", "2025"];
-const query = ["Environmental", "Social", "Economic", "All"];
-
-
+const query = [
+  "All",
+  "Biology",
+  "Chemistry",
+  "Economic",
+  "Energy",
+  "Environmental",
+  "Geology",
+  "Physics",
+];
 
 export const MyProjectComps = (props: any) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [perPage, setPerPage] = useState(6);
-  const [data, setData] = useState(tableDataList);
+  const [perPage] = useState(6);
+  const [data] = useState(tableDataList);
 
   const handlePageChange = (page: any) => {
     setCurrentPage(page.selected);
   };
+
+  interface Project{
+    author:string,
+    title:string,
+    date:any,
+    field:string,
+    file:string,
+    journal:string,
+    status:string,
+    timestamp:number
+
+  }
 
   const sliceStart = currentPage * perPage;
   const sliceEnd = sliceStart + perPage;
@@ -50,7 +61,7 @@ export const MyProjectComps = (props: any) => {
   return (
     <Flex flexDirection={"column"} flexWrap="wrap">
       <TableHeading title="Projects" />
-      <TableContainer minH={'350px'}>
+      <TableContainer minH={"350px"}>
         <Table size="sm" variant="simple">
           <Thead>
             <Tr>
@@ -58,22 +69,21 @@ export const MyProjectComps = (props: any) => {
               <Th>Status</Th>
               <Th>Date created</Th>
               <Th>Progress</Th>
-              <Th textAlign={'right'}>Actions</Th>
+              <Th textAlign={"right"}>Actions</Th>
             </Tr>
           </Thead>
           <Tbody>
-            
-            {displayedData.map((data:any, index:Number) => (
+            {props.projectData && props.projectData.map((data: any, index: Number) => (
               <Tr>
                 <Td w={"200px"}>
                   <Flex flexDirection={"column"}>
-                    <Text>{data.name}</Text>
+                    <Text>{data.title}</Text>
                     <Text>{data.size}</Text>
                   </Flex>
                 </Td>
 
                 <Td>
-                  {data.status === "Successful" ? <Successful/>: data.status === "Rejected"? <Rejected/> : data.status === "Reviewed"?<Review />:null}
+                 <div className={data.status.replaceAll(" ","-")}>{data.status}</div>
                 </Td>
                 <Td>
                   <Flex flexDirection={"column"}>
@@ -87,29 +97,19 @@ export const MyProjectComps = (props: any) => {
                 <Td>
                   <Flex justifyContent="space-between">
                     <EditButton />
-                    {data.status==="Successful" ?<ImportButton />:  <DeleteButton/>}
+                    {data.status === "Successful" ? (
+                      <ImportButton />
+                    ) : (
+                      <DeleteButton />
+                    )}
                   </Flex>
                 </Td>
-              </Tr>))
-            }
+              </Tr>
+            ))}
           </Tbody>
         </Table>
       </TableContainer>
-      <Box mt='20px' maxW='100%'>
-            <Pagination
-              previousLabel={<ArrowLeft3/>}
-              nextLabel={<ArrowRight3/>}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={data.length / perPage}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={1}
-              onPageChange={handlePageChange}
-              containerClassName={"pagination"}
-            
-              activeClassName={"active"}
-            />
-          </Box>
+      
     </Flex>
   );
 };
@@ -133,7 +133,9 @@ const TableHeading = (props: any) => {
       >
         <SelectContent placeholder={dates[0]} options={dates} />
         <SelectContent placeholder={query[0]} options={query} />
-        <Link to='/review/home'><AllProjectsButton text="All Projects" /></Link>
+        <Link to="/dashboard/publish/my-projects">
+          <AllProjectsButton text="All Projectsds" />
+        </Link>
       </Center>
     </Flex>
   );

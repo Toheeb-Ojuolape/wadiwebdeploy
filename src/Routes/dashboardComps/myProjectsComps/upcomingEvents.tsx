@@ -3,29 +3,12 @@ import { EventsComps } from "./eventsComps";
 import { SelectContent } from "./selectContent";
 const eventList = [
   {
-    event: "How to build a successful startup",
-    date: "June 25, 2023",
-    time: "10:00 AM",
+    event: "From Final Year Project/Thesis to Published Journal",
+    date: "anytime",
+    time: "anytime",
     tag: "Webinar",
   },
-  {
-    event: " From Final Year Project/Thesis to Published Journal",
-    date: "June 28, 2023",
-    time: "10:00 AM",
-    tag: "Webinar",
-  },
-  {
-    event: "Publish Journal",
-    date: "June 31, 2023",
-    time: "10:00 AM",
-    tag: "Webinar",
-  },
-  {
-    event: "Webinar: How to build a successful business",
-    date: "June 31, 2023",
-    time: "10:00 AM",
-    tag: "Workshop",
-  },
+  
 ];
 
 export const UpComingComps = (props: any) => {

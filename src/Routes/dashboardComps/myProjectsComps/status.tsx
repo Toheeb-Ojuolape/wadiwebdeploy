@@ -1,5 +1,4 @@
-import { Tag, TagLabel, TagLeftIcon } from "@chakra-ui/react";
-import { FaCircle } from "react-icons/fa";
+import { Tag, TagLabel} from "@chakra-ui/react";
 
 export const Review = () => {
   return (
@@ -26,7 +25,7 @@ export const Successful = () => {
       color={"#12B76A"}
       borderRadius="3xl"
     >
-      <TagLabel>Successful</TagLabel>
+      <TagLabel>Completed</TagLabel>
     </Tag>
   );
 };

@@ -69,7 +69,7 @@ export const DashBoardContainer = (props:any) => {
         mr={!isMobile ? "10px" : "0px"}
       >
         <Suspense fallback={<Loading loading />}>
-          {route === "home" && <DashBoardHome userData={props.userData} />}
+          {route === "home" && <DashBoardHome userData={props.userData} eventData= {props.eventData} forumData= {props.forumData} projectData={props.projectData} />}
 
           {subroute === "new-project" && <AddNewProject />}
           {subroute === "my-projects" && <ManageProjects />}
