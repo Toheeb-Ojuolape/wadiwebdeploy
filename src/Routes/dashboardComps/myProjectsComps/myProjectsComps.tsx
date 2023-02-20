@@ -96,7 +96,7 @@ export const MyProjectComps = (props: any) => {
                 </Td>
                 <Td>
                   <Flex justifyContent="space-between">
-                    <EditButton />
+                    <EditButton slug={data.slug} />
                     {data.status === "Successful" ? (
                       <ImportButton />
                     ) : (

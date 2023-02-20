@@ -3,9 +3,11 @@ import { IconButton } from "@chakra-ui/react";
 import { Import } from "iconsax-react";
 import TrashIcon from "../icons/delete";
 import PenIcon from "../icons/pen";
+import { useNavigate } from "react-router-dom";
 
 export const EditButton = (props: any) => {
-  return <IconButton bg='rgba(242, 249, 253, 1)' ml='10px' aria-label="Edit" icon={<PenIcon />} />;
+  const history = useNavigate()
+  return <IconButton onClick={()=>history("/publish/"+props.slug)} bg='rgba(242, 249, 253, 1)' ml='10px' aria-label="Edit" icon={<PenIcon />} />;
 };
 export const DeleteButton = (props: any) => {
   return <IconButton bg='rgba(254, 228, 226, 1)' ml='10px' aria-label="Edit" icon={<TrashIcon />} />;
