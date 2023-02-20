@@ -306,7 +306,7 @@ export const SignUpComp = (props: any) => {
       <AccountOption
         text="Already have an account?  "
         linkText="Login here"
-        link="/signin"
+        link="/login"
       />
     </FormControl>
   );

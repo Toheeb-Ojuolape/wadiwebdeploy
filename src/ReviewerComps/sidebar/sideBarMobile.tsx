@@ -54,7 +54,7 @@ export const SideBarMobile = (props: {
             <NameAndPosition name={props.name} position={props.position} />
             <TopBarTag title={props.profession} />
           </Flex>
-          <CreateNewButton />
+          
           {Routes.map((route, index) => {
             return (
               <>

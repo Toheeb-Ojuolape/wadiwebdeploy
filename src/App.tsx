@@ -5,7 +5,7 @@ import theme from "./themes";
 
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Loading } from "./Routes-Review/loading/loading";
-import 'animate.css'
+import "animate.css";
 
 const ReviewerDashBoard = lazy(() => import("./ReviewerDashboard/Dashboard"));
 const DashBoard = lazy(() => import("./Dashboard/Dashboard"));
@@ -76,7 +76,7 @@ export const App = () => (
             path="/review/:reviewRoute"
             element={<ReviewerDashBoard loggedIn={true} />}
           />
-           <Route
+          <Route
             path="/review/settings/:settingRoute"
             element={<ReviewerDashBoard loggedIn={true} />}
           />
@@ -89,12 +89,13 @@ export const App = () => (
             path="/review"
             element={<Navigate to="/review/home" replace />}
           />
+        
           <Route
             path="/dashboard/publish/:subroute"
             element={<DashBoard loggedIn={true} />}
           />
           <Route path="/404" element={<FOF />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
+          {/* <Route path="*" element={<Navigate to="/404" replace />} /> */}
           <Route
             path="/dashboard"
             element={<Navigate to="/dashboard/home" replace />}

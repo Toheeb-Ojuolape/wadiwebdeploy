@@ -18,7 +18,7 @@ import { ThunkDispatch } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { getProject } from "../../store/projectReducer";
 
-export const AddNewProject = (props:{page: number}) => {
+export const PublishSlug = (props:{page: number}) => {
   const history = useNavigate();
   interface ProjectData {
     manuscriptTitle?: string;

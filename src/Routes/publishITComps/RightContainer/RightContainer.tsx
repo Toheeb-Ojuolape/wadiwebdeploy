@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Tab, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import {
   Briefcase,
   CardPos,
@@ -6,6 +6,7 @@ import {
   LogoutCurve,
   TimerStart,
 } from "iconsax-react";
+import { useState } from "react";
 import { SideBarButton } from "../../../Comps/sidebar/button/sidebarButton";
 import { ProjectDetails } from "../LeftContainer/projectDetails";
 import { NavBoxes } from "./navBoxes";
@@ -46,7 +47,7 @@ export const RightContainer = (props: any) => {
       bg={"white"}
       borderRadius="md"
     >
-      {navItems.map((item, index) => {
+      {/* {navItems.map((item, index) => {
         return (
           <NavBoxes
             title={item.title}
@@ -55,7 +56,29 @@ export const RightContainer = (props: any) => {
             isActive={index === 0 ? true : false}
           />
         );
-      })}
+      })} */}
+      <Tabs
+        index={props.tabIndex}
+        onChange={props.handleTabsChange}
+        w={"100%"}
+        isLazy
+      >
+        <Box>
+          {navItems.map((item, index) => {
+            return (
+              <Tab mt='10px' border={"0px"} textAlign="left">
+                <NavBoxes
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  icon={item.icon}
+                
+                />
+              </Tab>
+            );
+          })}
+         
+        </Box>
+      </Tabs>
     </Flex>
   );
 };

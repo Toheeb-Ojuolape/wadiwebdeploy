@@ -4,12 +4,14 @@ import eventReducer from "./eventReducer"
 import forumReducer from './forumReducer'
 import projectReducer from './projectReducer'
 
+
 export const store = configureStore({
   reducer: {
     user:userReducer,
     event:eventReducer,
     forum:forumReducer,
-    project:projectReducer
+    project:projectReducer,
+  
   }
  
 })

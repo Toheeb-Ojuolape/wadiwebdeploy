@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const BackToLogin = (props: any) => {
   return (
-    <Link to={'/signin'}>
+    <Link to={'/login'}>
     <HStack spacing="24px" justify={"center"}>
       <Box w="fit-content" h="fit-content">
         <ArrowBackIcon />

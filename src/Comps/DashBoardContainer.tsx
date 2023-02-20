@@ -1,6 +1,6 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { lazy, Suspense, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { Loading } from "../Routes-Review/loading/loading";
 
 import { TopBar } from "./sidebar/topbar/topbar";
@@ -20,17 +20,9 @@ const ManageProjects = lazy(() =>
     default: module.ManageProjects,
   }))
 );
-const topBarData = {
-  profession: "Researcher",
-  name: "Isaac Ojo",
-  profilePic:
-    "https://lh3.googleusercontent.com/-N43TPVUqQpk/AAAAAAAAAAI/AAAAAAAABK8/ONS86r57Wnk/photo.jpg?sz=256",
-  hasNotification: true,
-  notificationCount: 5,
-  position: "Frontend Developer",
-};
 
-export const DashBoardContainer = (props:any) => {
+export const DashBoardContainer = (props: any) => {
+  const location = useLocation();
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -42,6 +34,7 @@ export const DashBoardContainer = (props:any) => {
 
   const params = useParams() as { route: string; subroute: string };
   const { route, subroute } = params;
+  console.log(location.pathname);
   console.log(subroute);
   return (
     <Box
@@ -69,10 +62,23 @@ export const DashBoardContainer = (props:any) => {
         mr={!isMobile ? "10px" : "0px"}
       >
         <Suspense fallback={<Loading loading />}>
-          {route === "home" && <DashBoardHome userData={props.userData} eventData= {props.eventData} forumData= {props.forumData} projectData={props.projectData} />}
+          {route === "home" && (
+            <DashBoardHome
+              userData={props.userData}
+              eventData={props.eventData}
+              forumData={props.forumData}
+              projectData={props.projectData}
+            />
+          )}
 
-          {subroute === "new-project" && <AddNewProject />}
+          {subroute === "new-project" && <AddNewProject page={0} />}
           {subroute === "my-projects" && <ManageProjects />}
+          {subroute &&
+          subroute !== "my-projects" &&
+          subroute !== "new-project" &&
+          subroute.length > 0 ? (
+            <AddNewProject page={2}/>
+          ) : null}
         </Suspense>
       </Box>
     </Box>

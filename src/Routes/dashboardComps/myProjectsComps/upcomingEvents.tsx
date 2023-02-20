@@ -1,4 +1,13 @@
-import { Center, Flex, Spacer, Text, useMediaQuery } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Skeleton,
+  Spacer,
+  Stack,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { EventsComps } from "./eventsComps";
 import { SelectContent } from "./selectContent";
 const eventList = [
@@ -8,18 +17,23 @@ const eventList = [
     time: "anytime",
     tag: "Webinar",
   },
-  
 ];
 
 export const UpComingComps = (props: any) => {
+  const eventData = props.eventData || { events: [] };
+  console.log(
+    "🚀 ~ file: upcomingEvents.tsx:16 ~ UpComingComps ~ eventData",
+    eventData
+  );
+
   return (
     <Flex
       bg={"white"}
       borderRadius="lg"
       flexWrap="wrap"
-      w=""
       h="full"
       padding={"20px"}
+      width='100%'
     >
       <GeneralHeadingComp
         title="Upcoming Events"
@@ -30,14 +44,19 @@ export const UpComingComps = (props: any) => {
         return <EventsComps key={index} {...events} />;
       })} */}
 
-
-       {eventList.length > 0 ?  
-       (<div className='overflow-auto max-h-[600px] w-full'>
-          {eventList.map((item, index) => (
-          <EventsComps key={index} {...item} />
+      {eventData.events.length > 0 ? (
+        <div className="overflow-auto max-h-[600px] w-full min-h-[350px]">
+          {eventData.events.map((item: any, index: Number) => (
+            <EventsComps key={index} {...item} />
           ))}
-        </div>): (<div>No Events</div>)}
-      
+        </div>
+      ) : (
+        <div className="overflow-auto max-h-[600px] w-full min-h-[350px]">
+          <Box width={'100%'}>
+            <Skeleton mt='10px' height="80px" />
+          </Box>
+        </div>
+      )}
     </Flex>
   );
 };
@@ -50,7 +69,7 @@ export const GeneralHeadingComp = (props: {
 }) => {
   const [isMobile] = useMediaQuery("(max-width: 600px)");
   return (
-    <Flex w="100%">
+    <Flex w="100%" h="fit-content">
       <Center p="4">
         <Text fontSize="20px" fontWeight={"extrabold"}>
           {props.title}

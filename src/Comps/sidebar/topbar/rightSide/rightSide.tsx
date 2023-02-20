@@ -1,4 +1,4 @@
-import { Box,HStack, Text } from "@chakra-ui/react";
+import { Box, HStack, Skeleton, Text } from "@chakra-ui/react";
 
 import { NotificationComps } from "../comps/notification";
 import { Profile } from "./profile";
@@ -15,10 +15,7 @@ export const RightSide = (props: {
   return (
     <HStack spacing={"20px"} width={"100%"} h="fit-content">
       <Box>
-        <TopBarTag
-          title={props.profession}
-        
-        />
+        <TopBarTag title={props.profession} />
       </Box>
 
       <NotificationComps
@@ -36,7 +33,13 @@ export const RightSide = (props: {
 export const NameAndPosition = (props: { position: string; name: string }) => {
   return (
     <Box w="200px">
-      <Text fontWeight={"bolder"}>{props.name}</Text>
+      {props.name ? (
+        <Text fontWeight={"bolder"}>{props.name}</Text>
+      ) : (
+        <Box width={"100px"}>
+          <Skeleton height="20px" />
+        </Box>
+      )}
       <Text color={"#667085"}>{props.position}</Text>
     </Box>
   );

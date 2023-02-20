@@ -11,6 +11,8 @@ import {
   Center,
   Spacer,
   useMediaQuery,
+  Box,
+  Skeleton,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -43,25 +45,25 @@ export const MyProjectComps = (props: any) => {
     setCurrentPage(page.selected);
   };
 
-  interface Project{
-    author:string,
-    title:string,
-    date:any,
-    field:string,
-    file:string,
-    journal:string,
-    status:string,
-    timestamp:number
-
+  interface Project {
+    author: string;
+    title: string;
+    date: any;
+    field: string;
+    file: string;
+    journal: string;
+    status: string;
+    timestamp: number;
   }
 
   const sliceStart = currentPage * perPage;
   const sliceEnd = sliceStart + perPage;
-  const displayedData = data.slice(sliceStart, sliceEnd);
+
+  const displayedData = props.projectData? props.projectData.slice(sliceStart, sliceEnd) : null;
   return (
     <Flex flexDirection={"column"} flexWrap="wrap">
       <TableHeading title="Projects" />
-      <TableContainer minH={"350px"}>
+      {props.projectData ? <TableContainer minH={"350px"}>
         <Table size="sm" variant="simple">
           <Thead>
             <Tr>
@@ -73,43 +75,47 @@ export const MyProjectComps = (props: any) => {
             </Tr>
           </Thead>
           <Tbody>
-            {props.projectData && props.projectData.map((data: any, index: Number) => (
-              <Tr>
-                <Td w={"200px"}>
-                  <Flex flexDirection={"column"}>
-                    <Text>{data.title}</Text>
-                    <Text>{data.size}</Text>
-                  </Flex>
-                </Td>
+            {displayedData &&
+              displayedData.map((data: any, index: Number) => (
+                <Tr>
+                  <Td w={"200px"}>
+                    <Flex flexDirection={"column"}>
+                      <Text>{data.title}</Text>
+                      <Text>{data.size}</Text>
+                    </Flex>
+                  </Td>
 
-                <Td>
-                 <div className={data.status.replaceAll(" ","-")}>{data.status}</div>
-                </Td>
-                <Td>
-                  <Flex flexDirection={"column"}>
-                    <Text>{data.date}</Text>
-                    <Text color={"rgba(102, 112, 133, 1)"}>{data.time}</Text>
-                  </Flex>
-                </Td>
-                <Td>
-                  <Progress percentage={data.progress} />
-                </Td>
-                <Td>
-                  <Flex justifyContent="space-between">
-                    <EditButton slug={data.slug} />
-                    {data.status === "Successful" ? (
-                      <ImportButton />
-                    ) : (
-                      <DeleteButton />
-                    )}
-                  </Flex>
-                </Td>
-              </Tr>
-            ))}
+                  <Td>
+                    <div className={data.status.replaceAll(" ", "-")}>
+                      {data.status}
+                    </div>
+                  </Td>
+                  <Td>
+                    <Flex flexDirection={"column"}>
+                      <Text>{data.date}</Text>
+                      <Text color={"rgba(102, 112, 133, 1)"}>{data.time}</Text>
+                    </Flex>
+                  </Td>
+                  <Td>
+                    <Progress percentage={data.progress} />
+                  </Td>
+                  <Td>
+                    <Flex justifyContent="space-between">
+                      <EditButton slug={data.slug} />
+                      {data.status === "Successful" ? (
+                        <ImportButton />
+                      ) : (
+                        <DeleteButton />
+                      )}
+                    </Flex>
+                  </Td>
+                </Tr>
+              ))}
           </Tbody>
         </Table>
-      </TableContainer>
-      
+      </TableContainer> :  <Box  minH={"350px"} width={'100%'}>
+            <Skeleton mt='10px' height="80px" />
+          </Box>}
     </Flex>
   );
 };
@@ -134,7 +140,7 @@ const TableHeading = (props: any) => {
         <SelectContent placeholder={dates[0]} options={dates} />
         <SelectContent placeholder={query[0]} options={query} />
         <Link to="/dashboard/publish/my-projects">
-          <AllProjectsButton text="All Projectsds" />
+          <AllProjectsButton text="All Projects" />
         </Link>
       </Center>
     </Flex>

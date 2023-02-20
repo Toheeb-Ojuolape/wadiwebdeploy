@@ -36,7 +36,7 @@ export const RightSide = (props: {
 export const NameAndPosition = (props: { position: string; name: string }) => {
   return (
     <Box w="200px">
-      <Text fontWeight={"bolder"}>{props.name}</Text>
+      {<Text fontWeight={"bolder"}>{props.name}</Text>}
       <Text color={"#667085"}>{props.position}</Text>
     </Box>
   );

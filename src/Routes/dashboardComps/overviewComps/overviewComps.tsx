@@ -1,9 +1,4 @@
-import {
-  Box,
-  Flex,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, Flex, Skeleton, Text, useMediaQuery } from "@chakra-ui/react";
 import {
   ReceiptText,
   Briefcase,
@@ -41,46 +36,60 @@ const ProjectList = [
   },
 ];
 
-export const OverviewComps = (props:any) => {
+export const OverviewComps = (props: any) => {
   return (
     <Flex mt={"20px"} justifyContent="space-between" flexWrap={"wrap"}>
-      {ProjectList.map((project:any, index:Number) => {
-        return <Container projects={props.projectData} {...project} key={index} />;
+      {ProjectList.map((project: any, index: Number) => {
+        return (
+          <Container projects={props.projectData} {...project} key={index} />
+        );
       })}
     </Flex>
   );
 };
 
 const Container = (props: any) => {
-  
   const [isMobile] = useMediaQuery("(max-width: 951px)");
-  const [isMobile2] = useMediaQuery("(min-width: 951px) and (max-width: 1140px)");
-
+  const [isMobile2] = useMediaQuery(
+    "(min-width: 951px) and (max-width: 1140px)"
+  );
 
   return (
     <Flex
       bg={"white"}
       className="animate__animated animate__jello"
-      padding={isMobile ?"12px" : "30px"}
+      padding={isMobile ? "12px" : "30px"}
       justifyContent={"space-between"}
-      borderRadius='2xl'
+      borderRadius="2xl"
       flexDirection={"column"}
       width={isMobile ? "49%" : isMobile2 ? "16vw" : "22%"}
-     
       mb="2%"
       _hover={{ bg: props.bg }}
-  
     >
       <Box borderRadius="5px" padding={"5px"} w="fit-content" bg={props.bg}>
         {props.icon}
       </Box>
-      <Text fontSize={!isMobile ?"16px" : "14px"} fontWeight="light">
+      <Text fontSize={!isMobile ? "16px" : "14px"} fontWeight="light">
         {props.title}
       </Text>
 
-      <Text fontFamily={"Montserrat"} lineHeight={!isMobile ? '50px': "30px"} fontSize={!isMobile ? "40px": "20px"} fontWeight="bold">
-        {props.projects && props.projects.filter((project:any)=>project.status===props.title).length}
-      </Text>
+      {props.projects ? (
+        <Text
+          fontFamily={"Montserrat"}
+          lineHeight={!isMobile ? "50px" : "30px"}
+          fontSize={!isMobile ? "40px" : "20px"}
+          fontWeight="bold"
+        >
+          {props.projects &&
+            props.projects.filter(
+              (project: any) => project.status === props.title
+            ).length}
+        </Text>
+      ) : (
+        <Box width={"100%"}>
+          <Skeleton mt="10px" height="50px" />
+        </Box>
+      )}
     </Flex>
   );
 };

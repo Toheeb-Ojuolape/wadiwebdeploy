@@ -39,7 +39,7 @@ export const SideBar = (props: any) => {
           <LogoCompBlue />
         </Link>
       </div>
-      <CreateNewButton />
+     
       {Routes.map((route, index) => {
         return (
           <>

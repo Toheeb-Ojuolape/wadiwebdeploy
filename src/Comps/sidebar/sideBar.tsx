@@ -39,12 +39,13 @@ export const SideBar = (props: any) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <div className="fixed z-0 top-0 left-0 h-screen w-60 flex flex-col bg-[#ffffff] text-[#475467] p-">
+    <div className="fixed z-0 top-0 overflow-y-auto left-0 h-full w-60 overflow-hidden flex flex-col bg-[#ffffff] text-[#475467] p-">
       <div className=" flex pl-8 mb-12 mt-5  content-start">
       <Link to='/dashboard/home'>
         <LogoCompBlue /></Link>
       </div>
-      <CreateNewButton />
+      <Box height={'fit-content'}>
+      <CreateNewButton /></Box>
       {Routes.map((route, index) => {
         return (
           <>

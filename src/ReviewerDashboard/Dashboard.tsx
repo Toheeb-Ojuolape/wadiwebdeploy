@@ -12,7 +12,7 @@ import { Loading } from "../Routes-Review/loading/loading";
 
   useEffect(() => {
     if (!props.loggedIn) {
-      window.location.href = "/signin";
+      window.location.href = "/login";
     }
     // set a timeout to simulate a loading state
    
