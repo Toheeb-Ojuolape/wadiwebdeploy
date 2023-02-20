@@ -3,7 +3,7 @@ import {
   Flex,
   Center,
   Spacer,
-  useMediaQuery,
+
   Button,
 } from "@chakra-ui/react";
 

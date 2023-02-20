@@ -3,6 +3,7 @@ import { lazy, Suspense, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Loading } from "../Routes-Review/loading/loading";
 
+
 import { TopBar } from "./sidebar/topbar/topbar";
 
 const DashBoardHome = lazy(() =>
@@ -20,7 +21,11 @@ const ManageProjects = lazy(() =>
     default: module.ManageProjects,
   }))
 );
-
+const PublishSlug = lazy(() =>
+  import("../Routes/publishITSlug/PublishSlug").then((module) => ({
+    default: module.PublishSlug,
+  }))
+);
 export const DashBoardContainer = (props: any) => {
   const location = useLocation();
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
@@ -77,7 +82,7 @@ export const DashBoardContainer = (props: any) => {
           subroute !== "my-projects" &&
           subroute !== "new-project" &&
           subroute.length > 0 ? (
-            <AddNewProject page={2}/>
+            <PublishSlug page={1}/>
           ) : null}
         </Suspense>
       </Box>

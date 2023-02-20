@@ -7,6 +7,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Loading } from "./Routes-Review/loading/loading";
 import "animate.css";
 
+
 const ReviewerDashBoard = lazy(() => import("./ReviewerDashboard/Dashboard"));
 const DashBoard = lazy(() => import("./Dashboard/Dashboard"));
 const SignIn = lazy(() =>
@@ -37,6 +38,11 @@ const SNP = lazy(() =>
 const Profile = lazy(() =>
   import("./ResearchOnboarding/Profile/Profile").then((module) => ({
     default: module.Profile,
+  }))
+);
+const AdminSignIn = lazy(() =>
+  import("./Routes-Review/AdminSignin/SignIn/SignIn").then((module) => ({
+    default: module.AdminSignIn,
   }))
 );
 const Background = lazy(() =>
@@ -75,6 +81,10 @@ export const App = () => (
           <Route
             path="/review/:reviewRoute"
             element={<ReviewerDashBoard loggedIn={true} />}
+          />
+          <Route
+            path="/review/login"
+            element={< AdminSignIn />}
           />
           <Route
             path="/review/settings/:settingRoute"
