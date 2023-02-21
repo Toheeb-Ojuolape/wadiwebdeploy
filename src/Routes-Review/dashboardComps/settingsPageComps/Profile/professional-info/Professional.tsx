@@ -11,7 +11,7 @@ export const ProfInfo = (props: {
   defaultTitle: string;
   onCancel: string
 }) => {
-  const [isMobile] = useMediaQuery("(max-width: 600px)");
+
 
   return (
     <Flex flexDirection={"column"}>

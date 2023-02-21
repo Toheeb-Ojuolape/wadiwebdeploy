@@ -1,16 +1,10 @@
-import { SettingsIcon } from "@chakra-ui/icons";
+
 import {
-  Add,
-  AddSquare,
-  Book,
+  
   BoxTime,
   CalendarTick,
   Category,
-  DocumentCloud,
-  Drop,
-  Edit,
-  MessageText,
-  Notification,
+ 
   Send,
   Wallet3,
 } from "iconsax-react";

@@ -1,11 +1,11 @@
 import { AddIcon } from "@chakra-ui/icons";
 import { Button, useDisclosure } from "@chakra-ui/react";
-import { useRef } from "react";
+
 import { ModalComps } from "../../modalComps/modalComps";
 
 export const CreateNewButton = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const finalRef = useRef(null);
+
   return (
     <>
     <Button

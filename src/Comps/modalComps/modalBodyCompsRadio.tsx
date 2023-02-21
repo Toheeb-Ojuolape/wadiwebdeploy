@@ -1,14 +1,12 @@
 import {
-  Avatar,
-  Checkbox,
+
   Flex,
   Text,
   Box,
   Spacer,
   Radio,
 } from "@chakra-ui/react";
-import { borderRadius } from "@mui/system";
-import { Briefcase } from "iconsax-react";
+
 
 export const ModalBodyComps = (props: {
   icon: any;

@@ -90,6 +90,11 @@ export const App = () => (
             path="/review/settings/:settingRoute"
             element={<ReviewerDashBoard loggedIn={true} />}
           />
+          <Route
+            path="/dashboard/settings/:settingRoute"
+            element={<DashBoard loggedIn={true} />}
+          />
+
 
           <Route
             path="/dashboard/:route"
@@ -104,12 +109,14 @@ export const App = () => (
             path="/dashboard/publish/:subroute"
             element={<DashBoard loggedIn={true} />}
           />
+          
           <Route path="/404" element={<FOF />} />
           {/* <Route path="*" element={<Navigate to="/404" replace />} /> */}
           <Route
             path="/dashboard"
             element={<Navigate to="/dashboard/home" replace />}
           />
+          
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </Suspense>

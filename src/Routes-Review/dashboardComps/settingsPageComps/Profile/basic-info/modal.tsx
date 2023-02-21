@@ -2,10 +2,9 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
+
   ModalBody,
-  ModalCloseButton,
+
   Box,
 } from "@chakra-ui/react";
 import { WadiButton } from "../../../../../ReviewerComps/buttons/wadiButton";

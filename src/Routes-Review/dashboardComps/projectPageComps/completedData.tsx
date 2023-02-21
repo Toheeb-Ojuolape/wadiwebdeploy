@@ -1,4 +1,4 @@
-import { rejectedList, SuccessList, tableDataList } from "./dataTest";
+import { SuccessList } from "./dataTest";
 import { ProjectComps } from "./projectComps";
 
 export const CompletedData = (props: any) => {

@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import { useState } from "react";
+
 import { ProjectDetails } from "./projectDetails";
 
 export const LeftContainer = (props: any) => {

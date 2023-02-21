@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 
-import { AllRequestsComps } from "../dashboardComps/requestPageComps/AllRequests";
+
 import { SettingsComps } from "../dashboardComps/settingsPageComps/settingsContainer";
 
 

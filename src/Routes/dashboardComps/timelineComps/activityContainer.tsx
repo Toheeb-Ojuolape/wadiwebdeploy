@@ -1,5 +1,4 @@
-import { Center, Divider, Flex, Text, useMediaQuery } from "@chakra-ui/react";
-import { SelectContent } from "../myProjectsComps/selectContent";
+import { Flex } from "@chakra-ui/react";
 import { GeneralHeadingComp } from "../myProjectsComps/upcomingEvents";
 import { Timeline } from "./timeLineComps";
 const activity = [
@@ -29,9 +28,8 @@ const activity = [
   },
 ];
 export const ActivityContainer = (props: any) => {
-
   return (
-    <Flex flexDirection={"column"} w='100%' >
+    <Flex flexDirection={"column"} w="100%">
       <GeneralHeadingComp
         title="Activity"
         placeholder="Today"

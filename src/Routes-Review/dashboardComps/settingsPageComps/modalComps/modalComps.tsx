@@ -1,18 +1,15 @@
 import {
-  Box,
-  Button,
+  
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
+
   ModalOverlay,
-  useDisclosure,
+
 } from "@chakra-ui/react";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
-import { useRef, useState } from "react";
-import { JsxElement } from "typescript";
+
+import { useRef,  } from "react";
 import { ModalBodyComp } from "./modalBody";
 
 export const ReviewModalComps = (props: {

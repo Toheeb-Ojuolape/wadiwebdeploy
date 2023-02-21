@@ -1,10 +1,9 @@
-import { Flex, Box, Text } from "@chakra-ui/react";
+import { Flex, Box,  } from "@chakra-ui/react";
 import {
   Import,
-  Key,
-  ProfileDelete,
+ 
   SmsNotification,
-  User,
+
 } from "iconsax-react";
 import { AccountNavLink } from "../accountNavLink";
 

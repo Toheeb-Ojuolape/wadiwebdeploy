@@ -1,4 +1,4 @@
-import { Box, Center, Divider, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Center,Flex, Spacer, Text } from "@chakra-ui/react";
 import moment from "moment";
 
 export const EventsComps = (props: {title: string, date: string, time: string, type: string}) => {

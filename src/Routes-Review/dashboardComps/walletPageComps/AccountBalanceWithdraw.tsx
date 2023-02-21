@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { Filter } from "iconsax-react";
 
 export const AccountBalanceWithdraw = (props: any) => {

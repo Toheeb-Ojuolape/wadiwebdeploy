@@ -33,7 +33,7 @@ export const SettingsComps = (props: any) => {
   const history = useNavigate();
   return (
     <Flex bg="white" padding="20px" borderRadius={"md"} flexDirection="column">
-      <Tabs index={tabIndex} h="300px" onChange={handleTabsChange} w={"100%"}>
+      <Tabs index={tabIndex} onChange={handleTabsChange} w={"100%"}>
         <TabList
           alignContent={"center"}
           height={"fit-content"}

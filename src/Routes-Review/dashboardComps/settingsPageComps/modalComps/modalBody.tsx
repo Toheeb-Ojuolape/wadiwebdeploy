@@ -1,4 +1,4 @@
-import { Box, Button, Center, Text } from "@chakra-ui/react";
+import { Button, Center, Text } from "@chakra-ui/react";
 import { TickCircle } from "iconsax-react";
 
 export const ModalBodyComp = (props: {onClose: any,title: string, subtitle:string }) => {

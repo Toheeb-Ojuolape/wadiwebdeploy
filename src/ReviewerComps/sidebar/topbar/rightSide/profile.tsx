@@ -1,9 +1,9 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
+
 import {
   Avatar,
   Button,
   HStack,
-  IconButton,
+
   Menu,
   MenuButton,
   MenuItem,

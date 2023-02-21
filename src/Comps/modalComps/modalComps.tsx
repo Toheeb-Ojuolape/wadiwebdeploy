@@ -1,14 +1,13 @@
 import {
-  Box,
-  Button,
+ 
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalFooter,
-  ModalHeader,
+
   ModalOverlay,
-  useDisclosure,
+ 
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { WadiButton } from "../buttons/wadiButton";

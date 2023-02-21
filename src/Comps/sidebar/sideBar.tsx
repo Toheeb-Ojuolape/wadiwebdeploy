@@ -1,13 +1,8 @@
-import { LogoComp, LogoCompBlue } from "../header/logoComp";
-import DashboardIcon from "../icon/dashBoardIcon";
+import { LogoCompBlue } from "../header/logoComp";
+
 import { SideBarButton } from "./button/sidebarButton";
-import { LogoutIcon } from "../icon/logoutIcon";
-import PublishIcon from "../icon/publishIcon";
-import AcademyIcon from "../icon/academyIcon";
-import SampleIcon from "../icon/sampleIcon";
-import ForumIcon from "../icon/forumIcon";
-import { SettingsIcon } from "@chakra-ui/icons";
-import { Link, Route, useParams } from "react-router-dom";
+
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Routes } from "./routes";
 import { LogoutCurve, Setting2 } from "iconsax-react";
@@ -18,7 +13,7 @@ import { SubButton } from "./button/subButton";
 export const SideBar = (props: any) => {
   const params = useParams() as { route: string };
   const { route } = params;
-
+  const history = useNavigate();
   const routeToIndex = (route: string) => {
     switch (route) {
       case "undefined":
@@ -41,45 +36,46 @@ export const SideBar = (props: any) => {
   return (
     <div className="fixed z-0 top-0 overflow-y-auto left-0 h-full w-60 overflow-hidden flex flex-col bg-[#ffffff] text-[#475467] p-">
       <div className=" flex pl-8 mb-12 mt-5  content-start">
-      <Link to='/dashboard/home'>
-        <LogoCompBlue /></Link>
+        <Link to="/dashboard/home">
+          <LogoCompBlue />
+        </Link>
       </div>
-      <Box height={'fit-content'}>
-      <CreateNewButton /></Box>
+      <Box height={"fit-content"}>
+        <CreateNewButton />
+      </Box>
       {Routes.map((route, index) => {
         return (
           <>
-            <Link to={route.routes}>
-              <SideBarButton
-                name={route.title}
-                icon={route.icon}
-                key={index}
-                onClick={() => {
-                  if (index !== 1) {
-                    setActive(index);
-                  } else {
-                    onToggle();
-                  }
-                }}
-                isActive={active === index}
-              />
-            </Link>
+            <SideBarButton
+              name={route.title}
+              icon={route.icon}
+              key={index}
+              onClick={() => {
+                if (index !== 1) {
+                  history(route.routes);
+                  setActive(index);
+                } else {
+                  onToggle();
+                }
+              }}
+              isActive={active === index}
+            />
+
             <Box>
               {route.subRoutes &&
                 route.subRoutes.map((subRoute, index) => {
                   return (
                     <Collapse in={isOpen} animateOpacity>
-                      <Link to={subRoute.routes}>
-                        <SubButton
-                          name={subRoute.title}
-                          icon={subRoute.icon}
-                          key={index + 10}
-                          onClick={() => {
-                            setActive(index + 10);
-                          }}
-                          isActive={active === index + 10}
-                        />
-                      </Link>
+                      <SubButton
+                        name={subRoute.title}
+                        icon={subRoute.icon}
+                        key={index + 10}
+                        onClick={() => {
+                          history(subRoute.routes);
+                          setActive(index + 10);
+                        }}
+                        isActive={active === index + 10}
+                      />
                     </Collapse>
                   );
                 })}
@@ -90,6 +86,10 @@ export const SideBar = (props: any) => {
 
       <div className="mt-auto w-full">
         <SideBarButton
+          onClick={() => {
+            history("/dashboard/settings");
+            setActive(6);
+          }}
           name="Settings"
           icon={
             <Setting2
@@ -98,6 +98,7 @@ export const SideBar = (props: any) => {
               variant="TwoTone"
             />
           }
+          isActive={active === 6}
         />
         <SideBarButton
           name="Log out"

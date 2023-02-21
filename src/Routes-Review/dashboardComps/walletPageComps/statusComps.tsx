@@ -1,8 +1,7 @@
 
 import { IconButton } from "@chakra-ui/react";
-import { ArrowDown, ArrowUp, CloseCircle, Import, TickCircle } from "iconsax-react";
-import TrashIcon from "../icons/delete";
-import PenIcon from "../icons/pen";
+import { ArrowDown, ArrowUp, } from "iconsax-react";
+
 
 export const CreditButton = (props: any) => {
   return <IconButton bg='rgba(209, 250, 223, 1)' size={'sm'}  ml='10px' aria-label="Credit" icon={<ArrowUp color='rgba(18, 183, 106, 1)' size="20px"  />} />;

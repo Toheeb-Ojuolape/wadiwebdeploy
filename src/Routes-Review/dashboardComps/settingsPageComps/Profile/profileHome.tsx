@@ -1,5 +1,5 @@
-import { Flex , Box, Text} from "@chakra-ui/react";
-import { Key, ProfileDelete, User } from "iconsax-react";
+import { Flex , Box, } from "@chakra-ui/react";
+import { Key,  User } from "iconsax-react";
 import { AccountNavLink } from "../accountNavLink";
 
 export const ProfileHome = (props: any) => {

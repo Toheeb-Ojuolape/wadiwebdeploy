@@ -13,7 +13,7 @@ import { useState } from "react";
 import { AcceptedData } from "./acceptedData";
 import { AllRequestData } from "./allData";
 import { RejectedData } from "./rejectedData";
-import { RequestComps } from "./requestComps";
+
 
 export const AllRequestsComps = (props: any) => {
   const handleTabsChange = (index: number) => {

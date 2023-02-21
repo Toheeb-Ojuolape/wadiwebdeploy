@@ -13,7 +13,7 @@ import { useState } from "react";
 import { ReviewData } from "./reviewData";
 import { AllProjectData } from "./allData";
 import { RejectedData } from "./rejectedData";
-import { ProjectComps } from "./projectComps";
+
 import { CompletedData } from "./completedData";
 
 export const AllProjectsComps = (props: any) => {

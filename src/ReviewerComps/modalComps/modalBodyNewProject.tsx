@@ -1,12 +1,11 @@
-import { Avatar, Circle, Flex, Text, Box, RadioGroup } from "@chakra-ui/react";
+import { Flex, Text, Box, RadioGroup } from "@chakra-ui/react";
 import {
-  AddSquare,
+  
   BoxAdd,
-  Briefcase,
+
   DocumentForward,
   DocumentText,
-  Drop,
-  MessageMinus,
+ 
 } from "iconsax-react";
 import { ModalBodyComps } from "./modalBodyCompsRadio";
 

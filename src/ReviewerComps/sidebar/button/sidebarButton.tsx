@@ -1,18 +1,18 @@
 import {
   Box,
   Button,
-  Center,
+
   Flex,
 
 } from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
-import { useState } from "react";
+
 
 export const SideBarButton = (props: {onClick?: any,isActive?: boolean,icon:ReactJSXElement, name: string}) => {
-  const [Blue, setBlue] = useState("none");
+
   console.log(props.isActive);
 
-  const handleClick = (e: any) => {};
+
 
   return (
 

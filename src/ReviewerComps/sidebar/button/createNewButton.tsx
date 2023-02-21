@@ -5,7 +5,7 @@ import { ModalComps } from "../../modalComps/modalComps";
 
 export const CreateNewButton = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const finalRef = useRef(null);
+
   return (
     <>
     <Button

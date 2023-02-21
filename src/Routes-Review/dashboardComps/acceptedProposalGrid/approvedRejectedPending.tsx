@@ -2,11 +2,6 @@ import { Tag } from "@chakra-ui/react";
 
 import _ from "lodash";
 
-enum Status {
-  APPROVED = "approved",
-  Rejected = "rejected",
-  Pending = "pending",
-}
 
 export const ARP = (props: { status: string }) => {
   return (

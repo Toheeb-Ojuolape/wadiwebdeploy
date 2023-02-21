@@ -1,17 +1,17 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
-  Avatar,
+  
   Box,
-  Center,
+ 
   Flex,
   IconButton,
   Spacer,
-  useDisclosure,
+
   useMediaQuery,
 } from "@chakra-ui/react";
-import { useRef, useState } from "react";
-import { LogoComp, LogoCompDark } from "../../header/logoComp";
-import { SideBar } from "../reviewSideBar";
+
+import { LogoCompDark } from "../../header/logoComp";
+
 import { SideBarMobile } from "../sideBarMobile";
 import { NotificationComps } from "./comps/notification";
 import { SearchBar } from "./comps/searchBar";

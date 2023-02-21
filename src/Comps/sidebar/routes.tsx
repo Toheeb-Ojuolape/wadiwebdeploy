@@ -1,6 +1,6 @@
-import { SettingsIcon } from "@chakra-ui/icons";
+
 import {
-  Add,
+  
   AddSquare,
   Book,
   Category,
@@ -10,7 +10,7 @@ import {
   MessageText,
   Notification,
 } from "iconsax-react";
-import AcademyIcon from "../icon/academyIcon";
+
 
 const dashboard = "dashboard";
 export const Routes = [

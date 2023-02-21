@@ -4,20 +4,13 @@ import {
   Flex,
   Skeleton,
   Spacer,
-  Stack,
+
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { EventsComps } from "./eventsComps";
 import { SelectContent } from "./selectContent";
-const eventList = [
-  {
-    event: "From Final Year Project/Thesis to Published Journal",
-    date: "anytime",
-    time: "anytime",
-    tag: "Webinar",
-  },
-];
+
 
 export const UpComingComps = (props: any) => {
   const eventData = props.eventData || { events: [] };

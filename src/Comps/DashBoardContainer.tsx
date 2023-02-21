@@ -2,7 +2,7 @@ import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { lazy, Suspense, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Loading } from "../Routes-Review/loading/loading";
-
+import { Settings } from "../Routes/Settings/Settings";
 
 import { TopBar } from "./sidebar/topbar/topbar";
 
@@ -37,8 +37,8 @@ export const DashBoardContainer = (props: any) => {
     setsearch(value);
   };
 
-  const params = useParams() as { route: string; subroute: string };
-  const { route, subroute } = params;
+  const params = useParams() as { route: string; subroute: string; settingRoute: string  };
+  const { route, subroute, settingRoute } = params;
   console.log(location.pathname);
   console.log(subroute);
   return (
@@ -75,15 +75,26 @@ export const DashBoardContainer = (props: any) => {
               projectData={props.projectData}
             />
           )}
-
+          {route === "settings" && <Settings page={0} />}
           {subroute === "new-project" && <AddNewProject page={0} />}
           {subroute === "my-projects" && <ManageProjects />}
           {subroute &&
           subroute !== "my-projects" &&
           subroute !== "new-project" &&
           subroute.length > 0 ? (
-            <PublishSlug page={1}/>
+            <PublishSlug page={1} />
           ) : null}
+          {settingRoute === "account" && <Settings page={0} />}
+          {settingRoute === "change-password" && <Settings page={0} />}
+          {settingRoute === "delete-account" && <Settings page={0} />}
+          {settingRoute === "basic-info" && <Settings page={1} />}
+          {settingRoute === "professional-info" && <Settings page={1} />}{" "}
+          {settingRoute === "download-data" && <Settings page={2} />}
+          {settingRoute === "email-settings" && <Settings page={2} />}
+          {settingRoute === "account-home" && <Settings page={0} />}{" "}
+          {settingRoute === "login-activity" && <Settings page={3} />}
+          {settingRoute === "profile-home" && <Settings page={1} />}
+          {settingRoute === "privacy-home" && <Settings page={2} />}
         </Suspense>
       </Box>
     </Box>

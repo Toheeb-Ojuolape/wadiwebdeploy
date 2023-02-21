@@ -10,7 +10,7 @@ import {
   Tr,
   Center,
   Spacer,
-  useMediaQuery,
+ 
   Box,
 } from "@chakra-ui/react";
 
@@ -22,15 +22,15 @@ import { Successful, Rejected, Review, InReview, Uploaded } from "./status";
 
 import Pagination from "react-paginate";
 import { useState } from "react";
-import { tableDataList } from "./dataTest";
+
 import "./paginate.css";
-import { ArrowLeft3, ArrowRight3, Briefcase } from "iconsax-react";
+import { ArrowLeft3, ArrowRight3, } from "iconsax-react";
 import { Progress } from "./progress";
 
 
 export const ProjectComps = (props: any) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [perPage, setPerPage] = useState(6);
+  const [perPage] = useState(6);
 
   const handlePageChange = (page: any) => {
     setCurrentPage(page.selected);

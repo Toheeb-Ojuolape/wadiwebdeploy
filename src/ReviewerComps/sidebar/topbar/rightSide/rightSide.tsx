@@ -1,4 +1,4 @@
-import { Avatar, Box, Circle, HStack, Text } from "@chakra-ui/react";
+import {  Box,  HStack, Text } from "@chakra-ui/react";
 
 import { NotificationComps } from "../comps/notification";
 import { Profile } from "./profile";

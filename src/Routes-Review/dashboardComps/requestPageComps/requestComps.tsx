@@ -10,7 +10,7 @@ import {
   Tr,
   Center,
   Spacer,
-  useMediaQuery,
+ 
   Box,
 } from "@chakra-ui/react";
 

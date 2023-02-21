@@ -1,4 +1,4 @@
-import { PhoneIcon, Search2Icon, SearchIcon } from "@chakra-ui/icons";
+
 import {
   Input,
   InputGroup,
