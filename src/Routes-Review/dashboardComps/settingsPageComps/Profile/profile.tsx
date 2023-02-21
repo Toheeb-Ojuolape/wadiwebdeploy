@@ -1,7 +1,7 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import { Key, ProfileDelete, User } from "iconsax-react";
-import { useNavigate, useParams } from "react-router-dom";
-import { AccountNavLink } from "../accountNavLink";
+import { Box,} from "@chakra-ui/react";
+
+import { useParams } from "react-router-dom";
+
 import { BasicInfo } from "./basic-info/BasicInfo";
 import { ProfInfo } from "./professional-info/Professional";
 
@@ -13,7 +13,7 @@ export const Profile = (props: any) => {
     subroute: string;
     settingRoute: string;
   };
-  const { reviewRoute, subroute, settingRoute } = params;
+  const { settingRoute } = params;
 
   return (
     <Box>

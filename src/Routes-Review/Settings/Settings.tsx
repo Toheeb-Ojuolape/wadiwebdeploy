@@ -6,7 +6,7 @@ import { SettingsComps } from "../dashboardComps/settingsPageComps/settingsConta
 
 export const Settings = (props: {page: number}) => {
   return (
-    <Flex      className="animate__animated animate__fadeIn">
+    <Flex      >
       <Box padding={"20px"} width={"100vw"}>
         <SettingsComps page= {props.page}/>
       </Box>

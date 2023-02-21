@@ -4,7 +4,7 @@ import { GoBackto } from "../goBackto";
 export const LoginHome = (props: { name: string; profession: string; onClick?: any; pic:string }) => {
  const [isMobile] = useMediaQuery("(max-width: 700px)");
     return (
-    <Flex flexDirection={"column"}>
+    <Flex flexDirection={"column"} className="animate__animated animate__fadeIn">
         <Box mb='30px' w='fit-content'><GoBackto name='Login activity'/></Box>
       <HStack mb="10px">
         <Box>

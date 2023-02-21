@@ -1,7 +1,7 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import { Key, ProfileDelete, User } from "iconsax-react";
-import { useNavigate, useParams } from "react-router-dom";
-import { AccountNavLink } from "../accountNavLink";
+import { Box,} from "@chakra-ui/react";
+
+import { useParams } from "react-router-dom";
+
 import { EmailSettings } from "./emailSettings/emailSettings";
 import { PrivacyHome } from "./privacyHome";
 
@@ -14,7 +14,7 @@ export const Privacy = (props: any) => {
     subroute: string;
     settingRoute: string;
   };
-  const { reviewRoute, subroute, settingRoute } = params;
+  const {settingRoute } = params;
 
   return (
     <Box>
