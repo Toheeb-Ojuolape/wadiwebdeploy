@@ -62,7 +62,15 @@ export const SideBar = (props: any) => {
                 if (index !== 1) {
                   history(route.routes);
                   setActive(index);
-                } else {
+                } 
+
+                if(index === 4){
+                  console.log(index)
+                  window.open("https://wadi.africa/forum","_blank")
+                }
+                
+                else {
+                 
                   onToggle();
                 }
               }}
