@@ -1,5 +1,5 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
-import { Suspense, useState, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { useParams } from "react-router-dom";
 
 import { Loading } from "../Routes-Review/loading/loading";
@@ -56,10 +56,10 @@ export const ReviewerDashBoardContainer = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [search, setsearch] = useState("");
+ 
 
   const handleSearchChange = (value: string) => {
-    setsearch(value);
+    console.log(value)
   };
 
   const params = useParams() as {

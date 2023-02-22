@@ -31,7 +31,7 @@ export const ManageProjects = (props: any) => {
   React.useEffect(() => {
     dispatch(getProject())
    
-  }, [dispatch,getProject]);
+  }, [dispatch]);
   
   return (
     <Flex flexDirection={"row"} className="animate__animated animate__fadeIn">

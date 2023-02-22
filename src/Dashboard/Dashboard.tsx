@@ -66,7 +66,7 @@ const DashBoard = (props: { loggedIn: boolean }) => {
     if (!isEmpty(userData)) {
       setIsLoading(false);
     }
-  }, [dispatch, getUser]);
+  }, [dispatch,props,userData]);
 
   return (
     <div

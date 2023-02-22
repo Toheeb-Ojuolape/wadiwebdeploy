@@ -1,7 +1,4 @@
 // Daily Traffic Dashboards Default
-
-import { fontFamily } from "@mui/system";
-
 export const barChartDataDailyTraffic = [
   {
     name: "Daily Traffic",

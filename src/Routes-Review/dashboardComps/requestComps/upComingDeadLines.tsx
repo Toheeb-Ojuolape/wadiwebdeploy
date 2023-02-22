@@ -1,7 +1,7 @@
-import { Center, Flex, Spacer, Text, useMediaQuery } from "@chakra-ui/react";
+import { Center, Flex, Spacer, Text } from "@chakra-ui/react";
 import { SelectContent2 } from "../projectComps/selectContent";
 import { EventsComps } from "./eventsComps";
-import { AllProjectsButton, SelectContent } from "./selectContent";
+import { AllProjectsButton } from "./selectContent";
 const eventList = [
   {
     event: "How to build a successful startup",

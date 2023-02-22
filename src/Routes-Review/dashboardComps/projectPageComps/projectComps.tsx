@@ -8,7 +8,7 @@ import {
   Thead,
   Text,
   Tr,
-  Center,
+  // Center,
   Spacer,
  
   Box,
@@ -16,7 +16,7 @@ import {
 
 import { AcceptButton, RejectButton } from "./actions";
 
-import { AllProjectsButton } from "./selectContent";
+// import { AllProjectsButton } from "./selectContent";
 
 import { Successful, Rejected, Review, InReview, Uploaded } from "./status";
 
@@ -122,24 +122,24 @@ export const ProjectComps = (props: any) => {
   );
 };
 
-const TableHeading = (props: any) => {
-  return (
-    <Flex>
-      <Center p="4">
-        <Text lineHeight={"10px"} fontSize="20px" fontWeight={"extrabold"}>
-          Requests
-        </Text>
-      </Center>
-      <Spacer />
-      <Center
-        justifyContent="space-evenly"
-        w="fit-content"
-        flexWrap={"wrap"}
-        p="4"
-        flexDirection={"row"}
-      >
-        <AllProjectsButton text="All Requests" />
-      </Center>
-    </Flex>
-  );
-};
+// const TableHeading = (props: any) => {
+//   return (
+//     <Flex>
+//       <Center p="4">
+//         <Text lineHeight={"10px"} fontSize="20px" fontWeight={"extrabold"}>
+//           Requests
+//         </Text>
+//       </Center>
+//       <Spacer />
+//       <Center
+//         justifyContent="space-evenly"
+//         w="fit-content"
+//         flexWrap={"wrap"}
+//         p="4"
+//         flexDirection={"row"}
+//       >
+//         <AllProjectsButton text="All Requests" />
+//       </Center>
+//     </Flex>
+//   );
+// };

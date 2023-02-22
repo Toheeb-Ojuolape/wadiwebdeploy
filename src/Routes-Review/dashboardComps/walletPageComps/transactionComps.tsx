@@ -8,7 +8,6 @@ import {
   Thead,
   Text,
   Tr,
-  Center,
   Spacer,
 
   Box,

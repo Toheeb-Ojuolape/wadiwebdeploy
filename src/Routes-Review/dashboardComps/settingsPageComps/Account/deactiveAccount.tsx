@@ -1,10 +1,10 @@
-import { Box, Button, Flex, Spacer, Text } from "@chakra-ui/react";
-import { Key, ProfileDelete, User } from "iconsax-react";
+import { Box,Flex, Spacer} from "@chakra-ui/react";
+
 import { useState } from "react";
-import { WadiButton } from "../../../../ReviewerComps/buttons/wadiButton";
-import { GoBack } from "../../../../Routes/publishITComps/LeftContainer/back";
-import { AccountInfoComps } from "../accountInfoComps";
-import { AccountNavLink } from "../accountNavLink";
+// import { WadiButton } from "../../../../ReviewerComps/buttons/wadiButton";
+// import { GoBack } from "../../../../Routes/publishITComps/LeftContainer/back";
+// import { AccountInfoComps } from "../accountInfoComps";
+// import { AccountNavLink } from "../accountNavLink";
 import { DeactivateAccountComps } from "../deactivateAccountComps";
 import { DeactivateConfirmPassword } from "../deactivateConfirmPassword";
 import { GoBackto } from "../goBackto";

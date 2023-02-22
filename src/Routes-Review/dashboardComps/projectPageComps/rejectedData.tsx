@@ -1,4 +1,4 @@
-import { rejectedList, tableDataList } from "./dataTest";
+import { rejectedList } from "./dataTest";
 import { ProjectComps } from "./projectComps";
 
 export const RejectedData = (props: any) => {

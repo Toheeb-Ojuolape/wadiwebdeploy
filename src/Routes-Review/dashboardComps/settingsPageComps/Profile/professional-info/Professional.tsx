@@ -1,4 +1,4 @@
-import { Box, Flex, useMediaQuery } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { institutionsNames } from "../../../../../Comps/input/institutions";
 
 import { GoBackto } from "../../goBackto";

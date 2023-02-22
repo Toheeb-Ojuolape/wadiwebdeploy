@@ -1,4 +1,4 @@
-import { Box, Button, Grid, GridItem, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import { Table, Tbody, Tr, Td, TableContainer } from "@chakra-ui/react";
 import { ARP } from "./approvedRejectedPending";
 export const AcceptedProposalGrid = (props: {
