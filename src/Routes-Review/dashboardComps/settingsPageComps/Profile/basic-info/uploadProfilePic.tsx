@@ -1,6 +1,3 @@
-import React from "react";
-
-import { useState } from "react";
 import { Avatar, Box, IconButton, useDisclosure } from "@chakra-ui/react";
 import { PicModal } from "./modal";
 import { PenAdd } from "iconsax-react";
