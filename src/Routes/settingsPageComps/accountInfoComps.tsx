@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { ArrowRight2 } from "iconsax-react";
 import { Link } from "react-router-dom";
-import { JsxElement } from "typescript";
+
 
 export const AccountInfoComps = (props: {
 
@@ -16,7 +16,7 @@ export const AccountInfoComps = (props: {
   sub: string;
   link?: string;
 }) => {
-  const [isMobile, setIsMobile] = useMediaQuery("(max-width: 600px)");
+  const [isMobile] = useMediaQuery("(max-width: 600px)");
   return (
     <Link to={props.link || "#"}>
       <HStack mt="10px" w={!isMobile ? "400px" : "100%"}>

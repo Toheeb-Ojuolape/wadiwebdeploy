@@ -20,10 +20,7 @@ import {
 } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
-interface Image {
-  dataURL: string;
-  file: Map<any, any>;
-}
+
 
 export const ProfileComp = () => {
   const [images, setImages] = useState([]);
@@ -78,15 +75,7 @@ export const ProfileComp = () => {
     if (wadiKey !== null && images.dataURL) {
       const storage = getStorage();
       const storageRef = ref(storage, wadiKey);
-      // Create a Blob object from the base64 string
-      const byteCharacters = atob(images.dataURL.split(",")[1]);
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const blob = new Blob([byteArray], { type: "image/jpeg" });
-
+      
       uploadString(storageRef, images.dataURL.split(",")[1], "base64")
       .then(async (snapshot) => {
         console.log("File uploaded successfully!");

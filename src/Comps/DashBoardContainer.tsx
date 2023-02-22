@@ -1,11 +1,10 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
-import { lazy, Suspense, useState,useEffect } from "react";
+import { lazy, Suspense} from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Loading } from "../Routes-Review/loading/loading";
 import { Settings } from "../Routes/Settings/Settings";
 import { TopBar } from "./sidebar/topbar/topbar";
-import {doc,getDoc} from "firebase/firestore"
-import { db } from "../db"
+
 
 
 const DashBoardHome = lazy(() =>
@@ -29,22 +28,13 @@ const PublishSlug = lazy(() =>
   }))
 );
 
-
-interface Project{
-  title:string,
-  projectType:string,
-  step:number,
-}
 export const DashBoardContainer = (props: any) => {
   const location = useLocation();
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [search, setsearch] = useState("");
-  const [project,setProject] = useState<Project>()
+ 
 
-  const handleSearchChange = (value: string) => {
-    setsearch(value);
-  };
+ 
 
   const params = useParams() as { route: string; subroute: string; settingRoute: string  };
   const { route, subroute, settingRoute } = params;
@@ -70,7 +60,7 @@ export const DashBoardContainer = (props: any) => {
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}
-        handleSearchChange={handleSearchChange}
+        
       />
       <Box
         ml={!isMobile ? "10px" : "0px"}

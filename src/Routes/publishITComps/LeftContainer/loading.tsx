@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import Lottie from "lottie-react";
 import animationData from "./glass.json";
 

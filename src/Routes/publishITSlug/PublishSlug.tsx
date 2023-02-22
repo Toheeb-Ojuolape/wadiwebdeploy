@@ -27,10 +27,10 @@ export const PublishSlug = (props: any) => {
   }
 
   const [isMobile] = useMediaQuery("(max-width: 850px)");
-  const [file, setFile] = useState<File[]>([]);
-  const [progressLoading, setProgressLoading] = useState(0);
+  const [file] = useState<File[]>([]);
+  const [progressLoading] = useState(0);
   const [projectData, setProjectData] = useState<ProjectData>();
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [project, setProject] = useState<Project>();
   const [page, setPage] = useState(props.page);
   const [pageList, setPageList] = useState<number[]>([0])
@@ -44,7 +44,7 @@ export const PublishSlug = (props: any) => {
         setPage(response.data().step)
       }
     });
-  }, []);
+  }, [props]);
 
   const handleChange = (e: any) => {
     const value = e.target.value;

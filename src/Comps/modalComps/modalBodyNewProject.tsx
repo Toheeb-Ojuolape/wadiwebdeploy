@@ -1,6 +1,6 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Flex, Text, Box, RadioGroup } from "@chakra-ui/react";
-import { Back, BoxAdd, DocumentForward, DocumentText } from "iconsax-react";
+import { BoxAdd, DocumentForward, DocumentText } from "iconsax-react";
 import { ModalBodyComps } from "./modalBodyCompsRadio";
 
 export const ModelBodyNewProject = (props: any) => {
