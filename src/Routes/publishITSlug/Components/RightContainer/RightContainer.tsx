@@ -16,6 +16,13 @@ const navItems = [
     icon: <Briefcase size="15" color="rgba(41, 45, 50, 1)" variant="TwoTone" />,
   },
   {
+    title: "Review-in-progress",
+    subtitle: "Your project is being reviewed",
+    icon: (
+      <TimerStart size="15" color="rgba(41, 45, 50, 1)" variant="TwoTone" />
+    ),
+  },
+  {
     title: "Payment",
     subtitle: "Fill in payment fields",
     icon: <CardPos size="15" color="rgba(41, 45, 50, 1)" variant="TwoTone" />,
@@ -57,7 +64,7 @@ export const RightContainer = (props: any) => {
       })} */}
       <Tabs
         index={props.tabIndex}
-        onChange={props.handleTabsChange}
+        
         w={"100%"}
         isLazy
       >

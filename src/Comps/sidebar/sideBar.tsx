@@ -1,7 +1,5 @@
 import { LogoCompBlue } from "../header/logoComp";
-
 import { SideBarButton } from "./button/sidebarButton";
-
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Routes } from "./routes";
@@ -9,6 +7,7 @@ import { LogoutCurve, Setting2 } from "iconsax-react";
 import { CreateNewButton } from "./button/createNewButton";
 import { Box, Collapse, useDisclosure } from "@chakra-ui/react";
 import { SubButton } from "./button/subButton";
+import { signOut, getAuth } from "firebase/auth";
 
 export const SideBar = (props: any) => {
   const params = useParams() as { route: string };
@@ -32,6 +31,15 @@ export const SideBar = (props: any) => {
   };
   const [active, setActive] = useState(routeToIndex(route));
   const { isOpen, onToggle } = useDisclosure();
+
+  const logOut = () => {
+    const auth = getAuth();
+    signOut(auth).then((response) => {
+      console.log(response);
+      localStorage.removeItem("wadiKey");
+      window.location.href = "/login";
+    });
+  };
 
   return (
     <div className="fixed z-0 top-0 overflow-y-auto left-0 h-full w-60 overflow-hidden flex flex-col bg-[#ffffff] text-[#475467] p-">
@@ -102,6 +110,7 @@ export const SideBar = (props: any) => {
         />
         <SideBarButton
           name="Log out"
+          onClick={logOut}
           icon={
             <LogoutCurve
               size="20"

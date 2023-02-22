@@ -1,13 +1,6 @@
-import { Avatar, Circle, Flex, Text, Box, RadioGroup } from "@chakra-ui/react";
-import {
-  AddSquare,
-  BoxAdd,
-  Briefcase,
-  DocumentForward,
-  DocumentText,
-  Drop,
-  MessageMinus,
-} from "iconsax-react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { Flex, Text, Box, RadioGroup } from "@chakra-ui/react";
+import { Back, BoxAdd, DocumentForward, DocumentText } from "iconsax-react";
 import { ModalBodyComps } from "./modalBodyCompsRadio";
 
 export const ModelBodyNewProject = (props: any) => {
@@ -23,6 +16,7 @@ export const ModelBodyNewProject = (props: any) => {
         <BoxAdd size="20px" />
       </Box>
       <Box mb="20px">
+        <ArrowBackIcon className="my-3 cursor-pointer" onClick={()=>props.goBack()}/>
         <Text fontWeight={"bolder"} fontSize="20px">
           Choose a service
         </Text>
@@ -30,7 +24,7 @@ export const ModelBodyNewProject = (props: any) => {
           Select any of the options below
         </Text>
       </Box>
-      <RadioGroup defaultValue="2" onChange={props.setRadio}>
+      <RadioGroup defaultValue="1" onChange={props.setRadio}>
         <ModalBodyComps
           title="I want to convert my dissertation to a research manuscript"
           subtitle=""

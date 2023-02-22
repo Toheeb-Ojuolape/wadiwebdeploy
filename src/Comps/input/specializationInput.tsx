@@ -4,7 +4,7 @@ import { upperFirst } from "lodash";
 
 
 export const SpecializationInput = (props: any) => {
-  const spec = ['Lecturer', 'Non Lecturer']
+  const spec = ['Academic','Institution','Lecturer', 'Non Lecturer','Student','Professor','Researcher']
 
   
   return (

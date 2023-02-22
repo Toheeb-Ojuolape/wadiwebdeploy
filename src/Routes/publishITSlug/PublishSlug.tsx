@@ -1,5 +1,5 @@
 import { Box, Flex, Spacer, useMediaQuery } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GoBack } from "./Components/LeftContainer/back";
 import { LeftContainer } from "./Components/LeftContainer/LeftContainer";
@@ -8,17 +8,16 @@ import { PaymentDetails } from "./Components/LeftContainer/paymentDetails";
 import { ReviewInProgress } from "./Components/LeftContainer/reviewInProgress";
 import { TopTab } from "./Components/LeftContainer/tobTabs";
 import { RightContainer } from "./Components/RightContainer/RightContainer";
-import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../db";
-import slugify from "slugify";
-import moment from "moment";
-import Swal from "sweetalert2";
-import { ThunkDispatch } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import { getProject } from "../../store/projectReducer";
 
-export const PublishSlug = (props:{page: number}) => {
+interface Project {
+  title: string;
+  projectType: string;
+  step: number;
+}
+
+export const PublishSlug = (props: any) => {
   const history = useNavigate();
   interface ProjectData {
     manuscriptTitle?: string;
@@ -27,39 +26,25 @@ export const PublishSlug = (props:{page: number}) => {
     projectType?: string;
   }
 
-  const navigate = useNavigate();
   const [isMobile] = useMediaQuery("(max-width: 850px)");
   const [file, setFile] = useState<File[]>([]);
   const [progressLoading, setProgressLoading] = useState(0);
   const [projectData, setProjectData] = useState<ProjectData>();
-  const [uploadedFile, setUploadedFile] = useState("");
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+  const [project, setProject] = useState<Project>();
+  const [page, setPage] = useState(props.page);
+  const [pageList, setPageList] = useState<number[]>([0])
 
-  const uploadFile = (fileData: any) => {
-    setFile(fileData);
-    setProgressLoading(10);
-    const storage = getStorage();
-    const file = new Blob([fileData], { type: "application/msword" }); // fileData is the contents of the .doc file
-    const storageRef = ref(storage, projectData?.manuscriptTitle);
-
-    uploadBytes(storageRef, file)
-      .then(() => {
-        console.log("File uploaded successfully!");
-        setProgressLoading(100);
-        getDownloadURL(storageRef)
-          .then((url) => {
-            console.log("Download URL: ", url);
-            setUploadedFile(url);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.error("Error uploading file: ", error);
-      });
-  };
+  useEffect(() => {
+    const docRef = doc(db, "projects", props.subroute);
+    getDoc(docRef).then((response) => {
+      if (response.exists()) {
+        const projectData = response.data() as Project;
+        setProject(projectData);
+        setPage(response.data().step)
+      }
+    });
+  }, []);
 
   const handleChange = (e: any) => {
     const value = e.target.value;
@@ -68,73 +53,6 @@ export const PublishSlug = (props:{page: number}) => {
     console.log(projectData);
   };
 
-  const submitProject = () => {
-    const manuscriptTitle: string | undefined = projectData?.manuscriptTitle;
-
-    if (
-      projectData?.manuscriptTitle === undefined ||
-      projectData?.researchField === undefined ||
-      projectData?.nameofJournal === undefined ||
-      projectData?.projectType === undefined ||
-      uploadedFile === ""
-    ) {
-      Swal.fire({
-        icon: "info",
-        title: "Submission Incomplete",
-        text: "You need to fill in all the details of your project before you can submit",
-        confirmButtonColor: "#2b5fd0",
-      });
-      return;
-    }
-
-    setLoading(true);
-    const slug: string | undefined = manuscriptTitle
-      ? slugify(manuscriptTitle, {
-          replacement: "-",
-          lower: true,
-          remove: /[$*_+~.()'"!?\-:@]/g,
-        })
-      : "";
-
-    const projectPayload = {
-      title: projectData?.manuscriptTitle,
-      slug: slug,
-      field: projectData?.researchField,
-      journal: projectData?.nameofJournal,
-      type: projectData?.projectType,
-      date: moment(Date.now()).format("LLL"),
-      file: uploadedFile,
-      status: "Under Review",
-      progress: "10",
-      step: 2,
-      author: localStorage.getItem("wadiKey"),
-      timestamp: Date.now(),
-    };
-
-    console.log(projectPayload);
-
-    const docRef = doc(db, "projects", slug);
-    setDoc(docRef, projectPayload)
-      .then(() => {
-        setLoading(false);
-        dispatch(getProject());
-        Swal.fire({
-          icon: "success",
-          title: "Manuscript Uploaded Successfully",
-          text: "You have successfully uploaded your manuscript for review. You would receive a follow-up email from us regarding the status of your submission",
-          confirmButtonColor: "#2b5fd0",
-        }).then(() => {
-          history("/dashboard/home");
-        });
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  };
-  const [page, setPage] = useState(props.page);
-
-  const [pageList, setPageList] = useState<number[]>([0]);
 
   const handleTabsChange = (index: number) => {
     setPage(index);
@@ -146,12 +64,7 @@ export const PublishSlug = (props:{page: number}) => {
   };
 
   const goBack = () => {
-    if (page > 0) {
-      setPage(page - 1);
-      setPageList(pageList.slice(0, pageList.length - 1));
-    } else {
-      navigate(-1);
-    }
+    history(-1);
   };
   return (
     <Flex className="animate__animated animate__fadeIn" flexDirection={"row"}>
@@ -176,16 +89,15 @@ export const PublishSlug = (props:{page: number}) => {
               {page === 0 && (
                 <LeftContainer
                   file={file}
-                  uploadFile={uploadFile}
                   handleChange={handleChange}
-                  onClick={submitProject}
                   loading={loading}
                   progressLoading={progressLoading}
                 />
               )}
-              {page === 1 && <PaymentDetails onClick={onClick} />}
-              {page === 2 && <ReviewInProgress onClick={onClick} />}
-              {page === 3 && <ManuScriptReady />}{" "}
+              {page === 1 && <ReviewInProgress onClick={onClick} />}
+              {page === 2 && <PaymentDetails userData={props.userData} project={project} onClick={onClick} />}
+              {page === 3 && <ReviewInProgress onClick={onClick} />}
+              {page === 4 && <ManuScriptReady />}{" "}
             </Box>
           </Box>
           <Spacer />

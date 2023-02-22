@@ -1,6 +1,6 @@
-import { FormControl
-  // , FormLabel, Select 
-
+import {
+  FormControl,
+  // , FormLabel, Select
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ImageListType } from "react-images-uploading";
@@ -9,22 +9,58 @@ import { WadiButton } from "../buttons/wadiButton";
 import { CountryInput } from "../input/countryInput";
 import { GenderInput } from "../input/genderInput";
 import { PhotoUpload } from "../input/uploadImage";
+import { getAuth, updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../db";
+import {
+  ref,
+  getDownloadURL,
+  uploadString,
+  getStorage,
+} from "firebase/storage";
+import { useNavigate } from "react-router-dom";
+
+interface Image {
+  dataURL: string;
+  file: Map<any, any>;
+}
 
 export const ProfileComp = () => {
   const [images, setImages] = useState([]);
-  const [onBoardData, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [country, setCountry] = useState("");
+  const [gender, setGender] = useState("");
+  const [image, setImage] = useState("");
+  const history = useNavigate()
+
 
   document.title = "Profile | Wadi";
 
-  const handleChange = (e: any) => {
-    const value = e.target.value;
-    const name = e.target.name;
-    setData({ ...onBoardData, [name]: value });
+  const wadiKey = localStorage.getItem("wadiKey");
+
+  const click = async () => {
+    if (wadiKey !== null) {
+      setLoading(true);
+      const docRef = doc(db, "users", wadiKey);
+      const auth: any = getAuth();
+      updateProfile(auth.currentUser, {
+        photoURL: image,
+      }).then(() => {
+        setDoc(
+          docRef,
+          {
+            country: country,
+            gender: gender,
+            photoURL:image
+          },
+          { merge: true }
+        ).then(()=>{
+          setLoading(false)
+          history("/onboarding/background")
+        })
+      });
+    }
   };
-
-  const fullData = [onBoardData, ...images];
-
-  const click = () =>{console.log(fullData)}
 
   const maxNumber = 1;
 
@@ -34,19 +70,51 @@ export const ProfileComp = () => {
   ) => {
     // data for submit
     console.log(imageList, addUpdateIndex);
-    setImages(imageList as never[]);
+    setImages(imageList as never[])
+    const images = imageList[0];
+    //upload image here
+    // Create the file metadata
+    /** @type {any} */
+    if (wadiKey !== null && images.dataURL) {
+      const storage = getStorage();
+      const storageRef = ref(storage, wadiKey);
+      // Create a Blob object from the base64 string
+      const byteCharacters = atob(images.dataURL.split(",")[1]);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: "image/jpeg" });
+
+      uploadString(storageRef, images.dataURL.split(",")[1], "base64")
+      .then(async (snapshot) => {
+        console.log("File uploaded successfully!");
+        const uploadedImage = await getDownloadURL(snapshot.ref)
+        setImage(uploadedImage)
+
+        
+      })
+      .catch((error) => {
+        console.error("Error uploading file:", error);
+      });
+    }
+
+   
   };
   return (
     <>
-    <FormControl>
-      <PhotoUpload images={images} onChange={onChange} maxNumber={maxNumber} />
-      <CountryInput handleChange={handleChange} />
-      <GenderInput handleChange={handleChange} />
-      <WadiButton
-        text="Continue"
-        onClick={click}
-      />
-    </FormControl>
-    <JustBack/></>
+      <FormControl>
+        <PhotoUpload
+          images={images}
+          onChange={onChange}
+          maxNumber={maxNumber}
+        />
+        <CountryInput handleChange={(e: any) => setCountry(e.target.value)} />
+        <GenderInput handleChange={(e: any) => setGender(e.target.value)} />
+        <WadiButton loading={loading} text="Continue" onClick={click} />
+      </FormControl>
+      <JustBack />
+    </>
   );
 };

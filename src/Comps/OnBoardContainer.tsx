@@ -9,7 +9,7 @@ import { SNPComp } from "./setnewpassword/setnewpassword";
 import { SignInComp } from "./signin/signin";
 import { SignUpComp } from "./signUp/signup";
 import { VerifyEmailComp } from "./verifyEmail/verifyEmail";
-import { IntroComp } from "./yourstory/introduction";
+
 
 export const OnBoardingContainer = (props: any) => {
   return (
@@ -47,7 +47,6 @@ export const OnBoardingContainer = (props: any) => {
         {props.page === "new-password" ? <SNPComp /> : null}
         {props.page === "profile" ? <ProfileComp /> : null}
         {props.page === "background" ? <BackgroundComp /> : null}
-        {props.page === "story" ? <IntroComp /> : null}
         {props.page === "achieve" ? <AchieveComp /> : null}
        
 

@@ -10,8 +10,20 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { ArrowDown2 } from "iconsax-react";
+import { signOut,getAuth } from "firebase/auth";
 
 export const Profile = (props: { profilePic: string, isDesktop: boolean} ) => {
+
+  const logOut = () =>{
+    const auth = getAuth()
+    signOut(auth).then((response)=>{
+      console.log(response)
+      localStorage.removeItem("wadiKey")
+      window.location.href="/login"
+    })
+  }
+
+
   return (
     <Menu  >
       <MenuButton
@@ -30,7 +42,7 @@ export const Profile = (props: { profilePic: string, isDesktop: boolean} ) => {
         </HStack>
       </MenuButton>
       <MenuList color={"black"}>
-        <MenuItem>Logout</MenuItem>
+        <MenuItem onClick={logOut}>Logout</MenuItem>
       </MenuList>
     </Menu>
   );

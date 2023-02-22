@@ -1,16 +1,15 @@
 import { Box, HStack, Text } from "@chakra-ui/react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 export const JustBack = (props: any) => {
-  const navigate = useNavigate();
+
   return (
-    <HStack spacing="24px" justify={"center"} onClick={() => navigate(-1)} className='cursor-pointer hover:underline' >
+    <HStack spacing="24px" justify={"center"} onClick={() => window.location.href="/dashboard/home"} className='cursor-pointer hover:underline' >
       <Box w="fit-content" h="fit-content">
-        <ArrowBackIcon />
+        <Text fontWeight={"bold"}>Skip</Text>
       </Box>
       <Box w="fit-content" h="fit-content">
-        <Text fontWeight={"bold"}>Back</Text>
+        <ArrowForwardIcon />
       </Box>
     </HStack>
   );

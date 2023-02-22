@@ -1,9 +1,14 @@
 import { Center,Flex, Spacer, Text } from "@chakra-ui/react";
 import moment from "moment";
 
-export const EventsComps = (props: {title: string, date: string, time: string, type: string}) => {
+export const EventsComps = (props: {title: string, date: string, time: string, type: string,link:string}) => {
+  
+  const goToEvent = (link:string) =>{
+    window.open(link,"_blank")
+    }
+
   return (
-    <Flex  mt='10px' w='100%' h='fit-content' flexDirection={'column'} padding='20px' borderRadius={'md'} border='1px solid rgba(229, 235, 244, 1)'>
+    <Flex className="cursor-pointer" onClick={()=>goToEvent(props.link)}  mt='10px' w='100%' h='fit-content' flexDirection={'column'} padding='20px' borderRadius={'md'} border='1px solid rgba(229, 235, 244, 1)'>
       <Text fontSize={'14px'} fontWeight='extrabold'>{props.title}</Text>
       <Flex>
         <Flex flexDirection={'column'} w='100%' >

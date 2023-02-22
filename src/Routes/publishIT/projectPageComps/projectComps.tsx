@@ -11,6 +11,7 @@ import {
   Center,
   Spacer,
   useMediaQuery,
+  useDisclosure,
   Box,
 } from "@chakra-ui/react";
 
@@ -28,10 +29,16 @@ import {
   ImportButton,
   DeleteButton,
 } from "../../dashboardComps/myProjectsComps/actions";
+import AreYouSure from "../../../Comps/Modals/AreYouSureModal";
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from "../../../db";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-export const ProjectComps = (props: {projectData?: any}) => {
+export const ProjectComps = (props: { projectData?: any }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage] = useState(4);
+  const history = useNavigate();
 
   const handlePageChange = (page: any) => {
     setCurrentPage(page.selected);
@@ -44,6 +51,37 @@ export const ProjectComps = (props: {projectData?: any}) => {
   const displayedData = props.projectData
     ? props.projectData.slice(sliceStart, sliceEnd)
     : null;
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [loading, setLoading] = useState(false);
+
+  const deleteProject = () => {
+    onOpen();
+  };
+
+  const goToProject = (slug: string) => {
+    history("/dashboard/publish/" + slug);
+  };
+
+  const confirmDelete = async (slug: string) => {
+    setLoading(true);
+    try {
+      await deleteDoc(doc(db, "projects", slug));
+      setLoading(false);
+      onClose();
+      Swal.fire({
+        icon: "success",
+        title: "Project deleted Successfully",
+        text: "You have successfully deleted your project",
+        confirmButtonColor: "#0066f5",
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Project not deleted",
+      });
+    }
+  };
 
   if (displayedData) {
     return (
@@ -63,7 +101,13 @@ export const ProjectComps = (props: {projectData?: any}) => {
             <Tbody>
               {displayedData.map(
                 (
-                  data: { title: any; progress: any; date: any; status: any },
+                  data: {
+                    title: string;
+                    progress: string;
+                    date: string;
+                    status: string;
+                    slug: string;
+                  },
                   index: number
                 ) => (
                   <Tr className="animate__animated animate__fadeIn">
@@ -104,9 +148,23 @@ export const ProjectComps = (props: {projectData?: any}) => {
                     </Td>
                     <Td>
                       <Flex>
-                        <ImportButton />
-                        <DeleteButton />
+                        <ImportButton
+                          goToProject={() => goToProject(data.slug)}
+                        />
+                        <DeleteButton deleteProject={deleteProject} />
                       </Flex>
+
+                      <AreYouSure
+                        title={"Delete Project"}
+                        description={
+                          "Are you sure you want to delete this project? This deletion is irreversible and all the data for this project would be lost"
+                        }
+                        isOpen={isOpen}
+                        onClose={onClose}
+                        onOpen={onOpen}
+                        delete={() => confirmDelete(data.slug)}
+                        loading={loading}
+                      />
                     </Td>
                   </Tr>
                 )
@@ -135,5 +193,3 @@ export const ProjectComps = (props: {projectData?: any}) => {
     return <div></div>;
   }
 };
-
-

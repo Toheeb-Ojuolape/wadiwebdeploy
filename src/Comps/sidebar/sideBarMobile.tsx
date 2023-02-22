@@ -16,6 +16,7 @@ import { useState } from "react";
 import { CreateNewButton } from "./button/createNewButton";
 import { LogoutCurve, Setting2 } from "iconsax-react";
 import { SubButton } from "./button/subButton";
+import { signOut,getAuth } from "firebase/auth";
 
 export const SideBarMobile = (props: {
   isOpen: boolean;
@@ -45,6 +46,15 @@ export const SideBarMobile = (props: {
   };
   const [active, setActive] = useState(routeToIndex(route));
   const { isOpen, onToggle } = useDisclosure();
+
+  const logOut = () =>{
+    const auth = getAuth()
+    signOut(auth).then((response)=>{
+      console.log(response)
+      localStorage.removeItem("wadiKey")
+      window.location.href="/login"
+    })
+  }
 
   return (
     <Drawer
@@ -118,6 +128,7 @@ export const SideBarMobile = (props: {
           />
           <SideBarButton
             name="Log out"
+            onClick={logOut}
             icon={
               <LogoutCurve
                 size="20"

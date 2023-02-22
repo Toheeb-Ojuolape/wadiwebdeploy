@@ -46,10 +46,11 @@
 }
 
 .Under-Review{
-  color:#ffb400;
+  color:#F79009;
   border:1px solid;
   text-align:center;
   width:fit-content;
   border-radius:20px;
-  padding:5px 3px
+  font-size:10px;
+  padding:6px 6px
 }

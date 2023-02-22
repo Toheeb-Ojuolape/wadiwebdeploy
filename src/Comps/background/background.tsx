@@ -1,32 +1,53 @@
 import { FormControl} from "@chakra-ui/react";
 import { useState } from "react";
-
 import { JustBack } from "../buttons/justBack";
 import { WadiButton } from "../buttons/wadiButton";
-
 import { InstitutionInput } from "../input/institutionInput";
 import { SpecializationInput } from "../input/specializationInput";
 import { TitleInput } from "../input/titleInput";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../db";
+import { useNavigate } from "react-router-dom";
 
 
 export const BackgroundComp = () => {
-  const [onBoardData, setData] = useState({});
+  const [title,setTitle] = useState("")
+  const [specialization,setSpecialization] = useState("")
+  const [institution,setInstitution] = useState("")
+  const wadiKey = localStorage.getItem("wadiKey")
+  const [loading,setLoading] = useState(false)
+  const history = useNavigate()
+
 
   document.title = "Profile | Wadi";
 
-  const handleChange = (e: any) => {
-    const value = e.target.value;
-    const name = e.target.name;
-    setData({ ...onBoardData, [name]: value });
-  };
+
+  const moveNext = () =>{
+    if (wadiKey !== null) {
+    setLoading(true)
+    const docRef = doc(db,"users",wadiKey)
+    setDoc(docRef,{
+      title:title,
+      specialization:specialization,
+      institution:institution
+    },{merge:true}).then(()=>{
+      history("/onboarding/achieve")
+    })
+  }
+  }
+
+
+
+
+
 
   return (
     <>
       <FormControl>
-        <SpecializationInput handleChange={handleChange} />
-        <InstitutionInput handleChange={handleChange} />
-        <TitleInput handleChange={handleChange} />
-        <WadiButton text="Continue" />
+        <SpecializationInput handleChange={(e:any)=>setSpecialization(e.target.value)} />
+        <InstitutionInput handleChange={(e:any)=>setInstitution(e.target.value)} />
+        <TitleInput handleChange={(e:any)=>setTitle(e.target.value)}/>
+        <WadiButton onClick={moveNext} loading={loading}  text="Continue" />
       </FormControl>
       <JustBack />
     </>

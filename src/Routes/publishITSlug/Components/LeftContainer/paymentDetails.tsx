@@ -1,5 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
-import { ProjectDetailsButton } from "./projectDetailsButton";
+import { MakePayment } from "./makePayment";
+
 
 export const PaymentDetails = (props: any) => {
   return (
@@ -8,13 +9,10 @@ export const PaymentDetails = (props: any) => {
         Payment Details
       </Text>
       <Text fontSize={"14px"}>
-        Lorem ipsum dolor sit amet consectetur. Duis purus adipiscing amet nisi
-        nibh ac nisi pretium laoreet. Odio arcu dolor consequat vitae et
-        porttitor aliquet nec. Morbi justo aliquam sit in lectus ac vitae enim
-        a. Turpis nullam sodales turpis feugiat vestibulum felis faucibus nulla.
-        Dolor senectus consectetur leo elementum non ultrices.
+        Kindly tap the button below to make a payment of {props.project.projectType === "Convert Dissertation to Manuscript"?"NGN 50,000 ":"NGN 30,000 "}
+        to enable us proceed with improving your manuscript.
       </Text>
-      <ProjectDetailsButton onClick={props.onClick} text={"Make payment"} />
+      <MakePayment slug={props.project.slug} user={props.userData} amount={props.project.projectType === "Convert Dissertation to Manuscript"?50000:30000} onClick={props.onClick} text={"Make payment"} />
     </Box>
   );
 };

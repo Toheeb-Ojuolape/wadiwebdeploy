@@ -48,22 +48,30 @@ export const SignInComp = (props: any) => {
     .then((response:any)=>{
       console.log(response)
       setLoading(false) 
-    }).catch(()=>{
+        const slug = slugify(response.user.displayName,{
+          replacement: "-",
+          remove: /[$*_+~.()'"!?\-:@]/g,
+          lower: true,
+         })
+        localStorage.setItem("wadiKey",slug)
+        window.location.href = "/dashboard/home"
+
+    }).catch((error)=>{
       Swal.fire({
         icon:"error",
-        title:"Invalid User",
-        text:"This user does not have an account on Wadi",
+        title:"Invalid Login Details",
+        text:error.message,
         confirmButtonColor:"#2b5fd0"
       })
       setLoading(false)
     })
     } catch(error:any){
-      console.log(error)
+      console.log(error.message)
       setLoading(false) 
       Swal.fire({
         icon:"error",
-        title:"Invalid User",
-        text:"This user does not have an account on Wadi",
+        title:"Invalid Login details",
+        text:error.message,
         confirmButtonColor:"#2b5fd0"
       })
     }
@@ -121,7 +129,7 @@ export const SignInComp = (props: any) => {
           </Text>
         </Link>
       </Flex>
-      <WadiButton isLoading={isLoading} onClick={handleLogin} text="Login" />
+      <WadiButton loading={isLoading} onClick={handleLogin} text="Login" />
       <GoogleButton isLoading={googleLoading} onClick={googleLogin}/>
       <AccountOption
         text="Don’t have an account?"

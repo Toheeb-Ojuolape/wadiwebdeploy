@@ -4,36 +4,37 @@ import { Comment, emptyComment } from "../../../Interface/CommentInterface";
 import { GeneralHeadingComp } from "../myProjectsComps/upcomingEvents";
 import { CommunityComps } from "./communityComps";
 import { CommunityTextArea } from "./communityTextArea";
+import { Button } from "@chakra-ui/react";
 
-const comments = [
-  {
-    user: "John",
-    title: "Where can I get some?",
-    pic: "https://bit.ly/dan-abramov",
-    post: "Lorem ipsum dolor sit amet consectetur. Nunc vel etiam elementum nulla donec. Lorem ipsum dolor sit amet cons.",
-    date: "20 Jan 2023",
-    likes: "10",
-    comments: "10",
-  },
-  {
-    user: "Tobi Moses",
-    title: "Where can I get Money for free?",
-    pic: "https://bit.ly/dan-abramov",
-    post: "Lorem ipsum dolor sit amet consectetur. Nunc vel etiam elementum nulla donec. Lorem ipsum dolor sit amet cons.",
-    date: "21 Jan 2023",
-    likes: "0",
-    comments: "0",
-  },
-  {
-    title: "Where can I get Scholarship?",
-    user: "John",
-    pic: "https://bit.ly/dan-abramov",
-    post: "Lorem ipsum dolor sit amet consectetur. Nunc vel etiam elementum nulla donec. Lorem ipsum dolor sit amet cons.",
-    date: "18 Jan 2023",
-    likes: "25",
-    comments: "10",
-  },
-];
+// const comments = [
+//   {
+//     user: "John",
+//     title: "Where can I get some?",
+//     pic: "https://bit.ly/dan-abramov",
+//     post: "Lorem ipsum dolor sit amet consectetur. Nunc vel etiam elementum nulla donec. Lorem ipsum dolor sit amet cons.",
+//     date: "20 Jan 2023",
+//     likes: "10",
+//     comments: "10",
+//   },
+//   {
+//     user: "Tobi Moses",
+//     title: "Where can I get Money for free?",
+//     pic: "https://bit.ly/dan-abramov",
+//     post: "Lorem ipsum dolor sit amet consectetur. Nunc vel etiam elementum nulla donec. Lorem ipsum dolor sit amet cons.",
+//     date: "21 Jan 2023",
+//     likes: "0",
+//     comments: "0",
+//   },
+//   {
+//     title: "Where can I get Scholarship?",
+//     user: "John",
+//     pic: "https://bit.ly/dan-abramov",
+//     post: "Lorem ipsum dolor sit amet consectetur. Nunc vel etiam elementum nulla donec. Lorem ipsum dolor sit amet cons.",
+//     date: "18 Jan 2023",
+//     likes: "25",
+//     comments: "10",
+//   },
+// ];
 
 export const CommunityContainer = (props: any) => {
   const [question, setquestion] = useState<Comment>(emptyComment);
@@ -48,6 +49,10 @@ export const CommunityContainer = (props: any) => {
     // submit question to backend
     setquestion(emptyComment);
   };
+
+  const goToForum = () =>{
+    window.open("https://wadi.africa/forum","_blank")
+  }
   return (
     <Flex w="100%" flexDirection={"column"} m="20px">
       <GeneralHeadingComp
@@ -60,6 +65,10 @@ export const CommunityContainer = (props: any) => {
           return <CommunityComps {...comment} />;
         })}
       </Flex>
+
+      <div className="my-5 flex justify-center">
+        <Button bgColor={"#0066f5"} color={"white"} onClick={()=>goToForum()}>View Forum</Button>
+      </div>
       <CommunityTextArea
         handleQuestions={handleQuestions}
         value={question}

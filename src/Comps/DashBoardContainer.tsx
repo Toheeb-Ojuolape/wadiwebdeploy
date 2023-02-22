@@ -1,10 +1,12 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState,useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Loading } from "../Routes-Review/loading/loading";
 import { Settings } from "../Routes/Settings/Settings";
-
 import { TopBar } from "./sidebar/topbar/topbar";
+import {doc,getDoc} from "firebase/firestore"
+import { db } from "../db"
+
 
 const DashBoardHome = lazy(() =>
   import("../Routes/dashboard-home/DashBoardHome").then((module) => ({
@@ -26,12 +28,19 @@ const PublishSlug = lazy(() =>
     default: module.PublishSlug,
   }))
 );
+
+
+interface Project{
+  title:string,
+  projectType:string,
+  step:number,
+}
 export const DashBoardContainer = (props: any) => {
   const location = useLocation();
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const [search, setsearch] = useState("");
+  const [project,setProject] = useState<Project>()
 
   const handleSearchChange = (value: string) => {
     setsearch(value);
@@ -40,7 +49,9 @@ export const DashBoardContainer = (props: any) => {
   const params = useParams() as { route: string; subroute: string; settingRoute: string  };
   const { route, subroute, settingRoute } = params;
   console.log(location.pathname);
-  console.log(subroute);
+
+  
+
   return (
     <Box
       float="right"
@@ -82,7 +93,7 @@ export const DashBoardContainer = (props: any) => {
           subroute !== "my-projects" &&
           subroute !== "new-project" &&
           subroute.length > 0 ? (
-            <PublishSlug page={1} />
+            <PublishSlug userData={props.userData} subroute={subroute} page={1} />
           ) : null}
           {settingRoute === "account" && <Settings page={0} />}
           {settingRoute === "change-password" && <Settings page={0} />}

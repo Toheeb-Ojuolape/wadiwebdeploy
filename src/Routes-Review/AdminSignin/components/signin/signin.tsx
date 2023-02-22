@@ -82,7 +82,7 @@ export const SignInComp = (props: any) => {
         const token = credential.accessToken;
         console.log(token);
         setGoogleLoading(false)
-        history("/dashboard")
+        history("/review/home")
         window.location.reload()
         const slug = slugify(result.user.displayName,{
           replacement: "-",

@@ -22,7 +22,7 @@ export const ModalBodyComponent = (props: any) => {
           Select any of the options below
         </Text>
       </Box>
-      <RadioGroup defaultValue="2" onChange={props.setRadio}>
+      <RadioGroup defaultValue="1" onChange={props.setRadio}>
         <ModalBodyComps
 
           title="A new Project"

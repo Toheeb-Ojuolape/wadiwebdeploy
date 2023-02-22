@@ -1,16 +1,23 @@
 import { Avatar, Box, Flex, HStack, Text } from "@chakra-ui/react";
-import { Like, Message2, MessageText, Star } from "iconsax-react";
+import { Like, Message2 } from "iconsax-react";
 import moment from "moment";
 
 export const CommunityComps = (props: any) => {
+
+  const goToForum = (slug:string) =>{
+    window.open("https://wadi.africa/forum/"+slug,"_blank")
+  }
+
+
   return (
     <Flex
       w="100%"
-
+      onClick={()=>goToForum(props.slug)}
       border={"1px solid #E5EBF4"}
       borderRadius="xl"
       padding="15px"
       mb={"15px"}
+      className="cursor-pointer"
     >
       <Avatar mr="15px" src={props.image} />
       <Box>

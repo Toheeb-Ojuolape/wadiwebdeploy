@@ -4,9 +4,7 @@ import {
   Flex,
   Skeleton,
   Spacer,
-
-  Text,
-  useMediaQuery,
+  Text
 } from "@chakra-ui/react";
 import { EventsComps } from "./eventsComps";
 import { SelectContent } from "./selectContent";
@@ -55,12 +53,8 @@ export const UpComingComps = (props: any) => {
 };
 const dates = ["2021", "2022", "2023", "2024", "2025"];
 
-export const GeneralHeadingComp = (props: {
-  title: string;
-  placeholder: string;
-  options: string[] | [] | number[];
-}) => {
-  const [isMobile] = useMediaQuery("(max-width: 600px)");
+export const GeneralHeadingComp = (props:any) => {
+
   return (
     <Flex w="100%" h="fit-content">
       <Center p="4">

@@ -13,11 +13,7 @@ export const ReviewInProgress = (props: any) => {
         Review-in-progress
       </Text>
       <Text fontSize={"14px"}>
-        Lorem ipsum dolor sit amet consectetur. Duis purus adipiscing amet nisi
-        nibh ac nisi pretium laoreet. Odio arcu dolor consequat vitae et
-        porttitor aliquet nec. Morbi justo aliquam sit in lectus ac vitae enim
-        a. Turpis nullam sodales turpis feugiat vestibulum felis faucibus nulla.
-        Dolor senectus consectetur leo elementum non ultrices.
+        We have successfully received your manuscript and we are currently assigning it to one of the competent reviewers in our database
       </Text>
       <Center
         mt="20px"
