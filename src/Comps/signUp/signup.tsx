@@ -301,7 +301,7 @@ export const SignUpComp = (props: any) => {
           </Link>
         </Text>
       </Flex>
-      <WadiButton isLoading={isLoading} onClick={handleClick} text="Sign up" />
+      <WadiButton loading={isLoading} onClick={handleClick} text="Sign up" />
       <GoogleButton onClick={googleSignup} isLoading={googleLoading} />
       <AccountOption
         text="Already have an account?  "
