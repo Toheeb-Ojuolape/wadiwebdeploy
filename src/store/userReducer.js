@@ -21,7 +21,6 @@ export const getUser = createAsyncThunk("users/getUser", async () => {
   try {
     const docRef = doc(db,"users",localStorage.getItem('wadiKey') || '{}');
     const response = await getDoc(docRef)
-    console.log(response.data())
     return response.data()
   } catch (error) {
     return error;

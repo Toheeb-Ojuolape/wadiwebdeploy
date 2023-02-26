@@ -20,7 +20,6 @@ export const getEvent = createAsyncThunk("users/getEvent", async () => {
   try {
     const docRef = doc(db,"events","T9OKOEXNH6cMLyXAavK0" || '{}');
     const response = await getDoc(docRef)
-    console.log(response.data())
     return response.data()
   } catch (error) {
     return error;

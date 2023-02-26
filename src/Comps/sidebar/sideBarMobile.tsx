@@ -49,8 +49,7 @@ export const SideBarMobile = (props: {
 
   const logOut = () =>{
     const auth = getAuth()
-    signOut(auth).then((response)=>{
-      console.log(response)
+    signOut(auth).then(()=>{
       localStorage.removeItem("wadiKey")
       window.location.href="/login"
     })
@@ -75,7 +74,7 @@ export const SideBarMobile = (props: {
           <CreateNewButton />
           {Routes.map((route, index) => {
             return (
-              <>
+              <div key={index}>
                 <Link to={route.routes}>
                   <SideBarButton
                     name={route.title}
@@ -96,7 +95,7 @@ export const SideBarMobile = (props: {
                   {route.subRoutes &&
                     route.subRoutes.map((subRoute, index) => {
                       return (
-                        <Collapse in={isOpen} animateOpacity>
+                        <Collapse key={index} in={isOpen} animateOpacity>
                           <Link to={subRoute.routes}>
                             <SubButton
                               name={subRoute.title}
@@ -113,7 +112,7 @@ export const SideBarMobile = (props: {
                       );
                     })}
                 </Box>
-              </>
+              </div>
             );
           })}
           <SideBarButton

@@ -1,6 +1,6 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { lazy, Suspense} from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { Loading } from "../Routes-Review/loading/loading";
 import { Settings } from "../Routes/Settings/Settings";
 import { TopBar } from "./sidebar/topbar/topbar";
@@ -29,7 +29,6 @@ const PublishSlug = lazy(() =>
 );
 
 export const DashBoardContainer = (props: any) => {
-  const location = useLocation();
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
  
@@ -37,8 +36,7 @@ export const DashBoardContainer = (props: any) => {
  
 
   const params = useParams() as { route: string; subroute: string; settingRoute: string  };
-  const { route, subroute, settingRoute } = params;
-  console.log(location.pathname);
+  const { route, subroute, settingRoute } = params
 
   
 
@@ -85,17 +83,17 @@ export const DashBoardContainer = (props: any) => {
           subroute.length > 0 ? (
             <PublishSlug userData={props.userData} subroute={subroute} page={1} />
           ) : null}
-          {settingRoute === "account" && <Settings page={0} />}
-          {settingRoute === "change-password" && <Settings page={0} />}
-          {settingRoute === "delete-account" && <Settings page={0} />}
-          {settingRoute === "basic-info" && <Settings page={1} />}
-          {settingRoute === "professional-info" && <Settings page={1} />}{" "}
-          {settingRoute === "download-data" && <Settings page={2} />}
-          {settingRoute === "email-settings" && <Settings page={2} />}
-          {settingRoute === "account-home" && <Settings page={0} />}{" "}
-          {settingRoute === "login-activity" && <Settings page={3} />}
-          {settingRoute === "profile-home" && <Settings page={1} />}
-          {settingRoute === "privacy-home" && <Settings page={2} />}
+          {settingRoute === "account" && <Settings userData={props.userData} page={0} />}
+          {settingRoute === "change-password" && <Settings userData={props.userData} page={0} />}
+          {settingRoute === "delete-account" && <Settings userData={props.userData} page={0} />}
+          {settingRoute === "basic-info" && <Settings userData={props.userData} page={1} />}
+          {settingRoute === "professional-info" && <Settings userData={props.userData} page={1} />}{" "}
+          {settingRoute === "download-data" && <Settings userData={props.userData} page={2} />}
+          {settingRoute === "email-settings" && <Settings userData={props.userData} page={2} />}
+          {settingRoute === "account-home" && <Settings userData={props.userData} page={0} />}{" "}
+          {settingRoute === "login-activity" && <Settings userData={props.userData} page={3} />}
+          {settingRoute === "profile-home" && <Settings userData={props.userData} page={1} />}
+          {settingRoute === "privacy-home" && <Settings userData={props.userData} page={2} />}
         </Suspense>
       </Box>
     </Box>

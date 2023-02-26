@@ -71,7 +71,7 @@ export const RightContainer = (props: any) => {
         <Box>
           {navItems.map((item, index) => {
             return (
-              <Tab mt='10px' border={"0px"} textAlign="left">
+              <Tab key={index} mt='10px' border={"0px"} textAlign="left">
                 <NavBoxes
                   title={item.title}
                   subtitle={item.subtitle}

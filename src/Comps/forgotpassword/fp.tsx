@@ -13,7 +13,6 @@ export const FpComp = () => {
   const handleChange = (e: any) => {
     const value = e.target.value;
     setEmail(value);
-    console.log(Email);
   };
 
   const handleClick = () => {
@@ -40,8 +39,7 @@ export const FpComp = () => {
         });
         setLoading(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         Swal.fire({
           title: "Password not reset",
           text: "This email is not associated with any account on Wadi",

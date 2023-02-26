@@ -7,8 +7,7 @@ export const AccountHome = (props: any) => {
     <Flex className="animate__animated animate__fadeIn">
       <Box>
         <Text>
-          Lorem ipsum dolor sit amet consectetur. Est vel condimentum justo
-          pellentesque.
+          Set your profile and account preferences below:
         </Text>
         <Box mt="20px">
           <AccountNavLink

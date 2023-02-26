@@ -57,7 +57,7 @@ export const SideBarMobile = (props: {
           
           {Routes.map((route, index) => {
             return (
-              <>
+              <div key={index}>
                 <Link to={route.routes}>
                   <SideBarButton
                     name={route.title}
@@ -71,7 +71,7 @@ export const SideBarMobile = (props: {
                     isActive={active === index}
                   />
                 </Link>
-              </>
+              </div>
             );
           })}
         <Link to={'/review/settings/'}>

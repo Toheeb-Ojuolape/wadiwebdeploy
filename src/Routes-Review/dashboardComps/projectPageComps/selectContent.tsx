@@ -10,8 +10,8 @@ export const SelectContent = (props: { placeholder: string; options: any }) => {
       w={!isMobile ? "fit-content" : "100%"}
       size={isMobile ? "sm" : "md"}
     >
-      {props.options.map((option: any) => (
-        <option key={option} value={option}>
+      {props.options.map((option: any,index:number) => (
+        <option key={index} value={option}>
           {option}
         </option>
       ))}

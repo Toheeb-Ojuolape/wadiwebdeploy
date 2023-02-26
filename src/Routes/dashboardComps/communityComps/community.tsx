@@ -61,8 +61,12 @@ export const CommunityContainer = (props: any) => {
         options={["Newest"]}
       />
       <Flex flexDirection={"column"} w="100%" overflow={"auto"} maxH="400px">
-        {props.forumData&& props.forumData.slice(0,5).reverse().map((comment:any, index:Number) => {
-          return <CommunityComps {...comment} />;
+        {props.forumData&& props.forumData.slice(0,5).reverse().map((comment:any, index:number) => {
+          return( 
+          <div key={index}>
+          <CommunityComps {...comment} />;
+          </div>
+          )
         })}
       </Flex>
 

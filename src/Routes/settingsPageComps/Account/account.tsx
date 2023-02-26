@@ -14,17 +14,13 @@ export const Account = (props: any) => {
     settingRoute: string;
   };
   const { settingRoute } = params;
-  console.log(
-    "🚀 ~ file: account.tsx:9 ~ Account ~ settingRoute",
-    settingRoute
-  );
 
   return <Box>
-    {settingRoute === undefined && <AccountHome />}
-    {settingRoute === "account-home" && <AccountHome />}
-    {settingRoute === "account" && <AccountInfo/>}
-    {settingRoute === "change-password" && <ChangePassword/>}
-    {settingRoute === "delete-account" && <DeleteAccount/>}
+    {settingRoute === undefined && <AccountHome userData={props.userData} />}
+    {settingRoute === "account-home" && <AccountHome  userData={props.userData}/>}
+    {settingRoute === "account" && <AccountInfo  userData={props.userData}/>}
+    {settingRoute === "change-password" && <ChangePassword  userData={props.userData}/>}
+    {settingRoute === "delete-account" && <DeleteAccount  userData={props.userData}/>}
 
     
     </Box>;

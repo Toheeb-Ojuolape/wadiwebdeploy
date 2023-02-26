@@ -78,7 +78,6 @@ export const ProfileComp = () => {
       
       uploadString(storageRef, images.dataURL.split(",")[1], "base64")
       .then(async (snapshot) => {
-        console.log("File uploaded successfully!");
         const uploadedImage = await getDownloadURL(snapshot.ref)
         setImage(uploadedImage)
 

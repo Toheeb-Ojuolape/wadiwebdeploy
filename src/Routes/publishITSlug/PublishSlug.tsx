@@ -37,6 +37,7 @@ export const PublishSlug = (props: any) => {
 
   useEffect(() => {
     const docRef = doc(db, "projects", props.subroute);
+    console.log("single project")
     getDoc(docRef).then((response) => {
       if (response.exists()) {
         const projectData = response.data() as Project;

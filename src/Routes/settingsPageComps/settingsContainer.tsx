@@ -24,11 +24,7 @@ export const SettingsComps = (props: any) => {
   };
 
   const [tabIndex, setTabIndex] = useState(props.page);
-  console.log(
-    "🚀 ~ file: settingsContainer.tsx:23 ~ SettingsComps ~ props.page",
-    props.page
-  );
-
+  
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   const history = useNavigate();
   return (
@@ -115,20 +111,19 @@ export const SettingsComps = (props: any) => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Account />
+            <Account userData={props.userData}/>
           </TabPanel>
           <TabPanel>
-            <Profile />
+            <Profile userData={props.userData}/>
           </TabPanel>
           <TabPanel>
-            <Privacy />
+            <Privacy userData={props.userData}/>
           </TabPanel>
           <TabPanel>
-            <LoginHome
-              name={"Isaac Ojo"}
-              profession={"Ass. Lecturer- Env Mgt"}
-              pic="https://lh3.googleusercontent.com/-N43TPVUqQpk/AAAAAAAAAAI/AAAAAAAABK8/ONS86r57Wnk/photo.jpg?sz=256"
-            />
+            {props.userData && <LoginHome
+              userData={props.userData} 
+              
+            />}
           </TabPanel>
         </TabPanels>
       </Tabs>

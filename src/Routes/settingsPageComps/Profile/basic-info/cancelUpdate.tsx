@@ -1,9 +1,16 @@
 import { Button, Flex, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { ReviewModalComps } from "../../modalComps/modalComps";
 
-export const CancelUpdate = (props: { onCancel: any; onUpdate: any }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export const CancelUpdate = (props: { onCancel: any; onUpdate: any,updateProfile:any,loading:boolean}) => {
+  const { isOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery("(max-width: 600px)");
+
+  const updateProfile = () =>{
+    props.updateProfile()
+    
+  }
+
+ 
   return (
     <Flex gap={2} mt="30px">
       <Button
@@ -20,9 +27,10 @@ export const CancelUpdate = (props: { onCancel: any; onUpdate: any }) => {
         w={isMobile ? "100%" : "fit-content"}
         color="white"
         bg="rgba(43, 95, 208, 1)"
-        onClick={onOpen}
+        onClick={updateProfile}
         size="sm"
         variant={"solid"}
+        isLoading={props.loading}
       >
         Update
       </Button>

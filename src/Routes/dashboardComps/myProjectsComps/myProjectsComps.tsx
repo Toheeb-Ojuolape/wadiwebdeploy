@@ -92,8 +92,8 @@ export const MyProjectComps = (props: any) => {
             </Thead>
             <Tbody>
               {displayedData &&
-                displayedData.map((data: any, index: Number) => (
-                  <Tr>
+                displayedData.map((data: any, index: number) => (
+                  <Tr key={index}>
                     <Td w={"200px"}>
                       <Flex flexDirection={"column"}>
                         <Text>{data.title}</Text>

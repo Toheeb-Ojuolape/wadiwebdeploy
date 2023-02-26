@@ -10,10 +10,6 @@ import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 export const SideBarButton = (props: {onClick?: any,isActive?: boolean,icon:ReactJSXElement, name: string}) => {
 
-  console.log(props.isActive);
-
-  
-
   return (
 
     <Button

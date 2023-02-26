@@ -20,14 +20,11 @@ export const BasicInfo = (props: {
   pic: string;
   onCancel?: any;
   onUpdate?: any;
+  updateProfile:any;
+  loading:boolean;
+  setInfo:any
 }) => {
-  const [basicInfo, setBasicInfo] = useState<BasicInfoInterface>(
-    props.basicInfo || {
-      fName: "",
-      lName: "",
-      email: "",
-    }
-  );
+  const [basicInfo, setBasicInfo] = useState<BasicInfoInterface>(props.basicInfo);
   const [yourBio, setYourBio] = useState<string>(props.yourBio || "");
   const [isMobile] = useMediaQuery("(max-width: 600px)");
   const [preview, setPreview] = useState(props.pic);
@@ -36,6 +33,7 @@ export const BasicInfo = (props: {
     const value = e.target.value;
     const name = e.target.name;
     setBasicInfo({ ...basicInfo, [name]: value });
+    props.setInfo(basicInfo)
   };
 
   function onClosedCrop() {
@@ -44,6 +42,11 @@ export const BasicInfo = (props: {
   function onCrop(pv: any) {
     setPreview(pv);
     setedit("none");
+    console.log(pv)
+    const value = pv;
+    const name ="image";
+    setBasicInfo({ ...basicInfo, [name]: value });
+    props.setInfo(basicInfo)
   }
   function onBeforeFileLoad(elem: any) {
     if (elem.target.files[0].size > 79160080) {
@@ -51,6 +54,8 @@ export const BasicInfo = (props: {
       elem.target.value = "";
     }
   }
+
+ 
   return (
     <Flex flexDirection={"column"}>
       <Box w="fit-content" mb="10px">
@@ -72,6 +77,7 @@ export const BasicInfo = (props: {
           type={"text"}
           name={"fName"}
           onChange={handleChange}
+          readonly={false}
         />{" "}
         <InputComps
           value={basicInfo.lName}
@@ -79,6 +85,7 @@ export const BasicInfo = (props: {
           type={"text"}
           name={"lName"}
           onChange={handleChange}
+          readonly={false}
         />{" "}
         <InputComps
           value={basicInfo.email}
@@ -86,6 +93,7 @@ export const BasicInfo = (props: {
           type={"email"}
           name={"email"}
           onChange={handleChange}
+          readonly={true}
         />
         <FormLabel
           display="flex"
@@ -105,7 +113,7 @@ export const BasicInfo = (props: {
           w={!isMobile ? "400px" : "100%"}
           resize={"none"}
         />
-        <CancelUpdate onCancel={props.onCancel} onUpdate={props.onUpdate} />
+        <CancelUpdate loading={props.loading} updateProfile={props.updateProfile} onCancel={props.onCancel} onUpdate={props.onUpdate} />
       </form>
     </Flex>
   );

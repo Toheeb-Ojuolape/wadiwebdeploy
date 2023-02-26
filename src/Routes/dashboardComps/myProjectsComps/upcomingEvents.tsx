@@ -12,10 +12,7 @@ import { SelectContent } from "./selectContent";
 
 export const UpComingComps = (props: any) => {
   const eventData = props.eventData || { events: [] };
-  console.log(
-    "🚀 ~ file: upcomingEvents.tsx:16 ~ UpComingComps ~ eventData",
-    eventData
-  );
+  
 
   return (
     <Flex

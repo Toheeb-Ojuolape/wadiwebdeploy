@@ -14,11 +14,7 @@ export const Account = (props: any) => {
     settingRoute: string;
   };
   const { settingRoute } = params;
-  console.log(
-    "🚀 ~ file: account.tsx:9 ~ Account ~ settingRoute",
-    settingRoute
-  );
-
+  
   return <Box>
     {settingRoute === undefined && <AccountHome />}
     {settingRoute === "account-home" && <AccountHome />}

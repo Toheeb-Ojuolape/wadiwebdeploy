@@ -56,7 +56,7 @@ export const ProjectComps = (props: any) => {
           </Thead>
           <Tbody>
             {displayedData.map((data: any, index: number) => (
-              <Tr      className="animate__animated animate__fadeIn">
+              <Tr key={index} className="animate__animated animate__fadeIn">
                 <Td w={"200px"}>
                   <Flex flexDirection={"column"}>
                     <Text>{data.name}</Text>

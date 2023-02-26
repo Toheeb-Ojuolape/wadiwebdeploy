@@ -30,7 +30,6 @@ export const ManageProjects = (props: any) => {
 
   React.useEffect(() => {
     dispatch(getProject())
-   
   }, [dispatch]);
   
   return (

@@ -14,6 +14,7 @@ import { Loading } from "../Routes-Review/loading/loading";
     if (!props.loggedIn) {
       window.location.href = "/login";
     }
+    console.log("hello")
     // set a timeout to simulate a loading state
    
     setIsLoading(false)

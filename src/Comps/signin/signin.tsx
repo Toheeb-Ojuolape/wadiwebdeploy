@@ -29,7 +29,6 @@ export const SignInComp = (props: any) => {
     const value = e.target.value;
     const name = e.target.name;
     setLogin({ ...login, [name]: value });
-    console.log(login);
   };
 
   const handleLogin = (e:any) =>{
@@ -46,7 +45,6 @@ export const SignInComp = (props: any) => {
     try{
     signInWithEmailAndPassword(auth,login.email,login.password)
     .then((response:any)=>{
-      console.log(response)
       setLoading(false) 
         const slug = slugify(response.user.displayName,{
           replacement: "-",
@@ -66,7 +64,6 @@ export const SignInComp = (props: any) => {
       setLoading(false)
     })
     } catch(error:any){
-      console.log(error.message)
       setLoading(false) 
       Swal.fire({
         icon:"error",

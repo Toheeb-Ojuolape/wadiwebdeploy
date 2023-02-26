@@ -9,10 +9,6 @@ import {
 
   
   export const SubButton = (props: {onClick?: any,isActive?: boolean,icon:ReactJSXElement, name: string}) => {
-
-    console.log(props.isActive);
-
-  
     return (
   
       <Button

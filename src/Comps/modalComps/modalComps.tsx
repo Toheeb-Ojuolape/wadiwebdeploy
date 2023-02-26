@@ -60,7 +60,6 @@ export const ModalComps = (props: any) => {
                   setMoveNext({ ...moveNext, pag1: true });
                 } else if (radio === "2") {
                   setMoveNext({ ...moveNext, pag2: true });
-                  console.log(moveNext)
                 } else if(radio === "1" && moveNext.pag1 === true){
                   addNewProject()
                 }

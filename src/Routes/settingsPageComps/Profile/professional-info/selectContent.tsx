@@ -24,7 +24,7 @@ export const SelectContent = (props: {
         fontSize={"13px"}
         w={!isMobile ? "400px" : "100%"}
         size={isMobile ? "sm" : "md"}
-        defaultValue={props.defaultValue}
+        value={props.defaultValue}
       >
         {props.options.map((option: any, key: number) => (
           <option key={key} value={option}>

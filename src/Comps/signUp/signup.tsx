@@ -304,7 +304,7 @@ export const SignUpComp = (props: any) => {
       <WadiButton loading={isLoading} onClick={handleClick} text="Sign up" />
       <GoogleButton onClick={googleSignup} isLoading={googleLoading} />
       <AccountOption
-        text="Already have an account?  "
+        text="Already have an account?"
         linkText="Login here"
         link="/login"
       />

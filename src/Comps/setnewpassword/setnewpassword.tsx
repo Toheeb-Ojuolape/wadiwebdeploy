@@ -27,7 +27,6 @@ export const SNPComp = () => {
     const value = e.target.value;
     const name = e.target.name;
     setSNP({ ...snp, [name]: value });
-    console.log(snp);
     if (name === "vPassword") {
         if (value === snp.password) {
           setIsPassword(true);

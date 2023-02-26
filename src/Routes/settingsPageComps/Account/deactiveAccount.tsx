@@ -11,7 +11,7 @@ export const DeleteAccount = (props: any) => {
   return (
     <Flex className="animate__animated animate__fadeIn">
       <Box w="100%">
-        {page === 0 ? <DeactiveFirstPage  setPage={setPage}/> : <DeactiveSecondPage/>}
+        {page === 0 ? <DeactiveFirstPage userData={props.userData}  setPage={setPage}/> : <DeactiveSecondPage/>}
       </Box>
     </Flex>
   );
@@ -26,9 +26,9 @@ const DeactiveFirstPage = (props:any) => {
       </Flex>
       <Box mt="20px">
         <DeactivateAccountComps
-          pic={""}
-          name={"Toheeb Ojoulape"}
-          profession={"Ass. Lecturer- Env Mgt"}
+          pic={props.userData.photoURL}
+          name={props.userData.firstName+" "+props.userData.lastName}
+          profession={props.userData.title}
           onClick={() => props.setPage(1)}
         />
       </Box>

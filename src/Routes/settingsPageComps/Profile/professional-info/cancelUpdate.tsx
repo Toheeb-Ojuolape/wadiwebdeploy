@@ -1,7 +1,7 @@
 import { Button, Flex, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { ReviewModalComps } from "../../modalComps/modalComps";
 
-export const CancelUpdate = (props: { onCancel: any }) => {
+export const CancelUpdate = (props: { onCancel: any,loading:boolean,updateProfile:any,onUpdate:any }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isMobile] = useMediaQuery("(max-width: 600px)");
   return (

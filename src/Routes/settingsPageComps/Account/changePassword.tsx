@@ -1,19 +1,60 @@
 import {
   Flex,
   Box,
- 
   Spacer,
   Button,
   useDisclosure,
   FormControl,
 } from "@chakra-ui/react";
 import { GoBackto } from "../goBackto";
-
 import { ReviewModalComps } from "../modalComps/modalComps";
 import { PasswordInput } from "../passwordInput";
+import { getAuth, updatePassword } from "firebase/auth";
+import {useState} from "react"
+import Swal from "sweetalert2";
 
 export const ChangePassword = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [newPassword,setNewPassword] = useState("")
+  const [confirmNewPassword,setConfirmNewPassword] = useState("")
+  const [loading,setLoading] = useState(false)
+  const auth = getAuth()
+  const user = auth.currentUser
+
+  const changePassword = () =>{
+  if(newPassword ==='' || confirmNewPassword ===''){
+    Swal.fire({
+      icon:"warning",
+      title:"Password Not Set",
+      text:"Please enter your password",
+      confirmButtonColor:"#0066f5"
+    })
+    return
+  }
+  if(newPassword !== confirmNewPassword){
+    Swal.fire({
+      icon:"warning",
+      title:"Password Not Set",
+      text:"New Password and Confirm Password are not the same",
+      confirmButtonColor:"#0066f5"
+    })
+  }
+  if(user){
+  setLoading(true)
+  updatePassword(user,newPassword).then(()=>{
+    onOpen()
+    setLoading(false)
+  }).catch((error)=>{
+    setLoading(false)
+    Swal.fire({
+      icon:"warning",
+      title:"Password Not Set",
+      text:error.message,
+      confirmButtonColor:"#0066f5"
+    })
+  })
+}
+  }
   return (
     <Flex
       className="animate__animated animate__fadeIn"
@@ -38,13 +79,13 @@ export const ChangePassword = (props: any) => {
             name={"newPassword"}
             label={"New password"}
             mb={"10px"}
-            handleChange={props.handleChange}
+            handleChange={(e:any)=>setNewPassword(e.target.value)}
           />
           <PasswordInput
             name={"confirmPassword"}
             label={"Confirm password"}
             mb={"20px"}
-            handleChange={props.handleChange}
+            handleChange={(e:any)=>setConfirmNewPassword(e.target.value)}
           />
         </FormControl>
       </Box>
@@ -59,12 +100,13 @@ export const ChangePassword = (props: any) => {
           Cancel
         </Button>
         <Button
-          onClick={onOpen}
+          onClick={changePassword}
           size={"sm"}
           bg="rgba(43, 95, 208, 1)"
           variant={"outline"}
           borderColor="rgba(43, 95, 208, 1)"
           color="white"
+          isLoading={loading}
         >
           Change
         </Button>

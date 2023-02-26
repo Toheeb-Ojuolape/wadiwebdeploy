@@ -24,10 +24,7 @@ export const SettingsComps = (props: any) => {
   };
 
   const [tabIndex, setTabIndex] = useState(props.page);
-  console.log(
-    "🚀 ~ file: settingsContainer.tsx:23 ~ SettingsComps ~ props.page",
-    props.page
-  );
+ 
 
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   const history = useNavigate();

@@ -53,11 +53,10 @@ export const SideBar = (props: any) => {
       </Box>
       {Routes.map((route, index) => {
         return (
-          <>
+          <div  key={index}>
             <SideBarButton
               name={route.title}
               icon={route.icon}
-              key={index}
               onClick={() => {
                 if (index !== 1) {
                   history(route.routes);
@@ -65,7 +64,6 @@ export const SideBar = (props: any) => {
                 } 
 
                 if(index === 4){
-                  console.log(index)
                   window.open("https://wadi.africa/forum","_blank")
                 }
                 
@@ -81,7 +79,7 @@ export const SideBar = (props: any) => {
               {route.subRoutes &&
                 route.subRoutes.map((subRoute, index) => {
                   return (
-                    <Collapse in={isOpen} animateOpacity>
+                    <Collapse key={index} in={isOpen} animateOpacity>
                       <SubButton
                         name={subRoute.title}
                         icon={subRoute.icon}
@@ -96,7 +94,7 @@ export const SideBar = (props: any) => {
                   );
                 })}
             </Box>
-          </>
+          </div>
         );
       })}
 

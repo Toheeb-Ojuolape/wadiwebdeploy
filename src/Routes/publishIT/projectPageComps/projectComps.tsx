@@ -43,8 +43,6 @@ export const ProjectComps = (props: { projectData?: any }) => {
 
   const sliceStart = currentPage * perPage;
   const sliceEnd = sliceStart + perPage;
-  const logDa = props.projectData;
-  console.log("🚀 ~ file: projectComps.tsx:43 ~ ProjectComps ~ logDa", logDa);
   const displayedData = props.projectData
     ? props.projectData.slice(sliceStart, sliceEnd)
     : null;
@@ -107,7 +105,7 @@ export const ProjectComps = (props: { projectData?: any }) => {
                   },
                   index: number
                 ) => (
-                  <Tr className="animate__animated animate__fadeIn">
+                  <Tr key={index} className="animate__animated animate__fadeIn">
                     <Td w={"200px"}>
                       <Flex flexDirection={"column"}>
                         <Text>{data.title}</Text>

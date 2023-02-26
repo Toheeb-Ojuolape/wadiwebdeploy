@@ -42,7 +42,7 @@ export const SideBar = (props: any) => {
      
       {Routes.map((route, index) => {
         return (
-          <>
+          <div key={index}>
             <Link to={route.routes}>
               <SideBarButton
                 name={route.title}
@@ -55,7 +55,7 @@ export const SideBar = (props: any) => {
               />
             </Link>
             <Box></Box>
-          </>
+          </div>
         );
       })}
 

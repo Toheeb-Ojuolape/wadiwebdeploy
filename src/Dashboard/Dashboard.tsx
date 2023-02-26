@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "@chakra-ui/react";
 import { DashBoardContainer } from "../Comps/DashBoardContainer";
@@ -48,25 +48,20 @@ const DashBoard = (props: { loggedIn: boolean }) => {
   const eventData = useSelector((state: MyEvent) => state.event.value);
   const forumData = useSelector((state: MyForum) => state.forum.value);
   const projectData = useSelector((state: MyProjects) => state.project.value);
-  const [isLoading, setIsLoading] = useState(true);
-  function isEmpty(obj: any) {
-    return Object.keys(obj).length === 0;
-  }
+  const [isLoading] = useState(false);
+ 
+
 
   useEffect(() => {
     dispatch(getUser());
     dispatch(getEvent());
     dispatch(getForum());
     dispatch(getProject());
-    if (!props.loggedIn) {
-      window.location.href = "/login";
-    }
-    console.log("🚀 ~ file: Dashboard.tsx:36 ~ useEffect ~ userData", userData);
+    // if (!props.loggedIn) {
+    //   window.location.href = "/login";
+    // }
 
-    if (!isEmpty(userData)) {
-      setIsLoading(false);
-    }
-  }, [dispatch,props,userData]);
+  }, [dispatch]);
 
   return (
     <div

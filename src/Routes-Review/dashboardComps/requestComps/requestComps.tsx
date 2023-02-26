@@ -58,7 +58,7 @@ export const RequestComps = (props: any) => {
             </Thead>
             <Tbody>
               {displayedData.map((data: any, index: number) => (
-                <Tr >
+                <Tr key={index}>
                   <Td w={"200px"}>
                     <Flex flexDirection={"column"}>
                       <Text>{data.name}</Text>

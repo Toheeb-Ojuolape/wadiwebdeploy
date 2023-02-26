@@ -20,7 +20,7 @@ export const Profile = (props: any) => {
       {settingRoute === "profile-home" && <ProfileHome />}
       {settingRoute === "basic-info" && (
         <BasicInfo
-          basicInfo={{ fName: "Ojo", lName: "Isaac", email: "isaac@email.com" }}
+          basicInfo={{ fName: "Ojo", lName: "Isaac", email: "isaac@email.com",image:"" }}
           yourBio={
             "Lorem ipsum dolor sit amet consectetur. Faucibus duis cursus ut phasellus platea."
           }

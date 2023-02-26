@@ -5,8 +5,6 @@ import ImageUploading from "react-images-uploading";
 
 export const PhotoUpload = (props: any) => {
   const { images, onChange, maxNumber } = props;
-
-  console.log(images);
   return (
     <div className="mb-5">
       <Text mb="15px" fontSize="15px">

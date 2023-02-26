@@ -2,8 +2,21 @@ import { Box, Flex } from "@chakra-ui/react";
 import { GoBackto } from "../../goBackto";
 import { CancelUpdate } from "../../Profile/professional-info/cancelUpdate";
 import { EmailListComps } from "./emailListComps";
+import {useState} from "react"
 
 export const EmailSettings = (props: any) => {
+  const [loading] = useState(false)
+  const onCancel = () =>{
+    console.log("dh")
+  }
+
+  const updateProfile = () =>{
+    console.log("dh")
+  }
+
+  const onUpdate = () =>{
+    console.log("dh")
+  }
   return (
     <Flex flexDirection={'column'}>
       <Box w="fit-content" mb='30px'>
@@ -25,7 +38,7 @@ export const EmailSettings = (props: any) => {
         id="4"
         title={"Notifications if a client accepts your review"}
       />
-      <CancelUpdate onCancel={props.onCancel} />
+      <CancelUpdate loading={loading} onCancel={onCancel} updateProfile={updateProfile} onUpdate={onUpdate}/>
     </Flex>
   );
 };

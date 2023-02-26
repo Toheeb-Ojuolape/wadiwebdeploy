@@ -169,7 +169,7 @@ export const AddNewProject = (props:{page: number}) => {
           >
             <Flex>
               {pageList.map((page, index) => {
-                return <TopTab key={index} />;
+                return <TopTab  key={index} />;
               })}
             </Flex>
             <Box className="flex  items-center justify-center">

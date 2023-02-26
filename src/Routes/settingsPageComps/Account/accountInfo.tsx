@@ -4,42 +4,35 @@ import { AccountInfoComps } from "../accountInfoComps";
 
 import { GoBackto } from "../goBackto";
 
-const AccountInfoList = [
-  {
-    title: "First name",
-    sub: "Toheeb",
-  },
-  {
-    title: "Last name",
-    sub: "Ojoulape",
-  },
-  {
-    title: "Email",
-    sub: "toheebojoulape@gmail.com",
-  },
-  {
-    title: "Phone number",
-    sub: "08123456789",
-  },
-  {
-    title: "Country",
-    sub: "Nigeria",
-  },
-  {
-    title: "User type",
-    sub: "Reviewer",
-  },
-  {
-    title: "Gender",
-    sub: "Male",
-  },
-  {
-    title: "Account creation",
-    sub: "Jan 23, 2023, 09:50:10 AM",
-  },
-];
 
 export const AccountInfo = (props: any) => {
+  const AccountInfoList = [
+    {
+      title: "First name",
+      sub: props.userData.firstName,
+    },
+    {
+      title: "Last name",
+      sub: props.userData.lastName,
+    },
+    {
+      title: "Email",
+      sub: props.userData.email,
+    },
+    {
+      title: "Country",
+      sub: props.userData.country,
+    },
+    {
+      title: "User type",
+      sub: "Researcher",
+    },
+    {
+      title: "Gender",
+      sub: props.userData.gender,
+    }
+  ];
+  
   return (
     <Flex className="animate__animated animate__fadeIn">
       

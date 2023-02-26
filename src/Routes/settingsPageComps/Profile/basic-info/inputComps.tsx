@@ -6,6 +6,7 @@ export const InputComps = (props: {
   label: string;
   name: string;
   onChange: any;
+  readonly:boolean
 }) => {
   const [isMobile] = useMediaQuery("(max-width: 600px)");
 
@@ -30,6 +31,7 @@ export const InputComps = (props: {
         placeholder={props.value}
         type={props.type}
         mb='10px'
+        readOnly={props.readonly}
       />
     </>
   );
