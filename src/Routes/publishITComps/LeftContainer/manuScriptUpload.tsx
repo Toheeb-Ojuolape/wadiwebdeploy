@@ -1,4 +1,4 @@
-import { Box, Center, IconButton, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Center, HStack, IconButton, Progress, Text, useMediaQuery } from "@chakra-ui/react";
 import { DocumentUpload } from "iconsax-react";
 import { FileUploader } from "react-drag-drop-files";
 
@@ -18,7 +18,7 @@ export default function ManuScript(props: any) {
         handleChange={props.uploadFile}
         name="file"
         types={fileTypes}
-        children={<UploadBox file={props.file}/>}
+        children={<><UploadBox file={props.file} progressLoading = {props.progressLoading}/></>}
       />
    
     </Box>
@@ -26,13 +26,16 @@ export default function ManuScript(props: any) {
 }
 
 const UploadBox = (props:any) => {
+  
   return (
-    <Center flexDirection={'column'} border='1px solid rgba(208, 213, 221, 1)' padding='20px' borderRadius={'lg'} > 
-     <IconButton icon={<DocumentUpload />} colorScheme='blue' size='lg' mb='10px' aria-label={""}/>
+    <Box flexDirection={'column'} border='1px solid rgba(208, 213, 221, 1)' padding='20px' borderRadius={'lg'} > 
+    <Center> <IconButton icon={<DocumentUpload />} colorScheme='blue' size='lg' mb='10px' aria-label={""}/></Center>
       <Text align={'center'} color={'rgba(102, 112, 133, 1)'}>    {props.file[0]
           ? `File name: ${props.file[0].name}`
           : "Browse and chose the files you want to upload from your computer"}</Text>
+          <HStack mt='10px'>
+          <Box w='82%'><Progress borderRadius={'10px'} value={props.progressLoading} width={"100%"}/></Box><Box w='fit-content'><p className="text-sm ml-2">{props.progressLoading} %</p></Box></HStack>
 
-    </Center>
+    </Box>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, FormControl, Text,Progress } from "@chakra-ui/react";
+import { Box, FormControl, Text } from "@chakra-ui/react";
 import ManuScript from "./manuScriptUpload";
 
 import { RegularInput } from "./regurlarInput";
@@ -18,7 +18,7 @@ const researchList = ["Art","Energy","Engineering","Environment","Geoscience","H
 const projectType = ["Choose Type","Convert Dissertation to Manuscript", "Review Research"];
 
 export const ProjectDetails = (props: any) => {
-
+ 
   return (
     <Box flexWrap="wrap">
       <Text fontWeight={"extrabold"} fontSize="18px">
@@ -52,10 +52,10 @@ export const ProjectDetails = (props: any) => {
           handleChange={props.handleChange}
           optionList={projectType}
         />
-        <ManuScript file={props.file} uploadFile={props.uploadFile} />
+        <ManuScript file={props.file} uploadFile={props.uploadFile} progressLoading={props.progressLoading} />
         
         
-        <div className="flex"><Progress value={props.progressLoading} width={"380px"}/><p className="text-sm ml-2">{props.progressLoading} %</p></div>
+        
         
         <Box mt="20px">
           <Text
