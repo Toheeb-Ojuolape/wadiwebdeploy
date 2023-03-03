@@ -72,6 +72,7 @@ export const App = () => (
           <Route path="/login" element={<SignIn />} />
           <Route path="/forgot-password" element={<FP />} />
           <Route path="/register" element={<SignUP />} />
+          <Route path="/signup" element={<SignUP />} />
           <Route path="/verify-email" element={<VerifyEmail />} />
           <Route path="/new-password" element={<SNP />} />
           <Route path="/onboarding/profile" element={<Profile />} />
