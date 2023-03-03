@@ -136,13 +136,14 @@ export const AddNewProject = (props:{page: number}) => {
 
   const [pageList, setPageList] = useState<number[]>([0]);
 
-  const handleTabsChange = (index: number) => {
-    setPage(index);
-  };
+  // const handleTabsChange = (index: number) => {
+  //   setPage(index);
+  // };
 
   const onClick = () => {
-    setPage(page + 1);
-    setPageList([...pageList, page + 1]);
+
+    // setPage(page + 1);
+    // setPageList([...pageList, page + 1]);
   };
 
   const goBack = () => {
@@ -193,7 +194,7 @@ export const AddNewProject = (props:{page: number}) => {
             <Flex w={"240px"} mt={isMobile ? "20px" : ""}>
               <RightContainer
                 tabIndex={page}
-                handleTabsChange={handleTabsChange}
+                // handleTabsChange={handleTabsChange}
               />
             </Flex>
           )}
