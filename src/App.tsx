@@ -10,6 +10,7 @@ import "animate.css";
 
 const ReviewerDashBoard = lazy(() => import("./ReviewerDashboard/Dashboard"));
 const DashBoard = lazy(() => import("./Dashboard/Dashboard"));
+const ReferralCode = lazy(() => import("./Marketing/ReferralCode"));
 const SignIn = lazy(() =>
   import("./OnBoarding/SignIn/SignIn").then((module) => ({
     default: module.SignIn,
@@ -79,6 +80,7 @@ export const App = () => (
           <Route path="/onboarding/background" element={<Background />} />
           <Route path="/onboarding/story" element={<YourStory />} />
           <Route path="/onboarding/achieve" element={<Achieve />} />
+          <Route path="/referral-code" element={<ReferralCode />} />
           <Route
             path="/review/:reviewRoute"
             element={<ReviewerDashBoard loggedIn={true} />}

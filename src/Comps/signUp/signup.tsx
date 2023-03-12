@@ -24,6 +24,7 @@ import { db } from "../../db";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+import { ReferralInput } from "../input/referralCodeInput";
 
 
 export const SignUpComp = (props: any) => {
@@ -37,6 +38,7 @@ export const SignUpComp = (props: any) => {
     const value = e.target.value;
     const name = e.target.name;
     setRegister({ ...register, [name]: value });
+    console.log(register)
   };
 
   async function checkUserName(docRef: any): Promise<boolean> {
@@ -86,6 +88,7 @@ export const SignUpComp = (props: any) => {
           uid: currentUser.uid,
           title: "",
           photoURL: "",
+          referralCode:register.referralCode
         };
         setDoc(docRef, userData)
           .then(() => {
@@ -239,6 +242,7 @@ export const SignUpComp = (props: any) => {
       uid: e.uid,
       title: "",
       photoURL: e.photoURL,
+      referralCode:register.referralCode
     })
       .then(() => {
         localStorage.setItem("userData", JSON.stringify(userData));
@@ -288,6 +292,9 @@ export const SignUpComp = (props: any) => {
       <EmailInput handleChange={handleChange} value={register.email} />
       <PasswordInput handleChange={handleChange} value={register.password} />
       <PasswordStrengthBar password={register.password} />
+      <ReferralInput handleChange={handleChange} value={register.referralCode}/>
+      
+
 
       <Flex mb="24px">
         <Text fontSize={"14px"} color={"black"}>
