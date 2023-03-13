@@ -30,6 +30,12 @@ import { ReferralInput } from "../input/referralCodeInput";
 export const SignUpComp = (props: any) => {
   document.title = "Register | Wadi";
   const history = useNavigate();
+  let id:any
+  if(window.location.search !== ''){
+    id = new URLSearchParams(window.location.search).get('code')
+    }
+  console.log(id)
+
   const [register, setRegister] = useState<Register>(emptyRegister);
   const [isLoading, setLoading] = useState<Boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<Boolean>(false);
@@ -88,7 +94,7 @@ export const SignUpComp = (props: any) => {
           uid: currentUser.uid,
           title: "",
           photoURL: "",
-          referralCode:register.referralCode
+          referralCode:id ? id: register.referralCode
         };
         setDoc(docRef, userData)
           .then(() => {
@@ -242,7 +248,7 @@ export const SignUpComp = (props: any) => {
       uid: e.uid,
       title: "",
       photoURL: e.photoURL,
-      referralCode:register.referralCode
+      referralCode:id ? id : register.referralCode
     })
       .then(() => {
         localStorage.setItem("userData", JSON.stringify(userData));
@@ -292,7 +298,7 @@ export const SignUpComp = (props: any) => {
       <EmailInput handleChange={handleChange} value={register.email} />
       <PasswordInput handleChange={handleChange} value={register.password} />
       <PasswordStrengthBar password={register.password} />
-      <ReferralInput handleChange={handleChange} value={register.referralCode}/>
+      <ReferralInput id={id} handleChange={handleChange} value={register.referralCode}/>
       
 
 

@@ -19,12 +19,12 @@ export const ReferralInput = (props: any) => {
         </FormLabel>
         <Input
           name="referralCode"
-          value={props.value}
+          value={props.id?props.id:props.value}
           border={"1px solid rgba(101, 108, 117, 0.37)"}
           fontSize="sm"
           ms={{ base: "0px", md: "0px" }}
           type="text"
-          placeholder="Enter referral code"
+          placeholder={props.id}
           mb="24px"
           fontWeight="500"
           onChange={props.handleChange}
