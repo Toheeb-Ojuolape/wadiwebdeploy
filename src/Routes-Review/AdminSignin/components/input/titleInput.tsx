@@ -6,7 +6,7 @@ export const TitleInput = (props: any) => {
 
   
   return (
-    <div  className="mb-6">
+    <div>
       <FormLabel>What is your title?</FormLabel>
       <Input
           name="title"
@@ -17,7 +17,7 @@ export const TitleInput = (props: any) => {
           fontSize="sm"
           ms={{ base: "0px", md: "0px" }}
           type="text"
-          placeholder="Evironmental Sciences"
+          placeholder="e.g Professor"
           mb="24px"
           fontWeight="500"
           onChange={props.handleChange}

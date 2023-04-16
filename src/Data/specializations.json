@@ -1,0 +1,17 @@
+[
+    {"value":"Art","name":"Art"},
+    {"value":"Energy","name":"Energy"},
+    {"value":"Engineering","name":"Engineering"},
+    {"value":"Environment","name":"Environment"},
+    {"value":"Geoscience","name":"Geoscience"},
+    {"value":"History","name":"History"},
+    {"value":"Humanities","name":"Humanities"},
+    {"value":"Medicine","name":"Medicine"},
+    {"value":"politics","name":"Politics"},
+    {"value":"programming","name":"Programmine"},
+    {"value":"social-science","name":"Social Science"},
+    {"value":"scholarships","name":"Scholarships"},
+    {"value":"science","name":"Science"},
+    {"value":"space","name":"Space"},
+    {"value":"technology","name":"Technology"}
+]

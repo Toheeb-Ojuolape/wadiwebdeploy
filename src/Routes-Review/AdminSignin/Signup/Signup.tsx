@@ -4,7 +4,7 @@ import { OnBoardingContainer } from "../components/onBoardContainer/onBoardConta
 
 
 
-export const AdminSignIn = () => {
+export const AdminSignUp = () => {
   return (
     <>
       <LogoComp />
@@ -12,7 +12,7 @@ export const AdminSignIn = () => {
         <OnBoardingContainer
           heading="Welcome Reviewer!"
           subheading="We are excited to have you here"
-          page="login"
+          page="register"
         />
       </Center>
     </>

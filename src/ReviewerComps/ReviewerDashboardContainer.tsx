@@ -41,25 +41,15 @@ const Settings = lazy(() =>
     default: module.Settings,
   }))
 );
-const topBarData = {
-  profession: "Reviewer",
-  name: "Isaac Ojo",
-  profilePic:
-    "https://lh3.googleusercontent.com/-N43TPVUqQpk/AAAAAAAAAAI/AAAAAAAABK8/ONS86r57Wnk/photo.jpg?sz=256",
-  hasNotification: true,
-  notificationCount: 5,
-  position: "Frontend Developer",
-};
+
 
 export const ReviewerDashBoardContainer = () => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
-
+  const userData = JSON.parse(localStorage.getItem("userData") || "");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
- 
-
   const handleSearchChange = (value: string) => {
-    console.log(value)
+    console.log(value);
   };
 
   const params = useParams() as {
@@ -88,7 +78,7 @@ export const ReviewerDashBoardContainer = () => {
       transitionTimingFunction="linear, linear, ease"
     >
       <TopBar
-        {...topBarData}
+        {...userData}
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}

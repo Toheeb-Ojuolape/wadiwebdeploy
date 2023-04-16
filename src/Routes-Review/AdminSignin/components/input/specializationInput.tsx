@@ -1,19 +1,18 @@
 import { FormLabel, Select } from "@chakra-ui/react";
-
-import { upperFirst } from "lodash";
-
-
+import specialization from "../../../../Data/specializations.json"
 export const SpecializationInput = (props: any) => {
-  const spec = ['Lecturer', 'Non Lecturer']
-
-  
   return (
-    <div  className="mb-6">
+    <div className="mb-5">
       <FormLabel>What is your specialization?</FormLabel>
-      <Select name="specialization" placeholder="Choose" onChange={props.handleChange}>
-        {spec.map((spec, index) => {
-          return <option key={index}>{upperFirst(spec)}</option>;
-        })}
+      <Select
+        name="specialization"
+        placeholder="Choose"
+        onChange={props.handleChange}
+      >
+        {specialization.map((specialization,index)=>(
+          <option key={index} value={specialization.value}>{specialization.name}</option>
+        ))}
+        
       </Select>
     </div>
   );

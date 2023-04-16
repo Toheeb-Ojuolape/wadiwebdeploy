@@ -7,7 +7,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Loading } from "./Routes-Review/loading/loading";
 import "animate.css";
 
-
 const ReviewerDashBoard = lazy(() => import("./ReviewerDashboard/Dashboard"));
 const DashBoard = lazy(() => import("./Dashboard/Dashboard"));
 const ReferralCode = lazy(() => import("./Marketing/ReferralCode"));
@@ -39,6 +38,12 @@ const SNP = lazy(() =>
 const Profile = lazy(() =>
   import("./ResearchOnboarding/Profile/Profile").then((module) => ({
     default: module.Profile,
+  }))
+);
+
+const AdminSignUp = lazy(() =>
+  import("./Routes-Review/AdminSignin/Signup/Signup").then((module) => ({
+    default: module.AdminSignUp,
   }))
 );
 const AdminSignIn = lazy(() =>
@@ -85,10 +90,10 @@ export const App = () => (
             path="/review/:reviewRoute"
             element={<ReviewerDashBoard loggedIn={true} />}
           />
-          <Route
-            path="/review/login"
-            element={< AdminSignIn />}
-          />
+
+          <Route path="/review/signup" element={<AdminSignUp />} />
+
+          <Route path="/review/login" element={<AdminSignIn />} />
           <Route
             path="/review/settings/:settingRoute"
             element={<ReviewerDashBoard loggedIn={true} />}
@@ -98,7 +103,6 @@ export const App = () => (
             element={<DashBoard loggedIn={true} />}
           />
 
-
           <Route
             path="/dashboard/:route"
             element={<DashBoard loggedIn={true} />}
@@ -107,19 +111,19 @@ export const App = () => (
             path="/review"
             element={<Navigate to="/review/home" replace />}
           />
-        
+
           <Route
             path="/dashboard/publish/:subroute"
             element={<DashBoard loggedIn={true} />}
           />
-          
+
           <Route path="/404" element={<FOF />} />
           {/* <Route path="*" element={<Navigate to="/404" replace />} /> */}
           <Route
             path="/dashboard"
             element={<Navigate to="/dashboard/home" replace />}
           />
-          
+
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </Suspense>

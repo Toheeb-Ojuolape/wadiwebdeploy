@@ -1,14 +1,5 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
-import {
-  
-  Box,
- 
-  Flex,
-  IconButton,
-  Spacer,
-
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, Flex, IconButton, Spacer, useMediaQuery } from "@chakra-ui/react";
 
 import { LogoCompDark } from "../../header/logoComp";
 
@@ -24,7 +15,9 @@ export const TopBar = (props: {
   profession: string;
   hasNotification: boolean;
   notificationCount: number;
-  name: string;
+  firstName: string;
+  lastName: string;
+  title: string;
   position: string;
   profilePic: string;
   isOpen: boolean;
@@ -63,8 +56,9 @@ export const TopBar = (props: {
         {isMobile ? (
           <Flex>
             <Box ml="20px" h="fit-content" position={"inherit"} left="0">
-            <Link to='/review/home'>
-              <LogoCompDark /></Link>
+              <Link to="/review/home">
+                <LogoCompDark />
+              </Link>
             </Box>
             <Flex position={"absolute"} right="0">
               <IconButton
@@ -75,11 +69,14 @@ export const TopBar = (props: {
               <Flex h="80%">
                 <div className="mr-6">
                   {" "}
-                 
-                    <NotificationComps hasNotification={true} />
-                
+                  <NotificationComps hasNotification={true} />
                 </div>
-                <Profile profilePic={props.profilePic} isDesktop={false} />
+                <Profile
+                  profilePic={
+                    "https://firebasestorage.googleapis.com/v0/b/wadi-api.appspot.com/o/assets%2Favatar.png?alt=media&token=85a5da3e-0de6-414d-bb4a-12882264f185"
+                  }
+                  isDesktop={false}
+                />
                 <IconButton
                   marginRight={"20px"}
                   onClick={props.onOpen}
@@ -104,10 +101,12 @@ export const TopBar = (props: {
             <Spacer />
             <Box>
               <RightSide
-                name={props.name}
-                position={props.position}
-                profilePic={props.profilePic}
-                profession={props.profession}
+                name={props.firstName + " " + props.lastName}
+                position={props.title}
+                profilePic={
+                  "https://firebasestorage.googleapis.com/v0/b/wadi-api.appspot.com/o/assets%2Favatar.png?alt=media&token=85a5da3e-0de6-414d-bb4a-12882264f185"
+                }
+                profession={"Reviewer"}
                 notificationCount={props.notificationCount}
                 hasNotification={props.hasNotification}
               />
@@ -118,9 +117,9 @@ export const TopBar = (props: {
         <SideBarMobile
           isOpen={props.isOpen}
           onClose={props.onClose}
-          profession={props.profession}
-          position={props.position}
-          name={props.name}
+          profession={"Reviewer"}
+          position={props.title}
+          name={props.firstName}
         />
       </Flex>
     </Box>
