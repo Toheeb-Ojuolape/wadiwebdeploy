@@ -5,20 +5,35 @@ import { useMediaQuery } from "@chakra-ui/react";
 import { ReviewerDashBoardContainer } from "../ReviewerComps/ReviewerDashboardContainer";
 import { SideBar } from "../ReviewerComps/sidebar/reviewSideBar";
 import { Loading } from "../Routes-Review/loading/loading";
+import { useDispatch,useSelector } from "react-redux";
+import { ThunkDispatch } from "@reduxjs/toolkit";
+import { getReviewerProject } from "../store/projectByReviewer";
+
+
+interface MyProjects {
+  reviewerProjects: {
+    value: Map<any, any>;
+  };
+  loading: Boolean;
+}
 
  const ReviewerDashBoard = (props: { loggedIn: boolean }) => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
    const [isLoading, setIsLoading] = useState(true);
+   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+   const projectData = useSelector((state: MyProjects) => state.reviewerProjects.value);
 
   useEffect(() => {
     if (!props.loggedIn) {
       window.location.href = "/login";
     }
-    console.log("hello")
     // set a timeout to simulate a loading state
-   
     setIsLoading(false)
   }, [props.loggedIn]);
+
+  useEffect(()=>{
+    dispatch(getReviewerProject())
+  },[dispatch])
 
 
   return (
@@ -34,7 +49,7 @@ import { Loading } from "../Routes-Review/loading/loading";
         <Loading loading />
       </div>}
       {!isMobile && <SideBar device="desktop" />}
-      <ReviewerDashBoardContainer />
+      <ReviewerDashBoardContainer projectData={projectData}/>
     </div>
   );
 };

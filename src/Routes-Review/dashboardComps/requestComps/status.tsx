@@ -11,7 +11,7 @@ export const Review = () => {
       color={"#F79009"}
       borderRadius="3xl"
     >
-      <TagLabel>Reviewed</TagLabel>
+      <TagLabel>Under Review</TagLabel>
     </Tag>
   );
 };

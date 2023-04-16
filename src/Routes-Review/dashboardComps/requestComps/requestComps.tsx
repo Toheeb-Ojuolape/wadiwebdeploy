@@ -20,27 +20,10 @@ import { AcceptButton, RejectButton } from "./actions";
 import { AllProjectsButton } from "./selectContent";
 
 import { Successful, Rejected, Review, Pending, Uploaded } from "./status";
-
-import Pagination from "react-paginate";
-import { useState } from "react";
-import { tableDataList } from "./dataTest";
 import './paginate.css'
-import { ArrowLeft3, ArrowRight3 } from "iconsax-react";
 import { Link } from "react-router-dom";
 
 export const RequestComps = (props: any) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [perPage] = useState(6);
-  const [data] = useState(tableDataList);
-
-  const handlePageChange = (page: any) => {
-    setCurrentPage(page.selected);
-  };
-
-  const sliceStart = currentPage * perPage;
-  const sliceEnd = sliceStart + perPage;
-  const displayedData = data.slice(sliceStart, sliceEnd);
-
   return (
     <Flex flexDirection={"column"} flexWrap="wrap">
       <TableHeading title="Requests" />
@@ -49,41 +32,48 @@ export const RequestComps = (props: any) => {
           <Table size="sm" variant="simple">
             <Thead>
               <Tr>
-                <Th>Project Name</Th>
-                <Th>Payment Plan</Th>
+                <Th>Title</Th>
+                <Th>Type</Th>
                 <Th>Date created</Th>
+                <Th>Price</Th>
                 <Th>Status</Th>
                 <Th>Actions</Th>
               </Tr>
             </Thead>
             <Tbody>
-              {displayedData.map((data: any, index: number) => (
+              {props.projects && props.projects.map((data: any, index: number) => (
                 <Tr key={index}>
                   <Td w={"200px"}>
                     <Flex flexDirection={"column"}>
-                      <Text>{data.name}</Text>
-                      <Text>{data.size}</Text>
+                      <Text>{data.title.length > 20 ? data.title.slice(0,19)+"...":data.title}</Text>
+                     
                     </Flex>
                   </Td>
 
                   <Td w={"200px"}>
                     <Flex flexDirection={"column"}>
-                      <Text>{data.plan}</Text>
-                      <Text color={"rgba(102, 112, 133, 1)"}>{data.price}</Text>
+                      <Text>{data.type}</Text>
+                      {/* <Text color={"rgba(102, 112, 133, 1)"}>{data.price}</Text> */}
                     </Flex>
                   </Td>
                   <Td>
                     <Flex flexDirection={"column"}>
                       <Text>{data.date}</Text>
-                      <Text color={"rgba(102, 112, 133, 1)"}>{data.time}</Text>
                     </Flex>
                   </Td>
+
                   <Td>
-                    {data.status === "Successful" ? (
+                    <Flex flexDirection={"column"}>
+                      <Text>{data.type ==="Convert Dissertation to Manuscript"?"NGN 30,000":"NGN 60,000"}</Text>
+                    </Flex>
+                  </Td>
+
+                  <Td>
+                    {data.status === "Completed" ? (
                       <Successful />
                     ) : data.status === "Rejected" ? (
                       <Rejected />
-                    ) : data.status === "Reviewed" ? (
+                    ) : data.status === "Under Review" ? (
                       <Review />
                     ) : data.status === "Pending" ? (
                       <Pending />
@@ -102,21 +92,6 @@ export const RequestComps = (props: any) => {
           
         </TableContainer>
         <Spacer/>
-        <Box mt='20px' maxW='100%'>
-            <Pagination
-              previousLabel={<ArrowLeft3/>}
-              nextLabel={<ArrowRight3/>}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={data.length / perPage}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={1}
-              onPageChange={handlePageChange}
-              containerClassName={"pagination"}
-            
-              activeClassName={"active"}
-            />
-          </Box>
       
     </Flex>
   );

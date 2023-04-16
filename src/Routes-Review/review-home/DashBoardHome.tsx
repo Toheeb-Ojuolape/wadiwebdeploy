@@ -8,11 +8,6 @@ const OverViewContainer = lazy(() =>
     default: mod.OverViewContainer,
   }))
 );
-const ProjectsAndEarnings = lazy(() =>
-  import("../dashboardComps/projectsAndEarnings").then((mod) => ({
-    default: mod.ProjectsAndEarnings,
-  }))
-);
 const RequestAndDeadline = lazy(() =>
   import("../dashboardComps/requestAndDeadline").then((mod) => ({
     default: mod.RequestAndDeadline,
@@ -23,9 +18,8 @@ export const ReviewHome = (props: any) => {
     <Flex>
       <Box padding={"20px"} width={"100vw"}>
         <Suspense fallback={<Loading loading />}>
-          <OverViewContainer />
-          <ProjectsAndEarnings />
-          <RequestAndDeadline />
+          <OverViewContainer projectData={props.projectData}/>
+          <RequestAndDeadline projectData={props.projectData}/>
         </Suspense>
       </Box>
     </Flex>

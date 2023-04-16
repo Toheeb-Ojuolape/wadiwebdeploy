@@ -42,8 +42,7 @@ const Settings = lazy(() =>
   }))
 );
 
-
-export const ReviewerDashBoardContainer = () => {
+export const ReviewerDashBoardContainer = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 1000px)");
   const userData = JSON.parse(localStorage.getItem("userData") || "");
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -90,7 +89,9 @@ export const ReviewerDashBoardContainer = () => {
         mr={!isMobile ? "10px" : "0px"}
       ></Box>
       <Suspense fallback={<Loading loading />}>
-        {reviewRoute === "home" && <ReviewHome />}
+        {reviewRoute === "home" && (
+          <ReviewHome projectData={props.projectData} />
+        )}
         {reviewRoute === "calendar" && <Calendar />}
         {reviewRoute === "proposals" && <AcceptedProposal />}
         {reviewRoute === "requests" && <AllRequests />}

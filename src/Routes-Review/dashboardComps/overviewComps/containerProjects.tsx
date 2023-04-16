@@ -5,6 +5,7 @@ import {
   Text,
   Button,
   Spacer,
+  Skeleton
 } from "@chakra-ui/react";
 
 export const Container = (props: any) => {
@@ -57,15 +58,23 @@ export const Container = (props: any) => {
         {props.title}
       </Text>
 
-      <Text
-        fontFamily={"Montserrat"}
-        lineHeight={!isMobile ? "50px" : "30px"}
-        fontSize={!isMobile ? "25px" : "20px"}
-        fontWeight="extrabold"
-      >
-        {props.title === "Earnings" && <span className="text-lg">₦ </span>}{" "}
-        {props.count}
-      </Text>
+      {props.projects ? (
+        <Text
+          fontFamily={"Montserrat"}
+          lineHeight={!isMobile ? "50px" : "30px"}
+          fontSize={!isMobile ? "40px" : "20px"}
+          fontWeight="bold"
+        >
+          {props.projects &&
+            props.projects.filter(
+              (project: any) => project.status === props.title
+            ).length}
+        </Text>
+      ) : (
+        <Box width={"100%"}>
+          <Skeleton mt="10px" height="50px" />
+        </Box>
+      )}
     </Flex>
   );
 };

@@ -1,6 +1,6 @@
 import { Box, Flex, Spacer, useMediaQuery } from "@chakra-ui/react";
 import { RequestComps } from "./requestComps/requestComps";
-import { UpComingComps } from "./requestComps/upComingDeadLines";
+// import { UpComingComps } from "./requestComps/upComingDeadLines";
 
 export const RequestAndDeadline = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 1300px)");
@@ -14,16 +14,16 @@ export const RequestAndDeadline = (props: any) => {
         h="fit-content"
         w={!isMobile ? "60%" : "100%"}
       >
-        <RequestComps />
+        <RequestComps projects={props.projectData} />
       </Box>
       <Spacer />
-      <Flex
+      {/* <Flex
         className="animate__animated animate__fadeInUp"
         w={!isMobile ? "38%" : "100%"}
         mt={isMobile ? "20px" : ""}
       >
         <UpComingComps />
-      </Flex>
+      </Flex> */}
     </Flex>
   );
 };

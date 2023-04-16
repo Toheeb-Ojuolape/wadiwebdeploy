@@ -4,9 +4,7 @@ import { OverviewComps } from "./overviewComps/overviewComps";
 export const OverViewContainer = (props: any) => {
   return (
     <Box>
-     
-      <OverviewComps />
-
+      <OverviewComps projectData={props.projectData} />
     </Box>
   );
 };

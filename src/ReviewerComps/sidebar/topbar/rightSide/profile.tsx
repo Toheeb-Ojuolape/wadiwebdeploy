@@ -22,7 +22,7 @@ export const Profile = (props: { profilePic: string; isDesktop: boolean }) => {
       console.log(response);
       localStorage.removeItem("wadiKey");
       localStorage.removeItem("userData");
-      window.location.href = "/login";
+      window.location.href = "/review/login";
       setLoading(false);
     });
   };
