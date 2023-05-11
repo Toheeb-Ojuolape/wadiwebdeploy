@@ -25,6 +25,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { ReferralInput } from "../input/referralCodeInput";
+import { subscribeUser } from "../../utils/subscribeUser";
 
 
 export const SignUpComp = (props: any) => {
@@ -34,7 +35,6 @@ export const SignUpComp = (props: any) => {
   if(window.location.search !== ''){
     id = new URLSearchParams(window.location.search).get('code')
     }
-  console.log(id)
 
   const [register, setRegister] = useState<Register>(emptyRegister);
   const [isLoading, setLoading] = useState<Boolean>(false);
@@ -43,8 +43,7 @@ export const SignUpComp = (props: any) => {
   const handleChange = (e: any) => {
     const value = e.target.value;
     const name = e.target.name;
-    setRegister({ ...register, [name]: value });
-    console.log(register)
+    setRegister({ ...register, [name]: value })
   };
 
   async function checkUserName(docRef: any): Promise<boolean> {
@@ -67,10 +66,12 @@ export const SignUpComp = (props: any) => {
   const createUserAccount = async (docRef: any, slug: string) => {
     createUserWithEmailAndPassword(auth, register.email, register.password)
       .then(async (data) => {
-        console.log(data);
+        try{
         const currentUser: any = auth.currentUser;
-        const isEmailSent = await sendEmailVerification(currentUser);
-        console.log(isEmailSent);
+        await sendEmailVerification(currentUser);
+        //subscribe user to emaillist
+        await subscribeUser(register)
+
         let userData = {
           firstName: register.fullName.split(" ")[0],
           lastName: register.fullName.split(" ")[1],
@@ -110,8 +111,7 @@ export const SignUpComp = (props: any) => {
                 icon: "success",
                 confirmButtonColor: "#2b5fd0",
                 confirmButtonText: "Ok",
-              }).then((response) => {
-                console.log(response);
+              }).then(() => {
                 history("/onboarding/profile");
                 window.location.reload();
               });
@@ -119,7 +119,6 @@ export const SignUpComp = (props: any) => {
             });
           })
           .catch((error) => {
-            console.log(error);
             Swal.fire({
               title: "Something went wrong!",
               text: "Please try again by refreshing the page. Sorry for the incoveniences 😥",
@@ -128,6 +127,16 @@ export const SignUpComp = (props: any) => {
             });
             setLoading(false);
           });
+        }
+        catch(error){
+          setLoading(false)
+          Swal.fire({
+            icon:"error",
+            title:"Something's wrong",
+            text:"Our engineering team is looking into it as we speak",
+            confirmButtonText:"Ok"
+          })
+        }
       })
       .catch((error) => {
         if (error.message === "Firebase: Error (auth/email-already-in-use).") {
@@ -180,7 +189,6 @@ export const SignUpComp = (props: any) => {
     let isUserExist = await checkUserExist;
 
     //then create account with username and password if user does not exist
-    console.log(isUserExist);
     if (!isUserExist) {
       await createUserAccount(docRef, slug);
     }
@@ -259,14 +267,12 @@ export const SignUpComp = (props: any) => {
           icon: "success",
           confirmButtonColor: "#2b5fd0",
           confirmButtonText: "Ok",
-        }).then((response) => {
-          console.log(response);
+        }).then(() => {
           setGoogleLoading(false);
           history("/onboarding/profile");
         });
       })
       .catch((error) => {
-        console.log(error);
         Swal.fire({
           title: "Something went wrong!",
           text: "Please try again by refreshing the page. Sorry for the incoveniences 😥",
@@ -282,12 +288,19 @@ export const SignUpComp = (props: any) => {
     const user = auth.currentUser;
     console.log(user);
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, provider).then( async (result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
       console.log(token);
       console.log(result.user);
+      let userData: Register = {
+        fullName: result.user.displayName?result.user.displayName:"",
+        email: result.user.email? result.user.email:"",
+        password:token ? token:"",
+        referralCode:""
+      }
       const firebaseUser:any = result.user
+      await subscribeUser(userData)
       addToDatabase(firebaseUser);
     });
   };
