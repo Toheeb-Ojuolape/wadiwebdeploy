@@ -9,10 +9,7 @@ import {
   Text,
   Tr,
   Center,
-  Spacer,
-
-  Box,
-
+  Spacer
 } from "@chakra-ui/react";
 
 import { AcceptButton, RejectButton } from "./actions";
