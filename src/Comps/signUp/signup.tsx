@@ -69,8 +69,9 @@ export const SignUpComp = (props: any) => {
         try{
         const currentUser: any = auth.currentUser;
         await sendEmailVerification(currentUser);
+        
         //subscribe user to emaillist
-        await subscribeUser(register)
+        // await subscribeUser(register)
 
         let userData = {
           firstName: register.fullName.split(" ")[0],
