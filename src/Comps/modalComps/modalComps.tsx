@@ -59,14 +59,21 @@ export const ModalComps = (props: any) => {
                 if (radio === "1" && moveNext.pag1 === false) {
                   setMoveNext({ ...moveNext, pag1: true });
                 } else if (radio === "2") {
-                  setMoveNext({ ...moveNext, pag2: true });
+                  history("/dashboard/send-sample")
+                  setRadio("1")
+                  props.onClose()
                 } else if(radio === "1" && moveNext.pag1 === true){
                   addNewProject()
                 }
 
                 else if(radio === "2" && moveNext.pag1 === true){
-                  addNewProject()
-                  
+                  addNewProject()      
+                }
+
+                else if(radio === "3"){
+                  window.open("https://wadi.africa/forum","_blank")
+                  setRadio("1")
+                  props.onClose()
                 }
               }}
             />

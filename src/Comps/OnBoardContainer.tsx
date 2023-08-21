@@ -26,7 +26,7 @@ export const OnBoardingContainer = (props: any) => {
           className="text-center "
           fontSize="2em"
           mb="0px"
-          fontFamily={"Montserrat"}
+          fontFamily={"SF PRO"}
         >
           {props.heading}
         </Heading>

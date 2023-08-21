@@ -50,7 +50,7 @@ export const ModalComps = (props: any) => {
                 } else if (radio === "2") {
                   setMoveNext({ ...moveNext, pag2: true });
                 } else {
-                  setMoveNext({ ...moveNext, pag3: true });
+                  alert("ahn ahn")
                 }
               }}
             />

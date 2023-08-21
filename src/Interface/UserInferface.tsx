@@ -5,6 +5,8 @@ export interface User {
     displayName?: string;
     photoURL?: string;
     phoneNumber?: string;
+    firstName?:string,
+    lastName?:string,
     providerData: {
       providerId: string;
       uid: string;
@@ -25,3 +27,10 @@ export interface User {
     password: "",
   };
   
+
+ export interface MyUser {
+    user:{
+      value:User
+    },
+    loading: Boolean
+  }

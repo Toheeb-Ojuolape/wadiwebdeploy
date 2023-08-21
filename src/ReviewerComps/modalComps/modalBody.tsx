@@ -16,7 +16,7 @@ export const ModalBodyComponent = (props: any) => {
       </Box>
       <Box mb="20px">
         <Text fontWeight={"bolder"} fontSize="20px">
-          What do you want to add ?
+          What do you want to do?
         </Text>
         <Text fontWeight={"light"} color="#667085" fontSize={"14px"}>
           Select any of the options below
@@ -33,7 +33,7 @@ export const ModalBodyComponent = (props: any) => {
         />{" "}
         <ModalBodyComps
         
-          title="A Lab Sample"
+          title="SendSample"
           subtitle="Send a lab sample for analysis"
           bg="rgba(254, 245, 239, 1)"
           icon={<Drop size={"20px"} color="rgba(237, 112, 45, 1)" />}
@@ -42,7 +42,7 @@ export const ModalBodyComponent = (props: any) => {
         <ModalBodyComps
       
           title="A question on the Forum"
-          subtitle="Unlimited users and unlimited individual data."
+          subtitle="Ask questions related to your research"
           bg="rgba(209, 250, 223, 1)"
           icon={<MessageMinus size={"20px"} color="rgba(18, 183, 106, 1)" />}
           value="3"
