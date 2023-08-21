@@ -1,0 +1,1 @@
+export const WADILOGO = "https://firebasestorage.googleapis.com/v0/b/wadi-api.appspot.com/o/logoblue.2a25aaadccdfd228e9a8.webp?alt=media&token=d8129f83-d1e3-4cc7-90cf-4be1134db807"

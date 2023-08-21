@@ -66,11 +66,11 @@ export const SideBar = (props: any) => {
                 if(index === 4){
                   window.open("https://wadi.africa/forum","_blank")
                 }
-                
-                else {
-                 
-                  onToggle();
+
+                if(index ===1){
+                  onToggle()
                 }
+            
               }}
               isActive={active === index}
             />

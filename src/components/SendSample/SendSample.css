@@ -1,0 +1,39 @@
+.container{
+    margin:auto;
+    padding:20px
+}
+
+
+.relative{
+    position:relative
+}
+
+.absolute{
+    position:absolute
+}
+
+.percentNumber{
+    top:0;
+    right:0;
+    margin:-6px 0px 0px 5px
+}
+
+
+.sendSampleForm{
+    background:white;
+    border-radius:10px;
+    padding:15px 19px 35px 19px
+}
+
+
+.sendSampleForm > *{
+    margin:15px 0px 0px 0px
+}
+
+
+@media only screen and (min-width:1200px){
+    .container{
+        width:100vh;
+        padding:40px
+    }
+}

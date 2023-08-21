@@ -60,7 +60,7 @@ export const Container = (props: any) => {
 
       {props.projects ? (
         <Text
-          fontFamily={"Montserrat"}
+          fontFamily={"SF PRO"}
           lineHeight={!isMobile ? "50px" : "30px"}
           fontSize={!isMobile ? "40px" : "20px"}
           fontWeight="bold"
