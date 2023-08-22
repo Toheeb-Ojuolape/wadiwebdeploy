@@ -1,6 +1,10 @@
 import { Button } from "@chakra-ui/react";
 
-export const WadiButton = (props: any) => {
+export const WadiButton = (props: {
+  isLoading?: boolean;
+  onClick: Function;
+  text: String;
+}) => {
   return (
     <Button
       fontSize="sm"
@@ -11,10 +15,16 @@ export const WadiButton = (props: any) => {
       mb="24px"
       bg={"rgba(43, 95, 208, 1)"}
       color="white"
-      onClick={(e)=>{props.onClick()}}
+      onClick={(e) => {
+        props.onClick();
+      }}
       fontFamily={""}
-      _hover={{ bg: "white",color:"rgba(43, 95, 208, 1)",boxShadow:"0 4px 8px 0 rgba(0,0,0,0.2)" }}
-      isLoading={props.loading}
+      _hover={{
+        bg: "white",
+        color: "rgba(43, 95, 208, 1)",
+        boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+      }}
+      isLoading={props.isLoading}
     >
       {props.text}
     </Button>

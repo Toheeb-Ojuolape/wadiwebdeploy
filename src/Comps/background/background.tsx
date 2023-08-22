@@ -47,7 +47,7 @@ export const BackgroundComp = () => {
         <SpecializationInput handleChange={(e:any)=>setSpecialization(e.target.value)} />
         <InstitutionInput handleChange={(e:any)=>setInstitution(e.target.value)} />
         <TitleInput handleChange={(e:any)=>setTitle(e.target.value)}/>
-        <WadiButton onClick={moveNext} loading={loading}  text="Continue" />
+        <WadiButton onClick={moveNext} isLoading={loading}  text="Continue" />
       </FormControl>
       <JustBack />
     </>

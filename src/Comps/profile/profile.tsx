@@ -24,7 +24,7 @@ import { useNavigate } from "react-router-dom";
 
 export const ProfileComp = () => {
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [country, setCountry] = useState("");
   const [gender, setGender] = useState("");
   const [image, setImage] = useState("");
@@ -100,7 +100,7 @@ export const ProfileComp = () => {
         />
         <CountryInput handleChange={(e: any) => setCountry(e.target.value)} />
         <GenderInput handleChange={(e: any) => setGender(e.target.value)} />
-        <WadiButton loading={loading} text="Continue" onClick={click} />
+        <WadiButton isLoading={loading} text="Continue" onClick={click} />
       </FormControl>
       <JustBack />
     </>

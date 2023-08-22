@@ -48,7 +48,7 @@ export const AchieveComp = () => {
           </Stack>
         </RadioGroup>
         <div className="mb-6"/>
-        <WadiButton loading={loading} onClick={moveToNext} text="Continue" />
+        <WadiButton isLoading={loading} onClick={moveToNext} text="Continue" />
       </FormControl>
       <JustBack />
     </>

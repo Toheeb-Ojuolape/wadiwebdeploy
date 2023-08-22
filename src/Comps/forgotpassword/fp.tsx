@@ -9,7 +9,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 export const FpComp = () => {
   document.title = "Forgot Password? | Wadi";
   const [Email, setEmail] = useState<string>("");
-  const [isLoading, setLoading] = useState<Boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
   const handleChange = (e: any) => {
     const value = e.target.value;
     setEmail(value);
