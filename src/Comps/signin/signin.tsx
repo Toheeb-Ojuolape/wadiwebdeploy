@@ -21,7 +21,7 @@ import Swal from "sweetalert2"
 export const SignInComp = (props: any) => {
   document.title = "Login | Wadi";
   const [login, setLogin] = useState<Login>(emptyLogin);
-  const [isLoading,setLoading] = useState<Boolean>(false)
+  const [isLoading,setLoading] = useState<boolean>(false)
   const [googleLoading,setGoogleLoading] = useState<Boolean>(false)
   const history = useNavigate()
 
@@ -126,7 +126,7 @@ export const SignInComp = (props: any) => {
           </Text>
         </Link>
       </Flex>
-      <WadiButton loading={isLoading} onClick={handleLogin} text="Login" />
+      <WadiButton isLoading={isLoading} onClick={handleLogin} text="Login" />
       <GoogleButton isLoading={googleLoading} onClick={googleLogin}/>
       <AccountOption
         text="Don’t have an account?"

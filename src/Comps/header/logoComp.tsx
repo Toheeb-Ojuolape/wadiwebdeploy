@@ -5,7 +5,7 @@ import logoBlue from "./logoblue.webp";
 
 export const LogoComp = () => {
   return (
-    <Flex justify={"center"}>
+    <Flex onClick={()=>window.location.href="/"} justify={"center"}>
       <img src={logo} width="110px" className="cursor-pointer" alt="Logo" />
     </Flex>
   );
@@ -13,7 +13,7 @@ export const LogoComp = () => {
 
 export const LogoCompDark = () => {
   return (
-    <Flex justify={"center"}>
+    <Flex onClick={()=>window.location.href="/"} justify={"center"}>
       <img src={logoDark} width="70px" className="cursor-pointer" alt="Logo" />
     </Flex>
   );
@@ -21,7 +21,7 @@ export const LogoCompDark = () => {
 
 export const LogoCompBlue = () => {
   return (
-    <Flex justify={"center"}>
+    <Flex onClick={()=>window.location.href="/"} justify={"center"}>
       <img src={logoBlue} width="90px" className="cursor-pointer" alt="Logo" />
     </Flex>
   );

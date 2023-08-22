@@ -37,7 +37,7 @@ export const SignUpComp = (props: any) => {
     }
 
   const [register, setRegister] = useState<Register>(emptyRegister);
-  const [isLoading, setLoading] = useState<Boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<Boolean>(false);
 
   const handleChange = (e: any) => {
@@ -328,7 +328,7 @@ export const SignUpComp = (props: any) => {
           </Link>
         </Text>
       </Flex>
-      <WadiButton loading={isLoading} onClick={handleClick} text="Sign up" />
+      <WadiButton isLoading={isLoading} onClick={handleClick} text="Sign up" />
       <GoogleButton onClick={googleSignup} isLoading={googleLoading} />
       <AccountOption
         text="Already have an account?"

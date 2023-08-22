@@ -35,7 +35,7 @@ export const IntroComp = () => {
         />
 
         <AbideTerms handleChange={handleChange} value={onBoardData.tAndC} />
-        <WadiButton text="Continue" />
+        <WadiButton onClick={handleChange} isLoading={false} text="Continue" />
       </FormControl>
       <JustBack />
     </>

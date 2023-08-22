@@ -9,13 +9,12 @@ export const VerifyEmailComp = (props: any) => {
   let domain = cookies.email.match(/@(.*)$/)[1];
   console.log({ domain: domain });
   const OnClick = () => {
-  window.location.href = `https://${domain}`;
-
+    window.location.href = `https://${domain}`;
   };
   return (
     <>
-      <WadiButton text="Open my email" OnClick = {OnClick} />
-      <AccountOption text='Didn’t receive email?' linkText='Resend email'/>
+      <WadiButton text="Open my email" isLoading={false} onClick={OnClick} />
+      <AccountOption text="Didn’t receive email?" linkText="Resend email" />
     </>
   );
 };

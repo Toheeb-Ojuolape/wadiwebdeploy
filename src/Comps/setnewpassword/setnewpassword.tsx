@@ -64,7 +64,7 @@ export const SNPComp = () => {
         </Box>
       </Collapse>
       <div className='pt-5'>
-      <WadiButton text="Check email" /></div>
+      <WadiButton isLoading={false} onClick={handleChange} text="Check email" /></div>
       <BackToLogin />
     </>
   );
