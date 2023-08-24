@@ -1,10 +1,15 @@
 import {Button} from "@chakra-ui/react";
 import { Notification } from "iconsax-react";
+import { useNavigate } from "react-router-dom";
 
 export const NotificationComps = (props: {
   hasNotification: boolean;
   notifcation?: number;
 }) => {
+  const history = useNavigate()
+  const goToNotifications = () =>{
+    history("/dashboard/notification")
+  }
   if (props.hasNotification === false) {
     return (
       <Button w='20px'
@@ -16,7 +21,7 @@ export const NotificationComps = (props: {
     );
   } else {
     return (
-      <Button w='20px' bg={'#F2F9FD'}>
+      <Button onClick={goToNotifications} w='20px' bg={'#F2F9FD'}>
         <div className="absolute inline-block top-3 right-3 bottom-auto left-auto translate-x-2/4 -translate-y-1/2 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 py-1 px-1 text-[10px] leading-none text-center whitespace-nowrap align-baseline font-bold bg-[#F04438] text-white rounded-full z-10 w-fit">
           {props.notifcation}
         </div>

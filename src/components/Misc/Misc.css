@@ -1,0 +1,20 @@
+.success-component{
+    display:flex;
+    justify-content: center;
+    text-align:center;
+    background:white;
+    padding:25px;
+    border-radius:10px
+}
+
+.success-component h2{
+    font-size:30px;
+    font-weight:600;
+    margin:10px 0px
+}
+
+
+
+.hidden-component{
+    display:none
+}

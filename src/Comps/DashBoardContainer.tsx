@@ -1,6 +1,7 @@
 import { Box, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import { lazy, Suspense} from "react";
 import { useParams} from "react-router-dom";
+import NotificationsComponent from "../components/Notifications/NotificationsComponent";
 import SendSampleComponent from "../components/SendSample/SendSampleComponent";
 import { Loading } from "../Routes-Review/loading/loading";
 import { Settings } from "../Routes/Settings/Settings";
@@ -77,6 +78,7 @@ export const DashBoardContainer = (props: any) => {
           )}
           {route === "settings" && <Settings page={0} />}
           {route === "send-sample" && <SendSampleComponent />}
+          {route === "notification" && <NotificationsComponent />}
           {subroute === "new-project" && <AddNewProject page={0} />}
           {subroute === "my-projects" && <ManageProjects />}
           {subroute &&
