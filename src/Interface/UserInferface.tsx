@@ -5,8 +5,9 @@ export interface User {
     displayName?: string;
     photoURL?: string;
     phoneNumber?: string;
-    firstName?:string,
-    lastName?:string,
+    firstName:string,
+    lastName:string,
+    notifications:Array<{message: string; title:string;timestamp:string }>,
     providerData: {
       providerId: string;
       uid: string;

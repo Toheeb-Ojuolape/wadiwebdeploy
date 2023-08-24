@@ -4,7 +4,7 @@ import eventReducer from "./eventReducer"
 import forumReducer from './forumReducer'
 import projectReducer from './projectReducer'
 import reviewerProjectReducer from './projectByReviewer'
-
+import equipmentReducer from './equipmentReducer'
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +12,8 @@ export const store = configureStore({
     event:eventReducer,
     forum:forumReducer,
     project:projectReducer,
-    reviewerProjects:reviewerProjectReducer
+    reviewerProjects:reviewerProjectReducer,
+    equipments:equipmentReducer
   
   }
  

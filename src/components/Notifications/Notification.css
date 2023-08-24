@@ -1,0 +1,23 @@
+.notificationContainer{
+    background:white;
+    border-radius:10px;
+    padding:15px 19px 35px 19px
+}
+
+
+.notification-item{
+    border-bottom:1px solid #dddddd;
+    padding:10px
+}
+
+.notification-item h2{
+    font-size:18px;
+    font-weight: 600;
+}
+.notification-item p{
+    font-size:15px
+}
+
+.notification-item span{
+    font-size:10px
+}

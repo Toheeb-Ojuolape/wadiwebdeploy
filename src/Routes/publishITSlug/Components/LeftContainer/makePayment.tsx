@@ -10,8 +10,13 @@ export const MakePayment = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 850px)");
   const [loading,setLoading] = useState(false)
 
+
+  if(!process.env.REACT_APP_FLUTTERWAVE_KEY){
+    throw new Error("set your flutterwave pub key")
+  }
+
   const config = {
-    public_key: "FLWPUBK-213ca97a288c0e26a38121855659ad4b-X",
+    public_key: process.env.REACT_APP_FLUTTERWAVE_KEY,
     tx_ref: moment(Date.now()).format("lll"),
     amount: props.amount,
     currency: "NGN",

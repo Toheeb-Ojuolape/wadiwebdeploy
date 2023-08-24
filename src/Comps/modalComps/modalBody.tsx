@@ -16,7 +16,7 @@ export const ModalBodyComponent = (props: any) => {
       </Box>
       <Box mb="20px">
         <Text fontWeight={"bolder"} fontSize="20px">
-          What do you want to do ?
+          What do you want to do?
         </Text>
         <Text fontWeight={"light"} color="#667085" fontSize={"14px"}>
           Select any of the options below
