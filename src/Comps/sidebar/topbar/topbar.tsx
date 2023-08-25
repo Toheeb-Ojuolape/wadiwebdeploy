@@ -89,7 +89,6 @@ export const TopBar = (props: {
               <SearchBar
                 onChange={(e: any) => {
                   props.handleSearchChange(e.target.value);
-                  console.log(e.target.value);
                 }}
               />
             </Box>

@@ -28,11 +28,11 @@ export default function ManuScript(props: any) {
 const UploadBox = (props:any) => {
   
   return (
-    <Box flexDirection={'column'} border='1px solid rgba(208, 213, 221, 1)' padding='20px' borderRadius={'lg'} > 
+    <Box  flexDirection={'column'} border='1px solid rgba(208, 213, 221, 1)' padding='20px' borderRadius={'lg'} > 
     <Center> <IconButton icon={<DocumentUpload />} colorScheme='blue' size='lg' mb='10px' aria-label={""}/></Center>
       <Text align={'center'} color={'rgba(102, 112, 133, 1)'}>    {props.file[0]
-          ? `File name: ${props.file[0].name}`
-          : "Browse and chose the files you want to upload from your computer"}</Text>
+          ? `File name: ${props.file[0].name.slice(0,20)+"..."}`
+          : "Browse and choose the files you want to upload from your computer"}</Text>
           <HStack mt='10px'>
           <Box w='82%'><Progress borderRadius={'10px'} value={props.progressLoading} width={"100%"}/></Box><Box w='fit-content'><p className="text-sm ml-2">{props.progressLoading} %</p></Box></HStack>
 

@@ -28,7 +28,7 @@ export const CommunityTextArea = (props: any) => {
         title: 'Question not submitted!',  
         text: "You need to enter your question",  
         icon: 'error',  
-        confirmButtonColor: '#eb3f3f',   
+        confirmButtonColor:"#2b5fd0",  
         confirmButtonText: 'Ok'
       })
       return
@@ -39,7 +39,7 @@ export const CommunityTextArea = (props: any) => {
         title: 'Question not submitted!',  
         text: "You need to enter more information about your question for your question",  
         icon: 'error',  
-        confirmButtonColor: '#eb3f3f',   
+        confirmButtonColor:"#2b5fd0",   
         confirmButtonText: 'Ok'
       })
       return
@@ -49,7 +49,7 @@ export const CommunityTextArea = (props: any) => {
         title: 'Question not submitted!',  
         text: "You need to select a question category",  
         icon: 'error',  
-        confirmButtonColor: '#eb3f3f',   
+        confirmButtonColor:"#2b5fd0",   
         confirmButtonText: 'Ok'
       })
       return

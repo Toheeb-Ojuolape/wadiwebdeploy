@@ -125,6 +125,7 @@ export const SignUpComp = (props: any) => {
               text: "Please try again by refreshing the page. Sorry for the incoveniences 😥",
               icon: "error",
               confirmButtonText: "Ok",
+              confirmButtonColor:"#2b5fd0"
             });
             setLoading(false);
           });
@@ -135,7 +136,8 @@ export const SignUpComp = (props: any) => {
             icon:"error",
             title:"Something's wrong",
             text:"Our engineering team is looking into it as we speak",
-            confirmButtonText:"Ok"
+            confirmButtonText:"Ok",
+            confirmButtonColor:"#2b5fd0"
           })
         }
       })
@@ -279,6 +281,7 @@ export const SignUpComp = (props: any) => {
           text: "Please try again by refreshing the page. Sorry for the incoveniences 😥",
           icon: "error",
           confirmButtonText: "Ok",
+          confirmButtonColor:"#2b5fd0"
         });
       });
   };

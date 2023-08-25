@@ -1,7 +1,7 @@
-import { SendSampleProject } from "../../../Interface/equipmentInterface";
-import { formatAmount } from "../../amountFormatter";
+import { Project } from "../../../Interface/ProjectInterface";
 
-function SendSampleEmail(payload: SendSampleProject) {
+
+function SendPublishitEmail(payload: Project) {
   return `<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -76,18 +76,17 @@ function SendSampleEmail(payload: SendSampleProject) {
     <div class="logo">
      <h2 class="text-center">Wadi</h2>
     </div>
-      <h2>Thank you for your request, <span class="brandcolor">${
-        payload.name
-      }</span></h2>
+      <h2>Manuscript review request received<span class="brandcolor">, ${payload.name}</span></h2>
       <p class="paragraph">
-        We just received an order from you with the following details:
+        We just received your PublishIT review request with the following details
         <ul>
-          <li>Equipment: ${payload.equipment}</li>
-          <li>Pickup address: ${payload.address}</li>
-          <li>Pickup date: ${payload.pickupDate}</li>
-          <li>Delivery date: ${payload.deliveryDate}</li>
-          <li>Amount paid: ${formatAmount(payload.amount)}</li>
+          <li>Title: ${payload.title}</li>
+          <li>Intended Journal: ${payload.journal}</li>
+          <li>Field: ${payload.field}</li>
+          <li>Review type: ${payload.type}</li>
         </ul>
+
+        <p>You will receive a follow-up email once we have found a manuscript reviewer from our database to work on your project</p>
   
         <div class="call-to-action">
           <p>If you have any complaints, kindly tap the button to contact support:</p>
@@ -105,4 +104,4 @@ function SendSampleEmail(payload: SendSampleProject) {
   `;
 }
 
-export default SendSampleEmail;
+export default SendPublishitEmail;

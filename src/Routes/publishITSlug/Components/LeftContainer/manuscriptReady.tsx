@@ -1,25 +1,42 @@
 import { Box, Text } from "@chakra-ui/layout";
 import { Button, Stack } from "@chakra-ui/react";
+import success from "../../../../../src/assets/success.gif";
+import { Project } from "../../../../Interface/ProjectInterface";
 
-export const ManuScriptReady = (props: any) => {
+export const ManuScriptReady = (props: { project: Project }) => {
+  const downloadFile = (file: string) => {
+    window.open(file, "_blank");
+  };
   return (
-    <Box padding="20px">
-      <Box width={"100px"} height="100px" border="1px solid black"></Box>
-      <Text fontWeight={"bolder"} mt="30px" mb="20px">
-        Manuscript ready
+    <Box padding="20px" textAlign={"center"}>
+      <img
+        src={success}
+        alt="success"
+        width={"120px"}
+        style={{ margin: "auto" }}
+      />
+      <Text fontSize={"2xl"} fontWeight={"bolder"} mt="30px" mb="20px">
+        Manuscript ready 🎉
       </Text>
       <Text>
-        Lorem ipsum dolor sit amet consectetur. Duis purus adipiscing amet nisi
-        nibh ac nisi pretium laoreet. Odio arcu dolor consequat vitae et
-        porttitor aliquet nec. Morbi justo aliquam sit in lectus ac vitae enim
-        a. Turpis nullam sodales turpis feugiat vestibulum felis faucibus nulla.
-        Dolor senectus consectetur leo elementum non ultrices.
+        Thank you for choosing to use our manuscript review service. Our team of
+        experts have successfully reviewed and edited your manuscript to be
+        suitable for publication and you can download it using the link below:
       </Text>
-      <Stack direction="row" spacing={4} align="center" mt="30px">
-        <Button colorScheme="blue" variant="outline">
+      <Stack direction="row" spacing={4} justifyContent="center" mt="30px">
+        <Button
+          onClick={() => downloadFile(props.project.file)}
+          colorScheme="blue"
+          variant="outline"
+        >
           Preview
         </Button>
-        <Button bg="rgba(43, 95, 208, 1)" color={"white"} variant="solid">
+        <Button
+          onClick={() => downloadFile(props.project.file)}
+          bg="rgba(43, 95, 208, 1)"
+          color={"white"}
+          variant="solid"
+        >
           Download
         </Button>
       </Stack>

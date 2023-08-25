@@ -10,12 +10,7 @@ import { TopTab } from "./Components/LeftContainer/tobTabs";
 import { RightContainer } from "./Components/RightContainer/RightContainer";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../db";
-
-interface Project {
-  title: string;
-  projectType: string;
-  step: number;
-}
+import { Project } from "../../Interface/ProjectInterface";
 
 export const PublishSlug = (props: any) => {
   const history = useNavigate();
@@ -33,16 +28,15 @@ export const PublishSlug = (props: any) => {
   const [loading] = useState(false);
   const [project, setProject] = useState<Project>();
   const [page, setPage] = useState(props.page);
-  const [pageList, setPageList] = useState<number[]>([0])
+  const [pageList, setPageList] = useState<number[]>([0]);
 
   useEffect(() => {
     const docRef = doc(db, "projects", props.subroute);
-    console.log("single project")
     getDoc(docRef).then((response) => {
       if (response.exists()) {
         const projectData = response.data() as Project;
         setProject(projectData);
-        setPage(response.data().step)
+        setPage(response.data().step);
       }
     });
   }, [props]);
@@ -53,7 +47,6 @@ export const PublishSlug = (props: any) => {
     setProjectData({ ...projectData, [name]: value });
     console.log(projectData);
   };
-
 
   const handleTabsChange = (index: number) => {
     setPage(index);
@@ -96,9 +89,17 @@ export const PublishSlug = (props: any) => {
                 />
               )}
               {page === 1 && <ReviewInProgress onClick={onClick} />}
-              {page === 2 && <PaymentDetails userData={props.userData} project={project} onClick={onClick} />}
+              {page === 2 && project && (
+                <PaymentDetails
+                  userData={props.userData}
+                  project={project}
+                  onClick={onClick}
+                />
+              )}
               {page === 3 && <ReviewInProgress onClick={onClick} />}
-              {page === 4 && <ManuScriptReady />}{" "}
+              {page === 4 && project && (
+                <ManuScriptReady project={project} />
+              )}{" "}
             </Box>
           </Box>
           <Spacer />

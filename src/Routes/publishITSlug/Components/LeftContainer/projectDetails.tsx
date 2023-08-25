@@ -25,7 +25,7 @@ export const ProjectDetails = (props: any) => {
         Project Details
       </Text>
       <Text fontSize={"14px"}>
-        Enter the details of your project
+      Enter the details of your project
       </Text>
       <FormControl mt="30px">
         <RegularInput
@@ -69,7 +69,7 @@ export const ProjectDetails = (props: any) => {
           <UnorderedList fontSize={"13px"} color="rgba(102, 112, 133, 1)">
             <ListItem>The file must be a docx format</ListItem>
             <ListItem>
-              Ensure that your name is taken off from your manuscript to
+              Ensure that your name is taken off from your manuscript for
                unbiased reviews.
             </ListItem>
           </UnorderedList>

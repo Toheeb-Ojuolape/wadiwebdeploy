@@ -29,6 +29,9 @@ function SendSampleForm(props: {
   const [equipment, setEquipment] = useState(0);
   const [samples, setSamples] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [enquiryLink] = useState(
+    "https://api.whatsapp.com/send?phone=2348133416455&text=Hi%20Wadi.%20I%20would%20like%20to%20use%20your%20SendSample%20product%20but%20I%20don't%20know%20which%20equipment%20I%20need%20for%20my%20analysis.%20My%20name%20is%20"
+  );
   const user = useSelector((state: MyUser) => state.user.value);
   const setSample = (sample: number) => {
     setSamples(sample);
@@ -106,6 +109,7 @@ function SendSampleForm(props: {
               title: "Something went wrong",
               text: "We encountered an error while sending an email to you. Kindly email our admin with the button below",
               confirmButtonText: "Email us",
+              confirmButtonColor:"#2b5fd0"
             }).then((result) => {
               if (result.isConfirmed) {
                 window.location.href = "mailto:hello@wadi.africa";
@@ -128,7 +132,7 @@ function SendSampleForm(props: {
           <label>Type of Test</label>
           <Input
             onChange={(e) => setTest(e.target.value)}
-            placeholder={"What type of test is this?"}
+            placeholder={"The type of analysis you want to conduct"}
           />
         </form>
       </div>
@@ -142,6 +146,12 @@ function SendSampleForm(props: {
               </option>
             ))}
         </Select>
+        <span className="helperText">
+          Not sure of the equipment you need?{" "}
+          <a className="brandcolor" href={enquiryLink} target="_blank" rel="noreferrer">
+            Contact us
+          </a>
+        </span>
       </div>
 
       <div>

@@ -31,7 +31,8 @@ export const AchieveComp = () => {
   else{
     Swal.fire({
       icon:"error",
-      title:"You don't have permission to do this"
+      title:"You don't have permission to do this",
+      confirmButtonColor:"#2b5fd0"
     })
   }
 }

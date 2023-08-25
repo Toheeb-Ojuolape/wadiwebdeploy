@@ -22,7 +22,7 @@ export const FpComp = () => {
         title: "Request invalid",
         text: "Please enter your email address to proceed",
         icon: "error",
-        confirmButtonColor: "#eb3f3f",
+        confirmButtonColor:"#2b5fd0",
         confirmButtonText: "Ok",
       });
       setLoading(false);
@@ -34,7 +34,7 @@ export const FpComp = () => {
           title: "Email sent successfully",
           text: "Kindly check your inbox/spam for an email from us",
           icon: "success",
-          confirmButtonColor: "#2b5fd0",
+          confirmButtonColor:"#2b5fd0",
           confirmButtonText: "Ok",
         });
         setLoading(false);

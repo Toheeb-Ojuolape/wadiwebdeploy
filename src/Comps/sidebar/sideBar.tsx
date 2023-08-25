@@ -63,6 +63,10 @@ export const SideBar = (props: any) => {
                   setActive(index);
                 } 
 
+                if(index === 2){
+                  window.open("https://wadi.africa/academy","_blank")
+                }
+
                 if(index === 4){
                   window.open("https://wadi.africa/forum","_blank")
                 }

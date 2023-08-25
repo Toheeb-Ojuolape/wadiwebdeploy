@@ -1,6 +1,5 @@
 import { Box, Center, Text, useMediaQuery } from "@chakra-ui/react";
 import { LottieContent } from "./loading";
-import { ProjectDetailsButton } from "./projectDetailsButton";
 
 export const ReviewInProgress = (props: any) => {
   const [isMobile] = useMediaQuery("(max-width: 850px)");
@@ -27,7 +26,6 @@ export const ReviewInProgress = (props: any) => {
         <Text fontSize={"14px"}>Your manuscript is being reviewed</Text>
         
       </Center>
-      <ProjectDetailsButton text='Next' onClick={props.onClick}/>
     </Box>
   );
 };

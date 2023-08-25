@@ -12,12 +12,12 @@ import { NavBoxes } from "./navBoxes";
 const navItems = [
   {
     title: "Project details",
-    subtitle: "Update the the form",
+    subtitle: "Enter project details",
     icon: <Briefcase size="15" color="rgba(41, 45, 50, 1)" variant="TwoTone" />,
   },
   {
     title: "Payment",
-    subtitle: "Fill in payment fields",
+    subtitle: "Pay for review service",
     icon: <CardPos size="15" color="rgba(41, 45, 50, 1)" variant="TwoTone" />,
   },
   {
@@ -29,7 +29,7 @@ const navItems = [
   },
   {
     title: "Manuscript ready",
-    subtitle: "Update the the form",
+    subtitle: "Your manuscript is ready for download",
     icon: (
       <DocumentText size="15" color="rgba(41, 45, 50, 1)" variant="TwoTone" />
     ),
