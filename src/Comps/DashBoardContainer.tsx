@@ -79,7 +79,7 @@ export const DashBoardContainer = (props: any) => {
           {route === "settings" && <Settings page={0} />}
           {route === "send-sample" && <SendSampleComponent />}
           {route === "notification" && <NotificationsComponent />}
-          {subroute === "new-project" && <AddNewProject page={0} />}
+          {subroute === "new-project" && <AddNewProject page={0} user={props.userData} />}
           {subroute === "my-projects" && <ManageProjects />}
           {subroute &&
           subroute !== "my-projects" &&

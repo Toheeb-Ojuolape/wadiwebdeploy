@@ -27,7 +27,7 @@ export const ChangePassword = (props: any) => {
       icon:"warning",
       title:"Password Not Set",
       text:"Please enter your password",
-      confirmButtonColor:"#0066f5"
+      confirmButtonColor:"#2b5fd0"
     })
     return
   }
@@ -36,7 +36,7 @@ export const ChangePassword = (props: any) => {
       icon:"warning",
       title:"Password Not Set",
       text:"New Password and Confirm Password are not the same",
-      confirmButtonColor:"#0066f5"
+      confirmButtonColor:"#2b5fd0"
     })
   }
   if(user){
@@ -50,7 +50,7 @@ export const ChangePassword = (props: any) => {
       icon:"warning",
       title:"Password Not Set",
       text:error.message,
-      confirmButtonColor:"#0066f5"
+      confirmButtonColor:"#2b5fd0"
     })
   })
 }

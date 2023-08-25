@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-  font-family:"SF PRO" ;
+  font-family: "SF PRO";
   src: url("../src/fonts/SFPRODISPLAYREGULAR.OTF");
 }
 
@@ -16,11 +15,23 @@ body {
   background-repeat: no-repeat;
 }
 
-label,div,p,span,Th,th,tr,Tr,Td,td,h1,h2,h3,h4,h5{
-  font-family:"SF PRO" !important
+label,
+div,
+p,
+span,
+Th,
+th,
+tr,
+Tr,
+Td,
+td,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "SF PRO" !important;
 }
-
-
 
 @media screen and (max-width: 768px) {
   body {
@@ -29,16 +40,20 @@ label,div,p,span,Th,th,tr,Tr,Td,td,h1,h2,h3,h4,h5{
     background-repeat: no-repeat;
   }
 }
-  
-.helperText{
-  font-size:11px;
-  color:#b3b7be
+
+.helperText {
+  font-size: 11px;
+  color: #b3b7be;
 }
 
-label{
-  font-size:14px
+label {
+  font-size: 14px;
 }
 
-input{
-  font-size:16px !important
+input {
+  font-size: 16px !important;
+}
+
+.brandcolor {
+  color: #2b5fd0;
 }

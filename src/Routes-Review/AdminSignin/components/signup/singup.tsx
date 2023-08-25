@@ -94,6 +94,7 @@ export const SignUpComp = (props: any) => {
               text: "Please try again by refreshing the page. Sorry for the incoveniences 😥",
               icon: "error",
               confirmButtonText: "Ok",
+              confirmButtonColor:"#2b5fd0"
             });
             setLoading(false);
           });

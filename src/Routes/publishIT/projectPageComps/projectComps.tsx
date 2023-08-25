@@ -13,9 +13,6 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-
-import { Successful, Rejected, Review, InReview, Uploaded } from "./status";
-
 import Pagination from "react-paginate";
 import { useState } from "react";
 // import { tableDataList } from "./dataTest";
@@ -68,12 +65,13 @@ export const ProjectComps = (props: { projectData?: any }) => {
         icon: "success",
         title: "Project deleted Successfully",
         text: "You have successfully deleted your project",
-        confirmButtonColor: "#0066f5",
+        confirmButtonColor:"#2b5fd0",
       });
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Project not deleted",
+        confirmButtonColor:"#2b5fd0"
       });
     }
   };
@@ -105,7 +103,7 @@ export const ProjectComps = (props: { projectData?: any }) => {
                   },
                   index: number
                 ) => (
-                  <Tr key={index} className="animate__animated animate__fadeIn">
+                  <Tr onClick={() => goToProject(data.slug)} key={index} className="animate__animated animate__fadeIn cursor-pointer">
                     <Td w={"200px"}>
                       <Flex flexDirection={"column"}>
                         <Text>{data.title}</Text>
@@ -126,17 +124,9 @@ export const ProjectComps = (props: { projectData?: any }) => {
                       </Flex>
                     </Td>
                     <Td>
-                      {data.status === "Successful" ? (
-                        <Successful />
-                      ) : data.status === "Rejected" ? (
-                        <Rejected />
-                      ) : data.status === "Reviewed" ? (
-                        <Review />
-                      ) : data.status === "Under Review" ? (
-                        <InReview />
-                      ) : data.status === "Uploaded" ? (
-                        <Uploaded />
-                      ) : null}
+                    <div className={data.status.replaceAll(" ", "-")}>
+                        {data.status}
+                      </div>
                     </Td>
                     <Td>
                       <Progress percentage={data.progress} />

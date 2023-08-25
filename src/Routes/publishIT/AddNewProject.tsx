@@ -17,8 +17,11 @@ import Swal from "sweetalert2";
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { getProject } from "../../store/projectReducer";
+import { User } from "../../Interface/UserInferface";
+import sendPublishItEmail from "../../utils/emails/sendPublishItEmail";
+import { Project } from "../../Interface/ProjectInterface";
 
-export const AddNewProject = (props:{page: number}) => {
+export const AddNewProject = (props:{page: number,user:User}) => {
   const history = useNavigate();
   interface ProjectData {
     manuscriptTitle?: string;
@@ -65,7 +68,6 @@ export const AddNewProject = (props:{page: number}) => {
     const value = e.target.value;
     const name = e.target.name;
     setProjectData({ ...projectData, [name]: value });
-    console.log(projectData);
   };
 
   const submitProject = () => {
@@ -96,7 +98,7 @@ export const AddNewProject = (props:{page: number}) => {
         })
       : "";
 
-    const projectPayload = {
+    const projectPayload:Project = {
       title: projectData?.manuscriptTitle,
       slug: slug,
       field: projectData?.researchField,
@@ -106,18 +108,21 @@ export const AddNewProject = (props:{page: number}) => {
       file: uploadedFile,
       status: "Under Review",
       progress: "10",
-      step: 2,
+      step: 1,
       author: localStorage.getItem("wadiKey"),
+      name:props.user.firstName,
+      email: props.user.email,
       timestamp: Date.now(),
     };
-
-    console.log(projectPayload);
 
     const docRef = doc(db, "projects", slug);
     setDoc(docRef, projectPayload)
       .then(() => {
+        try{
         setLoading(false);
         dispatch(getProject());
+        const title="Project uploaded for Review: "+projectData?.manuscriptTitle
+        sendPublishItEmail(title,projectPayload)
         Swal.fire({
           icon: "success",
           title: "Manuscript Uploaded Successfully",
@@ -126,6 +131,20 @@ export const AddNewProject = (props:{page: number}) => {
         }).then(() => {
           history("/dashboard/home");
         });
+      }
+      catch(error){
+        Swal.fire({
+          icon: "error",
+          title: "Something went wrong",
+          text: "We encountered an error while sending an email to you. Kindly email our admin with the button below",
+          confirmButtonText: "Email us",
+          confirmButtonColor:"#2b5fd0"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "mailto:hello@wadi.africa";
+          }
+        });
+      }
       })
       .catch((error) => {
         setLoading(false);

@@ -26,6 +26,7 @@ import AreYouSure from "../../../Comps/Modals/AreYouSureModal";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../../db";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const dates = ["2021", "2022", "2023", "2024", "2025"];
 const query = [
@@ -49,9 +50,14 @@ export const MyProjectComps = (props: any) => {
     : null;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loading,setLoading] = useState(false)
+  const history = useNavigate()
 
   const deleteProject = () => {
     onOpen();
+  };
+
+  const goToProject = (slug: string) => {
+    history("/dashboard/publish/" + slug);
   };
 
   const confirmDelete = async (slug:string) =>{
@@ -64,13 +70,14 @@ export const MyProjectComps = (props: any) => {
       icon:"success",
       title:"Project deleted Successfully",
       text:"You have successfully deleted your project",
-      confirmButtonColor:"#0066f5",
+      confirmButtonColor:"#2b5fd0",
     })
     }
     catch(error){
       Swal.fire({
         icon:"error",
-        title:"Project not deleted"
+        title:"Project not deleted",
+        confirmButtonColor:"#2b5fd0"
       })
     }
   }
@@ -93,7 +100,7 @@ export const MyProjectComps = (props: any) => {
             <Tbody>
               {displayedData &&
                 displayedData.map((data: any, index: number) => (
-                  <Tr key={index}>
+                  <Tr onClick={() => goToProject(data.slug)} key={index} className="cursor-pointer">
                     <Td w={"200px"}>
                       <Flex flexDirection={"column"}>
                         <Text>{data.title}</Text>
