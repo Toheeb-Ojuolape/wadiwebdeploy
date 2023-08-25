@@ -43,12 +43,12 @@ function SendSampleForm(props: {
     setTimeout(() => setLoading(false), 2000);
   };
 
-  if (!process.env.REACT_APP_FLUTTERWAVE_TEST_KEY) {
+  if (!process.env.REACT_APP_FLUTTERWAVE_KEY) {
     throw new Error("set your flutterwave pub key");
   }
 
   const config = {
-    public_key: process.env.REACT_APP_FLUTTERWAVE_TEST_KEY,
+    public_key: process.env.REACT_APP_FLUTTERWAVE_KEY,
     tx_ref: transactionRef(),
     amount: props.equipments && props.equipments[equipment].price * samples,
     currency: "NGN",
