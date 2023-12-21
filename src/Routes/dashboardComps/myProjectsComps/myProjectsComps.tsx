@@ -103,7 +103,7 @@ export const MyProjectComps = (props: any) => {
                   <Tr onClick={() => goToProject(data.slug)} key={index} className="cursor-pointer">
                     <Td w={"200px"}>
                       <Flex flexDirection={"column"}>
-                        <Text>{data.title}</Text>
+                        <Text>{data.title.length > 25 ? data.title.slice(0,25)+"...":data.title}</Text>
                         <Text>{data.size}</Text>
                       </Flex>
                     </Td>
