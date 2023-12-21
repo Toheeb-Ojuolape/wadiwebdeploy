@@ -13,4 +13,5 @@ export interface Project {
     title: string;
     step: number;
     type:string
+    amount?:string;
   }
