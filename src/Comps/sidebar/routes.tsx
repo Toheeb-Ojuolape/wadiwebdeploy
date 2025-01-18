@@ -9,6 +9,7 @@ import {
   MessageText,
   Notification,
 } from "iconsax-react";
+import { MdChat } from "react-icons/md";
 
 
 const dashboard = "dashboard";
@@ -45,6 +46,11 @@ export const Routes = [
     routes: `/${dashboard}/send-sample`,
     title: "Send Sample",
     icon: <Drop size="20" color="#475467" variant="TwoTone" />,
+  },
+  {
+    routes: `/${dashboard}/wadigpt`,
+    title: "WadiGPT",
+    icon: <MdChat size="20" color="#475467" />,
   },
   {
     routes: `/${dashboard}/forum`,
