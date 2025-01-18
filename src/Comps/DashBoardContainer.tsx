@@ -6,6 +6,9 @@ import SendSampleComponent from "../components/SendSample/SendSampleComponent";
 import { Loading } from "../Routes-Review/loading/loading";
 import { Settings } from "../Routes/Settings/Settings";
 import { TopBar } from "./sidebar/topbar/topbar";
+import WadiGPTComponent from "../components/WadiGPT/WadiGPTComponent";
+import ForumComponent from "../components/Forum/ForumComponent";
+import WadiAcademy from "../components/WadiAcademy";
 
 
 
@@ -79,6 +82,9 @@ export const DashBoardContainer = (props: any) => {
           {route === "settings" && <Settings page={0} />}
           {route === "send-sample" && <SendSampleComponent />}
           {route === "notification" && <NotificationsComponent />}
+          {route === 'wadigpt' && <WadiGPTComponent />}
+          {route === 'academy' && <WadiAcademy />}
+          {route === 'forum' && <ForumComponent />}
           {subroute === "new-project" && <AddNewProject page={0} user={props.userData} />}
           {subroute === "my-projects" && <ManageProjects />}
           {subroute &&

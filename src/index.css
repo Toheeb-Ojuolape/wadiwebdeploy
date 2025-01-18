@@ -57,3 +57,16 @@ input {
 .brandcolor {
   color: #2b5fd0;
 }
+
+
+
+iframe {
+  outline: 0 !important;
+  border: 0 !important;
+}
+
+.iframe {
+  width: 80vw !important;
+  height: 90vh !important;
+  margin: 20px 0px !important;
+}
