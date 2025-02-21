@@ -3,7 +3,7 @@ function WadiGPTComponent() {
     <iframe
       title="WadiGPT"
       className="iframe"
-      src={`https://www.gpt.wadi.africa/wadigpt?token=${localStorage.getItem(
+      src={`gpt.wadi.africa/wadigpt?token=${localStorage.getItem(
         "wadiKey"
       )}`}
     />
