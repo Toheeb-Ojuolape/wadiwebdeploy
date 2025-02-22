@@ -6,6 +6,7 @@ function WadiGPTComponent() {
       src={`https://gpt.wadi.africa/wadigpt?token=${localStorage.getItem(
         "wadiKey"
       )}`}
+      allowFullScreen
     />
   );
 }
