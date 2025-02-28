@@ -3,12 +3,11 @@ function WadiGPTComponent() {
     <iframe
       title="WadiGPT"
       className="iframe"
-      src={`${process.env.REACT_APP_AI_URL}/wadigpt?token=${localStorage.getItem(
-        "wadiKey"
-      )}`}
+      src={`https://gpt.wadi.africa/wadigpt`}
       referrerPolicy={"unsafe-url"}
       sandbox={"allow-scripts"}
       seamless={true}
+      allowFullScreen
     />
   );
 }
